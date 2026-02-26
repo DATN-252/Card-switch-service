@@ -21,7 +21,7 @@ RUN chmod +x gradlew
 RUN sed -i 's/JavaVersion.VERSION_25/JavaVersion.VERSION_21/g' build.gradle
 RUN sed -i 's/options.release = .*$/options.release = 21/' build.gradle
 # We use installApp to create the distribution
-RUN ./gradlew :jpos:installApp --no-daemon
+RUN ./gradlew :jpos:installApp -x test -x javadoc --no-daemon
 
 # Fix line endings and permissions for startup scripts
 RUN sed -i 's/\r$//' jpos/build/install/jpos/bin/q2 && \
@@ -35,6 +35,7 @@ WORKDIR /opt/jpos
 
 # Copy the built application from the builder stage
 COPY --from=builder /home/gradle/project/jpos/build/install/jpos/ .
+COPY jpos/src/main/resources/packager ./packager
 
 # Expose necessary ports
 # 8080: HTTP
