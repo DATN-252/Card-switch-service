@@ -1,0 +1,7 @@
+<server class="org.jpos.q2.iso.QServer" logger="Q2" name="atm-server">
+    <attr name="port" type="java.lang.Integer">10000</attr>
+    <channel class="org.jpos.iso.channel.ASCIIChannel" packager="org.jpos.iso.packager.GenericPackager" logger="Q2">
+        <property name="packager-config" value="packager/iso87ascii.xml" />
+    </channel>
+    <request-listener class="com.bkbank.cardswitch.SwitchRequestListener" logger="Q2" realm="atm-server" />
+</server>
