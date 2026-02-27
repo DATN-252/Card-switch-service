@@ -123,7 +123,7 @@ export default function PosSimulator() {
         {/* Controls */}
         <div style={{ display: (status === 'APPROVED' || status === 'DECLINED') ? 'none' : 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
           <div>
-            <label style={{ display: 'block', fontSize: '0.75rem', color: '#94a3b8', marginBottom: '0.25rem' }}>Số Thẻ (Mô phỏng)</label>
+            <label style={{ display: 'block', fontSize: '0.75rem', color: '#94a3b8', marginBottom: '0.25rem' }}>Số Thẻ</label>
             <input
               type="text"
               value={pan}
