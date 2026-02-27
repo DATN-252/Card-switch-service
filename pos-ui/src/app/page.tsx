@@ -267,14 +267,20 @@ export default function PosSimulator() {
 
               {/* Status & Footer */}
               <div style={{ textAlign: 'center', marginTop: '1rem' }}>
-                <div style={{ fontWeight: 700, fontSize: '1.125rem', marginBottom: '1.5rem' }}>Trạng thái: {status}</div>
-
-                <div style={{ marginBottom: '3rem' }}>Chữ ký khách hàng:</div>
-                <div style={{ borderBottom: '1px solid #94a3b8', width: '80%', margin: '0 auto 1rem auto' }}></div>
-
-                <div style={{ fontSize: '0.75rem', fontStyle: 'italic', marginBottom: '1rem', color: '#64748b' }}>
-                  Tôi đồng ý thanh toán số tiền trên<br />theo điều khoản của ngân hàng phát hành thẻ.
+                <div style={{ fontWeight: 700, fontSize: '1.125rem', marginBottom: '1.5rem', color: status === 'APPROVED' ? 'inherit' : '#ef4444' }}>
+                  Trạng thái: {status === 'APPROVED' ? 'GIAO DỊCH THÀNH CÔNG' : 'GIAO DỊCH BỊ TỪ CHỐI'}
                 </div>
+
+                {status === 'APPROVED' && (
+                  <>
+                    <div style={{ marginBottom: '3rem' }}>Chữ ký khách hàng:</div>
+                    <div style={{ borderBottom: '1px solid #94a3b8', width: '80%', margin: '0 auto 1rem auto' }}></div>
+
+                    <div style={{ fontSize: '0.75rem', fontStyle: 'italic', marginBottom: '1rem', color: '#64748b' }}>
+                      Tôi đồng ý thanh toán số tiền trên<br />theo điều khoản của ngân hàng phát hành thẻ.
+                    </div>
+                  </>
+                )}
 
                 <div style={{ borderTop: '1px dashed #94a3b8', margin: '0.5rem 0' }}></div>
                 <div style={{ fontWeight: 600 }}>Cảm ơn Quý khách!</div>
