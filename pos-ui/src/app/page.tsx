@@ -7,6 +7,7 @@ export default function PosSimulator() {
   const [amount, setAmount] = useState('0');
   const [pan, setPan] = useState('9999888877776666'); // Default to a valid PAN length 16
   const [merchantId, setMerchantId] = useState('POS-BK-001');
+  const [merchantName, setMerchantName] = useState('BKBank Test Store');
 
   const [status, setStatus] = useState<'IDLE' | 'PROCESSING' | 'APPROVED' | 'DECLINED' | 'ERROR'>('IDLE');
   const [receiptData, setReceiptData] = useState<any>(null);
@@ -50,7 +51,7 @@ export default function PosSimulator() {
           pan: pan,
           amount: Number(amount),
           merchantId: merchantId,
-          merchantName: 'BK POS Demo'
+          merchantName: merchantName
         })
       });
 
@@ -117,66 +118,61 @@ export default function PosSimulator() {
             </div>
           )}
 
-          {/* Receipt Slide-up Animation */}
-          {(status === 'APPROVED' || status === 'DECLINED') && receiptData && (
-            <div className="receipt-wrapper">
-              <div className="receipt">
-                <div style={{ textAlign: 'center', borderBottom: '1px solid #e2e8f0', paddingBottom: '1rem', marginBottom: '1rem' }}>
-                  <FontAwesomeIcon icon={faPrint} style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }} />
-                  <div style={{ fontWeight: 700, fontSize: '1.25rem' }}>BKBank POS</div>
-                  <div style={{ fontSize: '0.875rem' }}>Hóa đơn điện tử</div>
-                </div>
-
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '0.5rem', fontSize: '0.875rem', marginBottom: '1.5rem' }}>
-                  <div style={{ color: '#64748b' }}>Ngày:</div>
-                  <div style={{ fontWeight: 600 }}>{new Date().toLocaleString()}</div>
-
-                  <div style={{ color: '#64748b' }}>Mã chuẩn chi (STAN):</div>
-                  <div style={{ fontWeight: 600 }}>{receiptData.stan || 'N/A'}</div>
-
-                  <div style={{ color: '#64748b' }}>Thẻ số:</div>
-                  <div style={{ fontWeight: 600, fontFamily: 'monospace' }}>**** {receiptData.pan?.slice(-4) || '****'}</div>
-
-                  <div style={{ color: '#64748b' }}>Mã phản hồi:</div>
-                  <div style={{ fontWeight: 600 }}>{receiptData.code}</div>
-                </div>
-
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontWeight: 700, fontSize: '1.25rem', borderTop: '2px dashed #cbd5e1', paddingTop: '1rem' }}>
-                  <div>TỔNG TIỀN:</div>
-                  <div>$ {Number(receiptData.amount).toLocaleString('en-US')}</div>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
 
         {/* Controls */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) auto', gap: '1rem', marginBottom: '1.5rem' }}>
+        <div style={{ display: (status === 'APPROVED' || status === 'DECLINED') ? 'none' : 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
           <div>
-            <label style={{ display: 'block', fontSize: '0.75rem', color: '#94a3b8', marginBottom: '0.25rem' }}>Số Thẻ Khách Hàng (Mô phỏng)</label>
+            <label style={{ display: 'block', fontSize: '0.75rem', color: '#94a3b8', marginBottom: '0.25rem' }}>Số Thẻ (Mô phỏng)</label>
             <input
               type="text"
               value={pan}
               onChange={(e) => setPan(e.target.value)}
               style={{
                 width: '100%', padding: '0.75rem 1rem', borderRadius: '8px',
-                background: 'rgba(0,0,0,0.2)', border: '1px solid var(--pos-border)', color: 'white', fontFamily: 'monospace', fontSize: '1rem'
+                background: 'rgba(0,0,0,0.2)', border: '1px solid var(--pos-border)', color: 'white', fontFamily: 'monospace', fontSize: '0.875rem'
               }}
               disabled={status === 'PROCESSING'}
             />
           </div>
           <div>
-            <label style={{ display: 'block', fontSize: '0.75rem', color: '#94a3b8', marginBottom: '0.25rem' }}>&nbsp;</label>
-            {(status === 'APPROVED' || status === 'DECLINED' || status === 'ERROR') && (
-              <button onClick={handleReset} className="numpad-btn" style={{ background: '#475569', width: '120px', height: '44px', fontSize: '1rem' }}>
-                <FontAwesomeIcon icon={faArrowLeft} style={{ marginRight: '0.5rem' }} /> Trở lại
-              </button>
-            )}
+            <label style={{ display: 'block', fontSize: '0.75rem', color: '#94a3b8', marginBottom: '0.25rem' }}>Mã Merchant (ID)</label>
+            <input
+              type="text"
+              value={merchantId}
+              onChange={(e) => setMerchantId(e.target.value)}
+              style={{
+                width: '100%', padding: '0.75rem 1rem', borderRadius: '8px',
+                background: 'rgba(0,0,0,0.2)', border: '1px solid var(--pos-border)', color: 'white', fontFamily: 'monospace', fontSize: '0.875rem'
+              }}
+              disabled={status === 'PROCESSING'}
+            />
+          </div>
+          <div style={{ gridColumn: '1 / -1' }}>
+            <label style={{ display: 'block', fontSize: '0.75rem', color: '#94a3b8', marginBottom: '0.25rem' }}>Tên Merchant</label>
+            <input
+              type="text"
+              value={merchantName}
+              onChange={(e) => setMerchantName(e.target.value)}
+              style={{
+                width: '100%', padding: '0.75rem 1rem', borderRadius: '8px',
+                background: 'rgba(0,0,0,0.2)', border: '1px solid var(--pos-border)', color: 'white', fontFamily: 'monospace', fontSize: '0.875rem'
+              }}
+              disabled={status === 'PROCESSING'}
+            />
           </div>
         </div>
 
+        {(status === 'APPROVED' || status === 'DECLINED' || status === 'ERROR') && (
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
+            <button onClick={handleReset} className="numpad-btn" style={{ background: '#475569', padding: '0 2rem', height: '44px', fontSize: '1rem', width: 'auto' }}>
+              <FontAwesomeIcon icon={faArrowLeft} style={{ marginRight: '0.5rem' }} /> Quay lại thao tác mới
+            </button>
+          </div>
+        )}
+
         {/* Numpad */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.75rem', opacity: status !== 'IDLE' && status !== 'ERROR' ? 0.5 : 1, pointerEvents: status !== 'IDLE' && status !== 'ERROR' ? 'none' : 'auto' }}>
+        <div style={{ display: (status === 'APPROVED' || status === 'DECLINED') ? 'none' : 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.75rem', opacity: status !== 'IDLE' && status !== 'ERROR' ? 0.5 : 1, pointerEvents: status !== 'IDLE' && status !== 'ERROR' ? 'none' : 'auto' }}>
           <button className="numpad-btn" onClick={() => handleKeyPress('1')}>1</button>
           <button className="numpad-btn" onClick={() => handleKeyPress('2')}>2</button>
           <button className="numpad-btn" onClick={() => handleKeyPress('3')}>3</button>
@@ -198,6 +194,95 @@ export default function PosSimulator() {
           <button className="numpad-btn" onClick={() => handleKeyPress('0')}>0</button>
           <button className="numpad-btn" onClick={() => handleKeyPress('.')}>.</button>
         </div>
+
+        {/* Receipt Flow (Not Absolute) */}
+        {(status === 'APPROVED' || status === 'DECLINED') && receiptData && (
+          <div style={{ display: 'flex', justifyContent: 'center', overflow: 'hidden', padding: '0 1rem 1rem 1rem', margin: '0 -1rem' }}>
+            <div className="receipt" style={{ width: '100%', maxWidth: '400px', fontSize: '0.8125rem', lineHeight: '1.4', padding: '1.5rem 1rem', borderRadius: '0 0 12px 12px', boxShadow: '0 10px 25px rgba(0,0,0,0.5)' }}>
+
+              {/* Header */}
+              <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
+                <FontAwesomeIcon icon={faPrint} style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }} />
+                <div style={{ fontWeight: 700, fontSize: '1.125rem', textTransform: 'uppercase' }}>{merchantName}</div>
+                <div>Địa chỉ: 1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội</div>
+                <div>Điện thoại: 024.3869.2222</div>
+                <div>MST: 0100123456</div>
+              </div>
+
+              <div style={{ borderTop: '1px dashed #94a3b8', margin: '0.5rem 0' }}></div>
+
+              {/* Terminal Info */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '0.25rem' }}>
+                <div>Merchant ID (MID):</div><div style={{ textAlign: 'right', fontWeight: 600 }}>{merchantId}</div>
+                <div>Terminal ID (TID):</div><div style={{ textAlign: 'right', fontWeight: 600 }}>TID-0001</div>
+                <div>Invoice No:</div><div style={{ textAlign: 'right', fontWeight: 600 }}>INV-{Math.floor(100000 + Math.random() * 900000)}</div>
+                <div>Batch No:</div><div style={{ textAlign: 'right', fontWeight: 600 }}>000001</div>
+              </div>
+
+              <div style={{ borderTop: '1px dashed #94a3b8', margin: '0.5rem 0' }}></div>
+
+              {/* Date & Time */}
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div>Ngày: {new Date().toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' })}</div>
+                <div>Giờ: {new Date().toLocaleTimeString('vi-VN', { hour12: false })}</div>
+              </div>
+
+              <div style={{ marginTop: '0.5rem' }}>
+                <div>Loại giao dịch: <span style={{ fontWeight: 600 }}>SALE</span></div>
+                <div>Phương thức: <span style={{ fontWeight: 600 }}>Chip / Contactless</span></div>
+              </div>
+
+              <div style={{ borderTop: '1px dashed #94a3b8', margin: '0.5rem 0' }}></div>
+
+              {/* Card Info */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '0.25rem' }}>
+                <div>Loại thẻ:</div><div style={{ textAlign: 'right', fontWeight: 600 }}>{receiptData.pan?.startsWith('4') ? 'VISA' : receiptData.pan?.startsWith('5') ? 'MASTERCARD' : 'LOCAL CARD'}</div>
+                <div>Số thẻ:</div><div style={{ textAlign: 'right', fontWeight: 600 }}>**** **** **** {receiptData.pan?.slice(-4) || '****'}</div>
+                <div>Cardholder:</div><div style={{ textAlign: 'right', fontWeight: 600 }}>NGUYEN VAN A</div>
+                <div>Ngân hàng phát hành:</div><div style={{ textAlign: 'right', fontWeight: 600 }}>BKBank</div>
+              </div>
+              <div style={{ marginTop: '0.5rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>STAN:</span> <span style={{ fontWeight: 600 }}>{receiptData.stan || 'N/A'}</span></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>RRN:</span> <span style={{ fontWeight: 600 }}>{Math.floor(100000000000 + Math.random() * 900000000000)}</span></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>Approval Code:</span> <span style={{ fontWeight: 600 }}>{status === 'APPROVED' ? Math.floor(100000 + Math.random() * 900000) : 'N/A'}</span></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>Response Code:</span> <span style={{ fontWeight: 600 }}>{receiptData.code}</span></div>
+              </div>
+
+              <div style={{ borderTop: '1px dashed #94a3b8', margin: '0.5rem 0' }}></div>
+
+              {/* Amounts */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '0.25rem', marginTop: '0.5rem' }}>
+                <div>Tạm tính:</div><div style={{ textAlign: 'right' }}>{Number(receiptData.amount).toLocaleString('vi-VN')} VND</div>
+                <div>Thuế (VAT 0%):</div><div style={{ textAlign: 'right' }}>0 VND</div>
+              </div>
+
+              <div style={{ borderTop: '1px solid #1e293b', margin: '0.5rem 0' }}></div>
+
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontWeight: 700, fontSize: '1rem' }}>
+                <div>TỔNG THANH TOÁN:</div>
+                <div>{Number(receiptData.amount).toLocaleString('vi-VN')} VND</div>
+              </div>
+
+              <div style={{ borderTop: '1px solid #1e293b', margin: '0.5rem 0' }}></div>
+
+              {/* Status & Footer */}
+              <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+                <div style={{ fontWeight: 700, fontSize: '1.125rem', marginBottom: '1.5rem' }}>Trạng thái: {status}</div>
+
+                <div style={{ marginBottom: '3rem' }}>Chữ ký khách hàng:</div>
+                <div style={{ borderBottom: '1px solid #94a3b8', width: '80%', margin: '0 auto 1rem auto' }}></div>
+
+                <div style={{ fontSize: '0.75rem', fontStyle: 'italic', marginBottom: '1rem', color: '#64748b' }}>
+                  Tôi đồng ý thanh toán số tiền trên<br />theo điều khoản của ngân hàng phát hành thẻ.
+                </div>
+
+                <div style={{ borderTop: '1px dashed #94a3b8', margin: '0.5rem 0' }}></div>
+                <div style={{ fontWeight: 600 }}>Cảm ơn Quý khách!</div>
+              </div>
+
+            </div>
+          </div>
+        )}
 
       </div>
     </div>
