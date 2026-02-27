@@ -1,0 +1,1393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<logger class="org.jpos.util.DailyLogListener">
+<log realm="Q2.system" at="2026-02-04T15:22:58.982541100" lifespan="3ms" trace-id="b8115526b6194eb49324b30f42b5ffbc">
+  <info>
+    Start[q2=b8115526-b619-4eb4-9324-b30f42b5ffbc, version=3.0.1-SNAPSHOT, appVersion=null, deploy=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy, env=default]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:23:00.267295900" trace-id="b8115526b6194eb49324b30f42b5ffbc">
+  <info>
+
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+0x0
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:23:00.284737200" lifespan="16ms" trace-id="b8115526b6194eb49324b30f42b5ffbc">
+  <info>
+    Deploy{path='D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_server.xml', enabled=true}
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:23:00.307554100" lifespan="17ms" trace-id="b8115526b6194eb49324b30f42b5ffbc">
+  <info>
+    Deploy{path='D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml', enabled=true}
+    <exception name="null">
+    javax.management.ReflectionException
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:292)
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:606)
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:513)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.instantiate(JmxMBeanServer.java:991)
+	at org.jpos.q2.QFactory.instantiate(QFactory.java:82)
+	at org.jpos.q2.Q2.deploy(Q2.java:669)
+	at org.jpos.q2.Q2.deploy(Q2.java:474)
+	at org.jpos.q2.Q2.run(Q2.java:341)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.NoSuchMethodException: No such constructor
+	... 9 more
+    </exception>
+    DeployActivity[action=RENAME, info=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml to D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:23:00.352932100" lifespan="33ms" trace-id="b8115526b6194eb49324b30f42b5ffbc">
+  <info>
+    Deploy{path='D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\99_sysmon.xml', enabled=true}
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:23:00.407663300" trace-id="b8115526b6194eb49324b30f42b5ffbc">
+  <info>
+    DeployActivity[action=DELETE, info=deploy/10_switch_server.xml]
+    DeployActivity[action=CREATE, info=deploy/10_switch_server.xml.BAD]
+  </info>
+</log>
+<log realm="xml-server.server" at="2026-02-04T15:23:00.422863200" trace-id="521c22e8741343508624399c070a6c3b">
+  <info>
+    Listen[port=8000, bindAddr=null, permits=100, backlog=5]
+  </info>
+</log>
+<log realm="sysmon" at="2026-02-04T15:23:00.497419100" lifespan="65ms" trace-id="b8115526b6194eb49324b30f42b5ffbc">
+  <info>
+    osName               : Windows 11
+    osVersion            : 10.0
+    javaVersion          : 21.0.8
+    javaVendor           : Eclipse Adoptium
+    aes                  : secure
+    host                 : int-laptop-nthoang/100.105.113.61
+    userName             : Hoang
+    cwd                  : D:\Code\DoAn\DATN\jPOS\jpos\src\dist
+    watchService         : sun.nio.fs.WindowsWatchService
+    environment          : default
+    args                 : -Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant
+    encoding             : UTF-8
+    zoneInfo             : Asia/Bangkok (Indochina Time) +07:00 []
+    processName          : 10948@int-laptop-nthoang
+    freeSpace            : 67.8 GiB
+    usableSpace          : 67.8 GiB
+    version              : 3.0.1-SNAPSHOT
+    revision             : 4dcb96c
+    instance             : b8115526-b619-4eb4-9324-b30f42b5ffbc
+    uptime               : PT2.83515S
+    loadAverage          : -1.0
+    processors           : 16
+    drift                : 0
+    maxMemory            : 3904
+    totalMemory          : 60
+    freeMemory           : 34
+    inUseMemory          : 25
+    gcTotalCnt           : 6
+    gcTotalTime          : 27
+    threadCount          : 21
+    threadPeak           : 21
+    nameRegistrarEntries :
+      • KV[key=tspace:default, value=org.jpos.space.TSpace@4a6ea02e]
+      • KV[key=xml-server, value=org.jpos.q2.iso.QServer@7a329f77]
+      • KV[key=Q2, value=org.jpos.q2.Q2@1b763214]
+      • KV[key=logger.Q2, value=org.jpos.util.Logger@752820d7]
+      • KV[key=server.xml-server, value=org.jpos.iso.ISOServer@4af8818c]
+    threads              :
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:9, value=Reference Handler - java.lang.ref.Reference.waitForReferencePendingList(Reference.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:10, value=Finalizer - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:11, value=Signal Dispatcher - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:12, value=Attach Listener - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:27, value=Notification Thread - ]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:28, value=Common-Cleaner - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:31, value=ForkJoinPool-1-worker-1 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:32, value=VirtualThread-unparker - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:33, value=Q2-b8115526-b619-4eb4-9324-b30f42b5ffbc - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:40, value=DestroyJavaVM - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:41, value=JFR Recorder Thread - ]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:42, value=JFR Periodic Tasks - jdk.jfr.internal.JVM.emitEvent(JVM.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:45, value=FileSystemWatchService - sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0(WindowsNativeDispatcher.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:46, value=Timer-0 - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:58, value=ForkJoinPool-1-worker-2 - jdk.internal.vm.Continuation.run(Continuation.java:248)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:59, value=ForkJoinPool-1-worker-3 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:60, value=ForkJoinPool-1-worker-4 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:61, value=Read-Poller - sun.nio.ch.WEPoll.wait(WEPoll.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:62, value=Read-Updater - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:63, value=Write-Poller - sun.nio.ch.WEPoll.wait(WEPoll.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:64, value=Write-Updater - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:28:32.862943600" trace-id="b8115526b6194eb49324b30f42b5ffbc">
+  <info>
+    DeployActivity[action=DELETE, info=deploy/10_switch_server.xml.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:28:33.009695700" trace-id="b8115526b6194eb49324b30f42b5ffbc">
+  <info>
+    DeployActivity[action=CREATE, info=deploy/10_switch_server.xml]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:28:33.017428100" lifespan="7ms" trace-id="b8115526b6194eb49324b30f42b5ffbc">
+  <info>
+    <exception name="Error on line 1 of document file:/D:/Code/DoAn/DATN/jPOS/jpos/src/dist/deploy/10_switch_server.xml: Premature end of file.">
+    org.jdom2.input.JDOMParseException: Error on line 1 of document file:/D:/Code/DoAn/DATN/jPOS/jpos/src/dist/deploy/10_switch_server.xml: Premature end of file.
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:230)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:277)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:264)
+	at org.jdom2.input.SAXBuilder.build(SAXBuilder.java:1104)
+	at org.jpos.q2.Q2.deploy(Q2.java:652)
+	at org.jpos.q2.Q2.deploy(Q2.java:474)
+	at org.jpos.q2.Q2.run(Q2.java:341)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Code/DoAn/DATN/jPOS/jpos/src/dist/deploy/10_switch_server.xml; lineNumber: 1; columnNumber: 1; Premature end of file.
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1465)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:1013)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:114)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:542)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:889)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:825)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:637)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:217)
+	... 7 more
+    </exception>
+    DeployActivity[action=RENAME, info=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml to D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:28:33.018427900" trace-id="b8115526b6194eb49324b30f42b5ffbc">
+  <info>
+    DeployActivity[action=DELETE, info=deploy/10_switch_server.xml]
+    DeployActivity[action=CREATE, info=deploy/10_switch_server.xml.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:28:33.097775900" trace-id="b8115526b6194eb49324b30f42b5ffbc">
+  <info>
+    DeployActivity[action=CREATE, info=deploy/10_switch_server.xml]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:28:33.120246500" lifespan="21ms" trace-id="b8115526b6194eb49324b30f42b5ffbc">
+  <info>
+    Deploy{path='D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml', enabled=true}
+    <exception name="null">
+    javax.management.ReflectionException
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:292)
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:606)
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:513)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.instantiate(JmxMBeanServer.java:991)
+	at org.jpos.q2.QFactory.instantiate(QFactory.java:82)
+	at org.jpos.q2.Q2.deploy(Q2.java:669)
+	at org.jpos.q2.Q2.deploy(Q2.java:474)
+	at org.jpos.q2.Q2.run(Q2.java:341)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.NoSuchMethodException: No such constructor
+	... 9 more
+    </exception>
+    DeployActivity[action=RENAME, info=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml to D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml.BAD.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:28:33.122549700" trace-id="b8115526b6194eb49324b30f42b5ffbc">
+  <info>
+    DeployActivity[action=MODIFY, info=deploy/10_switch_server.xml]
+    DeployActivity[action=DELETE, info=deploy/10_switch_server.xml]
+    DeployActivity[action=CREATE, info=deploy/10_switch_server.xml.BAD.BAD]
+  </info>
+</log>
+<?xml version="1.0" encoding="UTF-8"?>
+<logger class="org.jpos.util.DailyLogListener">
+<log realm="Q2.system" at="2026-02-04T15:30:22.790991900" lifespan="5ms" trace-id="6e671ae99ec4494b8b7bfa93081fd015">
+  <info>
+    Start[q2=6e671ae9-9ec4-494b-8b7b-fa93081fd015, version=3.0.1-SNAPSHOT, appVersion=null, deploy=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy, env=default]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:30:24.118564900" trace-id="6e671ae99ec4494b8b7bfa93081fd015">
+  <info>
+
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+0x0
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:30:24.133762" lifespan="14ms" trace-id="6e671ae99ec4494b8b7bfa93081fd015">
+  <info>
+    Deploy{path='D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_server.xml', enabled=true}
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:30:24.167892" lifespan="28ms" trace-id="6e671ae99ec4494b8b7bfa93081fd015">
+  <info>
+    Deploy{path='D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\99_sysmon.xml', enabled=true}
+  </info>
+</log>
+<log realm="xml-server.server" at="2026-02-04T15:30:24.269477600" trace-id="4196c61a47b741809596df4fc51e0d52">
+  <info>
+    Listen[port=8000, bindAddr=null, permits=100, backlog=5]
+  </info>
+</log>
+<log realm="sysmon" at="2026-02-04T15:30:24.315868100" lifespan="44ms" trace-id="6e671ae99ec4494b8b7bfa93081fd015">
+  <info>
+    osName               : Windows 11
+    osVersion            : 10.0
+    javaVersion          : 21.0.8
+    javaVendor           : Eclipse Adoptium
+    aes                  : secure
+    host                 : int-laptop-nthoang/100.105.113.61
+    userName             : Hoang
+    cwd                  : D:\Code\DoAn\DATN\jPOS\jpos\src\dist
+    watchService         : sun.nio.fs.WindowsWatchService
+    environment          : default
+    args                 : -Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant
+    encoding             : UTF-8
+    zoneInfo             : Asia/Bangkok (Indochina Time) +07:00 []
+    processName          : 3128@int-laptop-nthoang
+    freeSpace            : 67.8 GiB
+    usableSpace          : 67.8 GiB
+    version              : 3.0.1-SNAPSHOT
+    revision             : 4dcb96c
+    instance             : 6e671ae9-9ec4-494b-8b7b-fa93081fd015
+    uptime               : PT2.8634328S
+    loadAverage          : -1.0
+    processors           : 16
+    drift                : 0
+    maxMemory            : 3904
+    totalMemory          : 60
+    freeMemory           : 34
+    inUseMemory          : 25
+    gcTotalCnt           : 6
+    gcTotalTime          : 22
+    threadCount          : 21
+    threadPeak           : 21
+    nameRegistrarEntries :
+      • KV[key=tspace:default, value=org.jpos.space.TSpace@2bc2445a]
+      • KV[key=xml-server, value=org.jpos.q2.iso.QServer@53dc535d]
+      • KV[key=Q2, value=org.jpos.q2.Q2@3258bc1a]
+      • KV[key=logger.Q2, value=org.jpos.util.Logger@76e5146c]
+      • KV[key=server.xml-server, value=org.jpos.iso.ISOServer@4f3c7e7e]
+    threads              :
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:9, value=Reference Handler - java.lang.ref.Reference.waitForReferencePendingList(Reference.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:10, value=Finalizer - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:11, value=Signal Dispatcher - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:12, value=Attach Listener - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:27, value=Notification Thread - ]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:28, value=Common-Cleaner - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:31, value=ForkJoinPool-1-worker-1 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:32, value=VirtualThread-unparker - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:33, value=Q2-6e671ae9-9ec4-494b-8b7b-fa93081fd015 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:40, value=DestroyJavaVM - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:41, value=JFR Recorder Thread - ]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:42, value=JFR Periodic Tasks - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:45, value=FileSystemWatchService - sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0(WindowsNativeDispatcher.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:46, value=Timer-0 - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:58, value=ForkJoinPool-1-worker-2 - jdk.internal.vm.Continuation.run(Continuation.java:248)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:59, value=ForkJoinPool-1-worker-3 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:60, value=ForkJoinPool-1-worker-4 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:61, value=Read-Poller - sun.nio.ch.WEPoll.wait(WEPoll.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:62, value=Read-Updater - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:63, value=Write-Poller - sun.nio.ch.WEPoll.wait(WEPoll.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:64, value=Write-Updater - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:31:54.213884100" lifespan="2ms" trace-id="6e671ae99ec4494b8b7bfa93081fd015">
+  <info>
+    DeployActivity[action=DELETE, info=deploy/10_server.xml]
+    DeployActivity[action=CREATE, info=deploy/10_server.xml.off]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:31:54.218896300" lifespan="3ms" trace-id="6e671ae99ec4494b8b7bfa93081fd015">
+  <info>
+    UnDeploy[path=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_server.xml]
+  </info>
+</log>
+<?xml version="1.0" encoding="UTF-8"?>
+<logger class="org.jpos.util.DailyLogListener">
+<log realm="Q2.system" at="2026-02-04T15:34:19.715310200" lifespan="3ms" trace-id="cb05073961644204bde51e4448b6b41b">
+  <info>
+    Start[q2=cb050739-6164-4204-bde5-1e4448b6b41b, version=3.0.1-SNAPSHOT, appVersion=null, deploy=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy, env=default]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:34:20.998495700" trace-id="cb05073961644204bde51e4448b6b41b">
+  <info>
+
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+0x0
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:34:21.032044900" lifespan="32ms" trace-id="cb05073961644204bde51e4448b6b41b">
+  <info>
+    Deploy{path='D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\99_sysmon.xml', enabled=true}
+  </info>
+</log>
+<log realm="sysmon" at="2026-02-04T15:34:21.110398400" lifespan="45ms" trace-id="cb05073961644204bde51e4448b6b41b">
+  <info>
+    osName               : Windows 11
+    osVersion            : 10.0
+    javaVersion          : 21.0.8
+    javaVendor           : Eclipse Adoptium
+    aes                  : secure
+    host                 : int-laptop-nthoang/100.105.113.61
+    userName             : Hoang
+    cwd                  : D:\Code\DoAn\DATN\jPOS\jpos\src\dist
+    watchService         : sun.nio.fs.WindowsWatchService
+    environment          : default
+    args                 : -Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant
+    encoding             : UTF-8
+    zoneInfo             : Asia/Bangkok (Indochina Time) +07:00 []
+    processName          : 13784@int-laptop-nthoang
+    freeSpace            : 67.8 GiB
+    usableSpace          : 67.8 GiB
+    version              : 3.0.1-SNAPSHOT
+    revision             : 4dcb96c
+    instance             : cb050739-6164-4204-bde5-1e4448b6b41b
+    uptime               : PT2.7087929S
+    loadAverage          : -1.0
+    processors           : 16
+    drift                : 0
+    maxMemory            : 3904
+    totalMemory          : 60
+    freeMemory           : 36
+    inUseMemory          : 23
+    gcTotalCnt           : 6
+    gcTotalTime          : 24
+    threadCount          : 16
+    threadPeak           : 16
+    nameRegistrarEntries :
+      • KV[key=Q2, value=org.jpos.q2.Q2@2e7dceb5]
+      • KV[key=logger.Q2, value=org.jpos.util.Logger@6b775930]
+    threads              :
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:9, value=Reference Handler - java.lang.ref.Reference.waitForReferencePendingList(Reference.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:10, value=Finalizer - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:11, value=Signal Dispatcher - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:12, value=Attach Listener - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:27, value=Notification Thread - ]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:28, value=Common-Cleaner - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:31, value=ForkJoinPool-1-worker-1 - jdk.internal.vm.Continuation.run(Continuation.java:248)]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:32, value=VirtualThread-unparker - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:33, value=Q2-cb050739-6164-4204-bde5-1e4448b6b41b - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:40, value=DestroyJavaVM - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:41, value=JFR Recorder Thread - ]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:42, value=JFR Periodic Tasks - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:45, value=FileSystemWatchService - sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0(WindowsNativeDispatcher.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:46, value=Timer-0 - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:57, value=ForkJoinPool-1-worker-2 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:58, value=ForkJoinPool-1-worker-3 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:35:01.925937300" trace-id="cb05073961644204bde51e4448b6b41b">
+  <info>
+    DeployActivity[action=CREATE, info=deploy/10_switch_server.xml]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:35:01.933609600" lifespan="6ms" trace-id="cb05073961644204bde51e4448b6b41b">
+  <info>
+    <exception name="Error on line 1 of document file:/D:/Code/DoAn/DATN/jPOS/jpos/src/dist/deploy/10_switch_server.xml: Premature end of file.">
+    org.jdom2.input.JDOMParseException: Error on line 1 of document file:/D:/Code/DoAn/DATN/jPOS/jpos/src/dist/deploy/10_switch_server.xml: Premature end of file.
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:230)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:277)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:264)
+	at org.jdom2.input.SAXBuilder.build(SAXBuilder.java:1104)
+	at org.jpos.q2.Q2.deploy(Q2.java:652)
+	at org.jpos.q2.Q2.deploy(Q2.java:474)
+	at org.jpos.q2.Q2.run(Q2.java:341)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Code/DoAn/DATN/jPOS/jpos/src/dist/deploy/10_switch_server.xml; lineNumber: 1; columnNumber: 1; Premature end of file.
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1465)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:1013)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:114)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:542)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:889)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:825)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:637)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:217)
+	... 7 more
+    </exception>
+    DeployActivity[action=RENAME, info=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml to D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml.BAD.BAD.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:35:01.936119600" trace-id="cb05073961644204bde51e4448b6b41b">
+  <info>
+    DeployActivity[action=DELETE, info=deploy/10_switch_server.xml]
+    DeployActivity[action=CREATE, info=deploy/10_switch_server.xml.BAD.BAD.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:35:01.990044100" trace-id="cb05073961644204bde51e4448b6b41b">
+  <info>
+    DeployActivity[action=CREATE, info=deploy/10_switch_server.xml]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:35:02.002802400" lifespan="11ms" trace-id="cb05073961644204bde51e4448b6b41b">
+  <info>
+    Deploy{path='D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml', enabled=true}
+    <exception name="null">
+    javax.management.ReflectionException
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:292)
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:606)
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:513)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.instantiate(JmxMBeanServer.java:991)
+	at org.jpos.q2.QFactory.instantiate(QFactory.java:82)
+	at org.jpos.q2.Q2.deploy(Q2.java:669)
+	at org.jpos.q2.Q2.deploy(Q2.java:474)
+	at org.jpos.q2.Q2.run(Q2.java:341)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.NoSuchMethodException: No such constructor
+	... 9 more
+    </exception>
+    DeployActivity[action=RENAME, info=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml to D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml.BAD.BAD.BAD.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:35:02.003306800" trace-id="cb05073961644204bde51e4448b6b41b">
+  <info>
+    DeployActivity[action=MODIFY, info=deploy/10_switch_server.xml]
+    DeployActivity[action=DELETE, info=deploy/10_switch_server.xml]
+    DeployActivity[action=CREATE, info=deploy/10_switch_server.xml.BAD.BAD.BAD.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:35:02.264813300" trace-id="cb05073961644204bde51e4448b6b41b">
+  <info>
+    DeployActivity[action=CREATE, info=deploy/10_switch_server.xml]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:35:02.267813100" lifespan="1ms" trace-id="cb05073961644204bde51e4448b6b41b">
+  <info>
+    <exception name="Error on line 1 of document file:/D:/Code/DoAn/DATN/jPOS/jpos/src/dist/deploy/10_switch_server.xml: Premature end of file.">
+    org.jdom2.input.JDOMParseException: Error on line 1 of document file:/D:/Code/DoAn/DATN/jPOS/jpos/src/dist/deploy/10_switch_server.xml: Premature end of file.
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:230)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:277)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:264)
+	at org.jdom2.input.SAXBuilder.build(SAXBuilder.java:1104)
+	at org.jpos.q2.Q2.deploy(Q2.java:652)
+	at org.jpos.q2.Q2.deploy(Q2.java:474)
+	at org.jpos.q2.Q2.run(Q2.java:341)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Code/DoAn/DATN/jPOS/jpos/src/dist/deploy/10_switch_server.xml; lineNumber: 1; columnNumber: 1; Premature end of file.
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1465)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:1013)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:114)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:542)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:889)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:825)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:637)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:217)
+	... 7 more
+    </exception>
+    DeployActivity[action=RENAME, info=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml to D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml.BAD.BAD.BAD.BAD.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:35:02.268813" trace-id="cb05073961644204bde51e4448b6b41b">
+  <info>
+    DeployActivity[action=DELETE, info=deploy/10_switch_server.xml]
+    DeployActivity[action=CREATE, info=deploy/10_switch_server.xml.BAD.BAD.BAD.BAD.BAD]
+  </info>
+</log>
+<?xml version="1.0" encoding="UTF-8"?>
+<logger class="org.jpos.util.DailyLogListener">
+<log realm="Q2.system" at="2026-02-04T15:36:38.076626300" lifespan="5ms" trace-id="04c53f25e9624398b2f2e4e6e031ff02">
+  <info>
+    Start[q2=04c53f25-e962-4398-b2f2-e4e6e031ff02, version=3.0.1-SNAPSHOT, appVersion=null, deploy=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy, env=default]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:36:39.471628800" trace-id="04c53f25e9624398b2f2e4e6e031ff02">
+  <info>
+
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+0x0
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:36:39.489618600" lifespan="16ms" trace-id="04c53f25e9624398b2f2e4e6e031ff02">
+  <info>
+    Deploy{path='D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml', enabled=true}
+    <exception name="null">
+    javax.management.ReflectionException
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:292)
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:606)
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:513)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.instantiate(JmxMBeanServer.java:991)
+	at org.jpos.q2.QFactory.instantiate(QFactory.java:82)
+	at org.jpos.q2.Q2.deploy(Q2.java:669)
+	at org.jpos.q2.Q2.deploy(Q2.java:474)
+	at org.jpos.q2.Q2.run(Q2.java:341)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.NoSuchMethodException: No such constructor
+	... 9 more
+    </exception>
+    DeployActivity[action=RENAME, info=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml to D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:36:39.547258700" lifespan="39ms" trace-id="04c53f25e9624398b2f2e4e6e031ff02">
+  <info>
+    Deploy{path='D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\99_sysmon.xml', enabled=true}
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:36:39.549418100" trace-id="04c53f25e9624398b2f2e4e6e031ff02">
+  <info>
+    DeployActivity[action=DELETE, info=deploy/10_switch_server.xml]
+    DeployActivity[action=CREATE, info=deploy/10_switch_server.xml.BAD]
+  </info>
+</log>
+<log realm="sysmon" at="2026-02-04T15:36:39.601842100" lifespan="33ms" trace-id="04c53f25e9624398b2f2e4e6e031ff02">
+  <info>
+    osName               : Windows 11
+    osVersion            : 10.0
+    javaVersion          : 21.0.8
+    javaVendor           : Eclipse Adoptium
+    aes                  : secure
+    host                 : int-laptop-nthoang/100.105.113.61
+    userName             : Hoang
+    cwd                  : D:\Code\DoAn\DATN\jPOS\jpos\src\dist
+    watchService         : sun.nio.fs.WindowsWatchService
+    environment          : default
+    args                 : -Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant
+    encoding             : UTF-8
+    zoneInfo             : Asia/Bangkok (Indochina Time) +07:00 []
+    processName          : 24516@int-laptop-nthoang
+    freeSpace            : 67.8 GiB
+    usableSpace          : 67.8 GiB
+    version              : 3.0.1-SNAPSHOT
+    revision             : 4dcb96c
+    instance             : 04c53f25-e962-4398-b2f2-e4e6e031ff02
+    uptime               : PT2.9443171S
+    loadAverage          : -1.0
+    processors           : 16
+    drift                : 0
+    maxMemory            : 3904
+    totalMemory          : 60
+    freeMemory           : 36
+    inUseMemory          : 23
+    gcTotalCnt           : 6
+    gcTotalTime          : 23
+    threadCount          : 15
+    threadPeak           : 15
+    nameRegistrarEntries :
+      • KV[key=Q2, value=org.jpos.q2.Q2@2de2b990]
+      • KV[key=logger.Q2, value=org.jpos.util.Logger@6355790f]
+    threads              :
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:9, value=Reference Handler - java.lang.ref.Reference.waitForReferencePendingList(Reference.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:10, value=Finalizer - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:11, value=Signal Dispatcher - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:12, value=Attach Listener - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:27, value=Notification Thread - ]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:28, value=Common-Cleaner - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:31, value=ForkJoinPool-1-worker-1 - jdk.internal.vm.Continuation.run(Continuation.java:248)]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:32, value=VirtualThread-unparker - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:33, value=Q2-04c53f25-e962-4398-b2f2-e4e6e031ff02 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:40, value=DestroyJavaVM - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:41, value=JFR Recorder Thread - ]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:42, value=JFR Periodic Tasks - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:45, value=FileSystemWatchService - sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0(WindowsNativeDispatcher.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:46, value=Timer-0 - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:57, value=ForkJoinPool-1-worker-2 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+  </info>
+</log>
+<?xml version="1.0" encoding="UTF-8"?>
+<logger class="org.jpos.util.DailyLogListener">
+<log realm="Q2.system" at="2026-02-04T15:46:27.410274300" lifespan="6ms" trace-id="0b41e0f31b5d4d059ed850597e961f1d">
+  <info>
+    Start[q2=0b41e0f3-1b5d-4d05-9ed8-50597e961f1d, version=3.0.1-SNAPSHOT, appVersion=null, deploy=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy, env=default]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:46:28.730673700" trace-id="0b41e0f31b5d4d059ed850597e961f1d">
+  <info>
+
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+0x0
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:46:28.748947200" lifespan="17ms" trace-id="0b41e0f31b5d4d059ed850597e961f1d">
+  <info>
+    Deploy{path='D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml', enabled=true}
+    <exception name="null">
+    javax.management.ReflectionException
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:292)
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:606)
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:513)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.instantiate(JmxMBeanServer.java:991)
+	at org.jpos.q2.QFactory.instantiate(QFactory.java:82)
+	at org.jpos.q2.Q2.deploy(Q2.java:669)
+	at org.jpos.q2.Q2.deploy(Q2.java:474)
+	at org.jpos.q2.Q2.run(Q2.java:341)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.NoSuchMethodException: No such constructor
+	... 9 more
+    </exception>
+    DeployActivity[action=RENAME, info=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml to D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:46:28.812476200" lifespan="40ms" trace-id="0b41e0f31b5d4d059ed850597e961f1d">
+  <info>
+    Deploy{path='D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\99_sysmon.xml', enabled=true}
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:46:28.813491800" trace-id="0b41e0f31b5d4d059ed850597e961f1d">
+  <info>
+    DeployActivity[action=DELETE, info=deploy/10_switch_server.xml]
+    DeployActivity[action=CREATE, info=deploy/10_switch_server.xml.BAD]
+  </info>
+</log>
+<log realm="sysmon" at="2026-02-04T15:46:28.865308600" lifespan="33ms" trace-id="0b41e0f31b5d4d059ed850597e961f1d">
+  <info>
+    osName               : Windows 11
+    osVersion            : 10.0
+    javaVersion          : 21.0.8
+    javaVendor           : Eclipse Adoptium
+    aes                  : secure
+    host                 : int-laptop-nthoang/100.105.113.61
+    userName             : Hoang
+    cwd                  : D:\Code\DoAn\DATN\jPOS\jpos\src\dist
+    watchService         : sun.nio.fs.WindowsWatchService
+    environment          : default
+    args                 : -Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant
+    encoding             : UTF-8
+    zoneInfo             : Asia/Bangkok (Indochina Time) +07:00 []
+    processName          : 26008@int-laptop-nthoang
+    freeSpace            : 67.8 GiB
+    usableSpace          : 67.8 GiB
+    version              : 3.0.1-SNAPSHOT
+    revision             : 4dcb96c
+    instance             : 0b41e0f3-1b5d-4d05-9ed8-50597e961f1d
+    uptime               : PT2.8250468S
+    loadAverage          : -1.0
+    processors           : 16
+    drift                : 0
+    maxMemory            : 3904
+    totalMemory          : 60
+    freeMemory           : 35
+    inUseMemory          : 24
+    gcTotalCnt           : 6
+    gcTotalTime          : 25
+    threadCount          : 16
+    threadPeak           : 16
+    nameRegistrarEntries :
+      • KV[key=Q2, value=org.jpos.q2.Q2@2e7dceb5]
+      • KV[key=logger.Q2, value=org.jpos.util.Logger@6b775930]
+    threads              :
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:9, value=Reference Handler - java.lang.ref.Reference.waitForReferencePendingList(Reference.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:10, value=Finalizer - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:11, value=Signal Dispatcher - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:12, value=Attach Listener - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:27, value=Notification Thread - ]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:28, value=Common-Cleaner - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:31, value=ForkJoinPool-1-worker-1 - jdk.internal.vm.Continuation.run(Continuation.java:248)]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:32, value=VirtualThread-unparker - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:33, value=Q2-0b41e0f3-1b5d-4d05-9ed8-50597e961f1d - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:40, value=DestroyJavaVM - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:41, value=JFR Recorder Thread - ]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:42, value=JFR Periodic Tasks - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:45, value=FileSystemWatchService - sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0(WindowsNativeDispatcher.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:46, value=Timer-0 - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:57, value=ForkJoinPool-1-worker-2 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:58, value=ForkJoinPool-1-worker-3 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+  </info>
+</log>
+<?xml version="1.0" encoding="UTF-8"?>
+<logger class="org.jpos.util.DailyLogListener">
+<log realm="Q2.system" at="2026-02-04T15:49:46.911340100" lifespan="6ms" trace-id="565b35ee61324d47b687e307df57a9c6">
+  <info>
+    Start[q2=565b35ee-6132-4d47-b687-e307df57a9c6, version=3.0.1-SNAPSHOT, appVersion=null, deploy=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy, env=default]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:49:48.388247200" trace-id="565b35ee61324d47b687e307df57a9c6">
+  <info>
+
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+0x0
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:49:48.406520800" lifespan="16ms" trace-id="565b35ee61324d47b687e307df57a9c6">
+  <info>
+    Deploy{path='D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml', enabled=true}
+    <exception name="null">
+    javax.management.ReflectionException
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:292)
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:606)
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:513)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.instantiate(JmxMBeanServer.java:991)
+	at org.jpos.q2.QFactory.instantiate(QFactory.java:82)
+	at org.jpos.q2.Q2.deploy(Q2.java:669)
+	at org.jpos.q2.Q2.deploy(Q2.java:474)
+	at org.jpos.q2.Q2.run(Q2.java:341)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.NoSuchMethodException: No such constructor
+	... 9 more
+    </exception>
+    DeployActivity[action=RENAME, info=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml to D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:49:48.466906300" lifespan="41ms" trace-id="565b35ee61324d47b687e307df57a9c6">
+  <info>
+    Deploy{path='D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\99_sysmon.xml', enabled=true}
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:49:48.469420" lifespan="1ms" trace-id="565b35ee61324d47b687e307df57a9c6">
+  <info>
+    DeployActivity[action=DELETE, info=deploy/10_switch_server.xml]
+    DeployActivity[action=CREATE, info=deploy/10_switch_server.xml.BAD]
+  </info>
+</log>
+<log realm="sysmon" at="2026-02-04T15:49:48.543449100" lifespan="56ms" trace-id="565b35ee61324d47b687e307df57a9c6">
+  <info>
+    osName               : Windows 11
+    osVersion            : 10.0
+    javaVersion          : 21.0.8
+    javaVendor           : Eclipse Adoptium
+    aes                  : secure
+    host                 : int-laptop-nthoang/100.105.113.61
+    userName             : Hoang
+    cwd                  : D:\Code\DoAn\DATN\jPOS\jpos\src\dist
+    watchService         : sun.nio.fs.WindowsWatchService
+    environment          : default
+    args                 : -Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant
+    encoding             : UTF-8
+    zoneInfo             : Asia/Bangkok (Indochina Time) +07:00 []
+    processName          : 11104@int-laptop-nthoang
+    freeSpace            : 67.8 GiB
+    usableSpace          : 67.8 GiB
+    version              : 3.0.1-SNAPSHOT
+    revision             : 4dcb96c
+    instance             : 565b35ee-6132-4d47-b687-e307df57a9c6
+    uptime               : PT3.1277353S
+    loadAverage          : -1.0
+    processors           : 16
+    drift                : 0
+    maxMemory            : 3904
+    totalMemory          : 60
+    freeMemory           : 36
+    inUseMemory          : 23
+    gcTotalCnt           : 6
+    gcTotalTime          : 29
+    threadCount          : 16
+    threadPeak           : 16
+    nameRegistrarEntries :
+      • KV[key=Q2, value=org.jpos.q2.Q2@2dad0f86]
+      • KV[key=logger.Q2, value=org.jpos.util.Logger@7224e101]
+    threads              :
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:9, value=Reference Handler - java.lang.ref.Reference.waitForReferencePendingList(Reference.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:10, value=Finalizer - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:11, value=Signal Dispatcher - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:12, value=Attach Listener - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:27, value=Notification Thread - ]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:28, value=Common-Cleaner - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:31, value=ForkJoinPool-1-worker-1 - jdk.internal.vm.Continuation.run(Continuation.java:248)]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:32, value=VirtualThread-unparker - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:33, value=Q2-565b35ee-6132-4d47-b687-e307df57a9c6 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:40, value=DestroyJavaVM - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:41, value=JFR Recorder Thread - ]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:42, value=JFR Periodic Tasks - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:45, value=FileSystemWatchService - sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0(WindowsNativeDispatcher.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:46, value=Timer-0 - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:57, value=ForkJoinPool-1-worker-2 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:58, value=ForkJoinPool-1-worker-3 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+  </info>
+</log>
+<?xml version="1.0" encoding="UTF-8"?>
+<logger class="org.jpos.util.DailyLogListener">
+<log realm="Q2.system" at="2026-02-04T15:55:31.289639400" lifespan="5ms" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    Start[q2=1fb258c1-86a8-4b13-87dd-e5706ce01ab4, version=3.0.1-SNAPSHOT, appVersion=null, deploy=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy, env=default]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:55:32.770751500" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+0x0
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:55:32.786764400" lifespan="14ms" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    Deploy{path='D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml', enabled=true}
+    <exception name="null">
+    javax.management.ReflectionException
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:292)
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:606)
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:513)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.instantiate(JmxMBeanServer.java:991)
+	at org.jpos.q2.QFactory.instantiate(QFactory.java:82)
+	at org.jpos.q2.Q2.deploy(Q2.java:669)
+	at org.jpos.q2.Q2.deploy(Q2.java:474)
+	at org.jpos.q2.Q2.run(Q2.java:341)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.NoSuchMethodException: No such constructor
+	... 9 more
+    </exception>
+    DeployActivity[action=RENAME, info=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml to D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:55:32.839541100" lifespan="35ms" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    Deploy{path='D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\99_sysmon.xml', enabled=true}
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:55:32.841697500" lifespan="1ms" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    DeployActivity[action=DELETE, info=deploy/10_switch_server.xml]
+    DeployActivity[action=CREATE, info=deploy/10_switch_server.xml.BAD]
+  </info>
+</log>
+<log realm="sysmon" at="2026-02-04T15:55:32.907062600" lifespan="46ms" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    osName               : Windows 11
+    osVersion            : 10.0
+    javaVersion          : 21.0.8
+    javaVendor           : Eclipse Adoptium
+    aes                  : secure
+    host                 : int-laptop-nthoang/100.105.113.61
+    userName             : Hoang
+    cwd                  : D:\Code\DoAn\DATN\jPOS\jpos\src\dist
+    watchService         : sun.nio.fs.WindowsWatchService
+    environment          : default
+    args                 : -Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant
+    encoding             : UTF-8
+    zoneInfo             : Asia/Bangkok (Indochina Time) +07:00 []
+    processName          : 24276@int-laptop-nthoang
+    freeSpace            : 67.8 GiB
+    usableSpace          : 67.8 GiB
+    version              : 3.0.1-SNAPSHOT
+    revision             : 4dcb96c
+    instance             : 1fb258c1-86a8-4b13-87dd-e5706ce01ab4
+    uptime               : PT3.0965818S
+    loadAverage          : -1.0
+    processors           : 16
+    drift                : 0
+    maxMemory            : 3904
+    totalMemory          : 60
+    freeMemory           : 35
+    inUseMemory          : 24
+    gcTotalCnt           : 6
+    gcTotalTime          : 28
+    threadCount          : 16
+    threadPeak           : 16
+    nameRegistrarEntries :
+      • KV[key=Q2, value=org.jpos.q2.Q2@2dad0f86]
+      • KV[key=logger.Q2, value=org.jpos.util.Logger@7224e101]
+    threads              :
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:9, value=Reference Handler - java.lang.ref.Reference.waitForReferencePendingList(Reference.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:10, value=Finalizer - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:11, value=Signal Dispatcher - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:12, value=Attach Listener - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:27, value=Notification Thread - ]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:28, value=Common-Cleaner - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:31, value=ForkJoinPool-1-worker-1 - jdk.internal.vm.Continuation.run(Continuation.java:248)]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:32, value=VirtualThread-unparker - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:33, value=Q2-1fb258c1-86a8-4b13-87dd-e5706ce01ab4 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:34, value=DestroyJavaVM - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:41, value=JFR Recorder Thread - ]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:42, value=JFR Periodic Tasks - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:45, value=FileSystemWatchService - sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0(WindowsNativeDispatcher.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:46, value=Timer-0 - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:57, value=ForkJoinPool-1-worker-2 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:58, value=ForkJoinPool-1-worker-3 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:56:22.455767300" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    DeployActivity[action=CREATE, info=deploy/10_switch_server.xml]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:56:22.464505100" lifespan="7ms" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    <exception name="Error on line 1 of document file:/D:/Code/DoAn/DATN/jPOS/jpos/src/dist/deploy/10_switch_server.xml: Premature end of file.">
+    org.jdom2.input.JDOMParseException: Error on line 1 of document file:/D:/Code/DoAn/DATN/jPOS/jpos/src/dist/deploy/10_switch_server.xml: Premature end of file.
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:230)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:277)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:264)
+	at org.jdom2.input.SAXBuilder.build(SAXBuilder.java:1104)
+	at org.jpos.q2.Q2.deploy(Q2.java:652)
+	at org.jpos.q2.Q2.deploy(Q2.java:474)
+	at org.jpos.q2.Q2.run(Q2.java:341)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Code/DoAn/DATN/jPOS/jpos/src/dist/deploy/10_switch_server.xml; lineNumber: 1; columnNumber: 1; Premature end of file.
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1465)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:1013)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:114)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:542)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:889)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:825)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:637)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:217)
+	... 7 more
+    </exception>
+    DeployActivity[action=RENAME, info=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml to D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml.BAD.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:56:22.465506700" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    DeployActivity[action=DELETE, info=deploy/10_switch_server.xml]
+    DeployActivity[action=CREATE, info=deploy/10_switch_server.xml.BAD.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:56:22.473796500" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    DeployActivity[action=CREATE, info=deploy/10_switch_server.xml]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:56:22.488636" lifespan="13ms" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    Deploy{path='D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml', enabled=true}
+    <exception name="null">
+    javax.management.ReflectionException
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:292)
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:606)
+	at java.management/com.sun.jmx.mbeanserver.MBeanInstantiator.instantiate(MBeanInstantiator.java:513)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.instantiate(JmxMBeanServer.java:991)
+	at org.jpos.q2.QFactory.instantiate(QFactory.java:82)
+	at org.jpos.q2.Q2.deploy(Q2.java:669)
+	at org.jpos.q2.Q2.deploy(Q2.java:474)
+	at org.jpos.q2.Q2.run(Q2.java:341)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.NoSuchMethodException: No such constructor
+	... 9 more
+    </exception>
+    DeployActivity[action=RENAME, info=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml to D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_switch_server.xml.BAD.BAD.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:56:22.490154900" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    DeployActivity[action=MODIFY, info=deploy/10_switch_server.xml]
+    DeployActivity[action=DELETE, info=deploy/10_switch_server.xml]
+    DeployActivity[action=CREATE, info=deploy/10_switch_server.xml.BAD.BAD.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T15:56:27.065110200" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    DeployActivity[action=DELETE, info=deploy/10_switch_server.xml.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T16:17:00.858934900" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    DeployActivity[action=DELETE, info=deploy/99_sysmon.xml]
+    DeployActivity[action=CREATE, info=deploy/99_sysmon.xml]
+    DeployActivity[action=MODIFY, info=deploy/99_sysmon.xml]
+  </info>
+</log>
+<log realm="sysmon" at="2026-02-04T16:17:00.872033" lifespan="7ms" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    osName               : Windows 11
+    osVersion            : 10.0
+    javaVersion          : 21.0.8
+    javaVendor           : Eclipse Adoptium
+    aes                  : secure
+    host                 : int-laptop-nthoang/100.105.113.61
+    userName             : Hoang
+    cwd                  : D:\Code\DoAn\DATN\jPOS\jpos\src\dist
+    watchService         : sun.nio.fs.WindowsWatchService
+    environment          : default
+    args                 : -Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant
+    encoding             : UTF-8
+    zoneInfo             : Asia/Bangkok (Indochina Time) +07:00 []
+    processName          : 24276@int-laptop-nthoang
+    freeSpace            : 67.8 GiB
+    usableSpace          : 67.8 GiB
+    version              : 3.0.1-SNAPSHOT
+    revision             : 4dcb96c
+    instance             : 1fb258c1-86a8-4b13-87dd-e5706ce01ab4
+    uptime               : PT21M31.0699314S
+    loadAverage          : -1.0
+    processors           : 16
+    drift                : 0
+    maxMemory            : 3904
+    totalMemory          : 60
+    freeMemory           : 29
+    inUseMemory          : 30
+    gcTotalCnt           : 6
+    gcTotalTime          : 28
+    threadCount          : 21
+    threadPeak           : 21
+    nameRegistrarEntries :
+      • KV[key=Q2, value=org.jpos.q2.Q2@2dad0f86]
+      • KV[key=logger.Q2, value=org.jpos.util.Logger@7224e101]
+    threads              :
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:9, value=Reference Handler - java.lang.ref.Reference.waitForReferencePendingList(Reference.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:10, value=Finalizer - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:11, value=Signal Dispatcher - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:12, value=Attach Listener - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:27, value=Notification Thread - ]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:28, value=Common-Cleaner - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:31, value=ForkJoinPool-1-worker-1 - jdk.internal.vm.Continuation.run(Continuation.java:251)]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:32, value=VirtualThread-unparker - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:33, value=Q2-1fb258c1-86a8-4b13-87dd-e5706ce01ab4 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:34, value=DestroyJavaVM - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:41, value=JFR Recorder Thread - ]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:42, value=JFR Periodic Tasks - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:45, value=FileSystemWatchService - sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0(WindowsNativeDispatcher.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:46, value=Timer-0 - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:57, value=ForkJoinPool-1-worker-2 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:58, value=ForkJoinPool-1-worker-3 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:59, value=ForkJoinPool-1-worker-4 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:60, value=ForkJoinPool-1-worker-5 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:61, value=ForkJoinPool-1-worker-6 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:62, value=ForkJoinPool-1-worker-7 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:63, value=ForkJoinPool-1-worker-8 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T16:17:00.886105700" lifespan="25ms" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    UnDeploy[path=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\99_sysmon.xml]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T16:17:03.393625700" lifespan="4ms" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    Deploy{path='D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\99_sysmon.xml', enabled=true}
+  </info>
+</log>
+<log realm="sysmon" at="2026-02-04T16:17:03.409060800" lifespan="12ms" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    osName               : Windows 11
+    osVersion            : 10.0
+    javaVersion          : 21.0.8
+    javaVendor           : Eclipse Adoptium
+    aes                  : secure
+    host                 : int-laptop-nthoang/100.105.113.61
+    userName             : Hoang
+    cwd                  : D:\Code\DoAn\DATN\jPOS\jpos\src\dist
+    watchService         : sun.nio.fs.WindowsWatchService
+    environment          : default
+    args                 : -Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant
+    encoding             : UTF-8
+    zoneInfo             : Asia/Bangkok (Indochina Time) +07:00 []
+    processName          : 24276@int-laptop-nthoang
+    freeSpace            : 67.8 GiB
+    usableSpace          : 67.8 GiB
+    version              : 3.0.1-SNAPSHOT
+    revision             : 4dcb96c
+    instance             : 1fb258c1-86a8-4b13-87dd-e5706ce01ab4
+    uptime               : PT21M33.599708S
+    loadAverage          : -1.0
+    processors           : 16
+    drift                : 0
+    maxMemory            : 3904
+    totalMemory          : 60
+    freeMemory           : 28
+    inUseMemory          : 31
+    gcTotalCnt           : 6
+    gcTotalTime          : 28
+    threadCount          : 24
+    threadPeak           : 24
+    nameRegistrarEntries :
+      • KV[key=Q2, value=org.jpos.q2.Q2@2dad0f86]
+      • KV[key=logger.Q2, value=org.jpos.util.Logger@7224e101]
+    threads              :
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:9, value=Reference Handler - java.lang.ref.Reference.waitForReferencePendingList(Reference.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:10, value=Finalizer - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:11, value=Signal Dispatcher - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:12, value=Attach Listener - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:27, value=Notification Thread - ]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:28, value=Common-Cleaner - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:31, value=ForkJoinPool-1-worker-1 - jdk.internal.vm.Continuation.run(Continuation.java:248)]
+      • KV[key=java.lang.ThreadGroup[name=InnocuousThreadGroup,maxpri=10]:32, value=VirtualThread-unparker - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:33, value=Q2-1fb258c1-86a8-4b13-87dd-e5706ce01ab4 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:34, value=DestroyJavaVM - ]
+      • KV[key=java.lang.ThreadGroup[name=system,maxpri=10]:41, value=JFR Recorder Thread - ]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:42, value=JFR Periodic Tasks - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:45, value=FileSystemWatchService - sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0(WindowsNativeDispatcher.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=main,maxpri=10]:46, value=Timer-0 - java.lang.Object.wait0(Object.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:57, value=ForkJoinPool-1-worker-2 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:58, value=ForkJoinPool-1-worker-3 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:59, value=ForkJoinPool-1-worker-4 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:60, value=ForkJoinPool-1-worker-5 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:61, value=ForkJoinPool-1-worker-6 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:62, value=ForkJoinPool-1-worker-7 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:63, value=ForkJoinPool-1-worker-8 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:64, value=ForkJoinPool-1-worker-9 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:65, value=ForkJoinPool-1-worker-10 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+      • KV[key=java.lang.ThreadGroup[name=CarrierThreads,maxpri=10]:66, value=ForkJoinPool-1-worker-11 - jdk.internal.misc.Unsafe.park(Unsafe.java:-2)]
+    scripts              :
+      • ProcessOutput[name=uptime, stdout=java.io.IOException: Cannot run program "uptime": CreateProcess error=2, The system cannot find the file specified
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1170)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1089)
+	at org.jpos.q2.qbean.SystemMonitor.exec(SystemMonitor.java:320)
+	at org.jpos.q2.qbean.SystemMonitor.runScripts(SystemMonitor.java:310)
+	at org.jpos.q2.qbean.SystemMonitor.generateSystemInfo(SystemMonitor.java:301)
+	at org.jpos.q2.qbean.SystemMonitor.dumpSystemInfo(SystemMonitor.java:348)
+	at org.jpos.q2.qbean.SystemMonitor.run(SystemMonitor.java:139)
+	at java.base/java.lang.VirtualThread.run(VirtualThread.java:329)
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.base/java.lang.ProcessImpl.create(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:506)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:159)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1126)
+	... 7 more
+, stderr=Exception: Cannot run program "uptime": CreateProcess error=2, The system cannot find the file specified]
+      • ProcessOutput[name=uname -a, stdout=java.io.IOException: Cannot run program "uname": CreateProcess error=2, The system cannot find the file specified
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1170)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1089)
+	at org.jpos.q2.qbean.SystemMonitor.exec(SystemMonitor.java:320)
+	at org.jpos.q2.qbean.SystemMonitor.runScripts(SystemMonitor.java:310)
+	at org.jpos.q2.qbean.SystemMonitor.generateSystemInfo(SystemMonitor.java:301)
+	at org.jpos.q2.qbean.SystemMonitor.dumpSystemInfo(SystemMonitor.java:348)
+	at org.jpos.q2.qbean.SystemMonitor.run(SystemMonitor.java:139)
+	at java.base/java.lang.VirtualThread.run(VirtualThread.java:329)
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.base/java.lang.ProcessImpl.create(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:506)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:159)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1126)
+	... 7 more
+, stderr=Exception: Cannot run program "uname": CreateProcess error=2, The system cannot find the file specified]
+      • ProcessOutput[name=ulimit -n, stdout=java.io.IOException: Cannot run program "ulimit": CreateProcess error=2, The system cannot find the file specified
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1170)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1089)
+	at org.jpos.q2.qbean.SystemMonitor.exec(SystemMonitor.java:320)
+	at org.jpos.q2.qbean.SystemMonitor.runScripts(SystemMonitor.java:310)
+	at org.jpos.q2.qbean.SystemMonitor.generateSystemInfo(SystemMonitor.java:301)
+	at org.jpos.q2.qbean.SystemMonitor.dumpSystemInfo(SystemMonitor.java:348)
+	at org.jpos.q2.qbean.SystemMonitor.run(SystemMonitor.java:139)
+	at java.base/java.lang.VirtualThread.run(VirtualThread.java:329)
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.base/java.lang.ProcessImpl.create(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:506)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:159)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1126)
+	... 7 more
+, stderr=Exception: Cannot run program "ulimit": CreateProcess error=2, The system cannot find the file specified]
+      • ProcessOutput[name=iostat, stdout=java.io.IOException: Cannot run program "iostat": CreateProcess error=2, The system cannot find the file specified
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1170)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1089)
+	at org.jpos.q2.qbean.SystemMonitor.exec(SystemMonitor.java:320)
+	at org.jpos.q2.qbean.SystemMonitor.runScripts(SystemMonitor.java:310)
+	at org.jpos.q2.qbean.SystemMonitor.generateSystemInfo(SystemMonitor.java:301)
+	at org.jpos.q2.qbean.SystemMonitor.dumpSystemInfo(SystemMonitor.java:348)
+	at org.jpos.q2.qbean.SystemMonitor.run(SystemMonitor.java:139)
+	at java.base/java.lang.VirtualThread.run(VirtualThread.java:329)
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.base/java.lang.ProcessImpl.create(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:506)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:159)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1126)
+	... 7 more
+, stderr=Exception: Cannot run program "iostat": CreateProcess error=2, The system cannot find the file specified]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T16:17:08.516662" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    DeployActivity[action=DELETE, info=deploy/10_server.xml.off]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T16:17:08.564748" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    DeployActivity[action=DELETE, info=deploy/10_switch_server.xml.BAD.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T16:17:08.593145200" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    DeployActivity[action=DELETE, info=deploy/10_switch_server.xml.BAD.BAD.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T17:01:44.811835900" lifespan="6ms" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    DeployActivity[action=CREATE, info=deploy/10_atm_server.xml]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T17:01:44.836520400" lifespan="11ms" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    <exception name="Error on line 1 of document file:/D:/Code/DoAn/DATN/jPOS/jpos/src/dist/deploy/10_atm_server.xml: Premature end of file.">
+    org.jdom2.input.JDOMParseException: Error on line 1 of document file:/D:/Code/DoAn/DATN/jPOS/jpos/src/dist/deploy/10_atm_server.xml: Premature end of file.
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:230)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:277)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:264)
+	at org.jdom2.input.SAXBuilder.build(SAXBuilder.java:1104)
+	at org.jpos.q2.Q2.deploy(Q2.java:652)
+	at org.jpos.q2.Q2.deploy(Q2.java:474)
+	at org.jpos.q2.Q2.run(Q2.java:341)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Code/DoAn/DATN/jPOS/jpos/src/dist/deploy/10_atm_server.xml; lineNumber: 1; columnNumber: 1; Premature end of file.
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1465)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:1013)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:114)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:542)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:889)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:825)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:637)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:217)
+	... 7 more
+    </exception>
+    DeployActivity[action=RENAME, info=D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_atm_server.xml to D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_atm_server.xml.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T17:01:44.838035400" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    DeployActivity[action=DELETE, info=deploy/10_atm_server.xml]
+    DeployActivity[action=CREATE, info=deploy/10_atm_server.xml.BAD]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T17:01:44.877280400" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    DeployActivity[action=CREATE, info=deploy/10_atm_server.xml]
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T17:01:44.914591700" lifespan="35ms" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    Deploy{path='D:\Code\DoAn\DATN\jPOS\jpos\src\dist\deploy\10_atm_server.xml', enabled=true}
+  </info>
+</log>
+<log realm="Q2.system" at="2026-02-04T17:01:45.022534300" trace-id="1fb258c186a84b1387dde5706ce01ab4">
+  <info>
+    DeployActivity[action=MODIFY, info=deploy/10_atm_server.xml]
+  </info>
+</log>
+<log realm="atm-server.server" at="2026-02-04T17:01:45.035773100" trace-id="9ead2b224ac043e89b050e8ff0e775a2">
+  <info>
+    Listen[port=10000, bindAddr=null, permits=100, backlog=5]
+  </info>
+</log>
