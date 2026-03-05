@@ -166,7 +166,7 @@ export default function PosSimulator() {
         {(status === 'APPROVED' || status === 'DECLINED' || status === 'ERROR') && (
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
             <button onClick={handleReset} className="numpad-btn" style={{ background: '#475569', padding: '0 2rem', height: '44px', fontSize: '1rem', width: 'auto' }}>
-              <FontAwesomeIcon icon={faArrowLeft} style={{ marginRight: '0.5rem' }} /> Quay lại thao tác mới
+              <FontAwesomeIcon icon={faArrowLeft} style={{ marginRight: '0.5rem' }} /> Giao dịch mới
             </button>
           </div>
         )}
@@ -252,15 +252,15 @@ export default function PosSimulator() {
 
               {/* Amounts */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '0.25rem', marginTop: '0.5rem' }}>
-                <div>Tạm tính:</div><div style={{ textAlign: 'right' }}>{Number(receiptData.amount).toLocaleString('vi-VN')} VND</div>
-                <div>Thuế (VAT 0%):</div><div style={{ textAlign: 'right' }}>0 VND</div>
+                <div>Tạm tính:</div><div style={{ textAlign: 'right' }}>{Number(receiptData.amount).toLocaleString('vi-VN')} USD</div>
+                <div>Thuế (VAT 0%):</div><div style={{ textAlign: 'right' }}>0 USD</div>
               </div>
 
               <div style={{ borderTop: '1px solid #1e293b', margin: '0.5rem 0' }}></div>
 
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontWeight: 700, fontSize: '1rem' }}>
                 <div>TỔNG THANH TOÁN:</div>
-                <div>{Number(receiptData.amount).toLocaleString('vi-VN')} VND</div>
+                <div>{Number(receiptData.amount).toLocaleString('vi-VN')} USD</div>
               </div>
 
               <div style={{ borderTop: '1px solid #1e293b', margin: '0.5rem 0' }}></div>

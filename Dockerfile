@@ -45,4 +45,4 @@ COPY jpos/src/main/resources/packager ./packager
 EXPOSE 8080 8443 9999
 
 # Set the entrypoint
-CMD ["bin/q2"]
+CMD ["sh", "-c", "rm -f jpos.pid && bin/q2"]
