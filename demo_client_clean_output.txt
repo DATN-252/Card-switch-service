@@ -1,0 +1,44 @@
+==========================================
+     DEMO: ISO 8583 Client (ATM/POS)
+==========================================
+
+[1/3] Compiling Test Client...
+[2/3] Setting up resources...
+[3/3] STARTING ISO CLIENT...
+
+---------------------------------------------------
+---------------------------------------------------
+
+=== jPOS ? CMS ? Fineract E2E Test ===
+
+? Connected to jPOS on port 10000
+
+--- Test 1: Credit Card Authorization ($500) ---
+Test: Credit Card $500
+MTI: 0210
+Response Code: 51
+Status: ? DECLINED (Insufficient Funds/Credit Limit)
+
+--- Test 2: Credit Card Exceeding Limit ($50K) ---
+Test: Credit Card $50K
+MTI: 0210
+Response Code: 51
+Status: ? DECLINED (Insufficient Funds/Credit Limit)
+
+--- Test 3: Debit Card - Zero Balance ($100) ---
+Test: Debit Card $100
+MTI: 0210
+Response Code: 51
+Status: ? DECLINED (Insufficient Funds/Credit Limit)
+
+--- Test 4: Invalid Card Number ---
+Test: Invalid Card
+MTI: 0210
+Response Code: 51
+Status: ? DECLINED (Insufficient Funds/Credit Limit)
+
+=== Test Complete ===
+
+==========================================
+     DEMO COMPLETED
+==========================================

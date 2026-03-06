@@ -1,0 +1,620 @@
+> Task :jpos:compileJava
+> Task :jpos:createBuildTimestampPropertyFile UP-TO-DATE
+> Task :jpos:createRevisionPropertyFile UP-TO-DATE
+> Task :jpos:processResources
+> Task :jpos:classes
+> Task :jpos:jar
+
+> Task :jpos:javadoc
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\LogSource.java:23: warning: no main description
+ * @author apr@cs.com.uy
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\core\handlers\exception\ExceptionHandlerAware.java:35: error: unexpected end tag: </p>
+ * </p>
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\channel\BCDChannel.java:33: error: malformed HTML
+ * @author Mladen Mrkic <mmrkic@arius.co.yu>
+                        ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\channel\HEXChannel.java:31: error: malformed HTML
+ * @author Mladen Mrkic <mmrkic@arius.co.yu>
+                        ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\ISOPackager.java:25: warning: no main description
+ * @author apr
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\packager\BASE24Packager.java:26: error: malformed HTML
+ * @author Mike Trank <mike@netcomsa.com>
+                      ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\packager\TagMapper.java:24: warning: empty comment
+public interface TagMapper {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\ISOSubFieldPackager.java:29: error: malformed HTML
+ * @author Robert Demski <drdemsey@gmail.com>
+                         ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\packager\PostPackager.java:63: error: malformed HTML
+ * @author Victor A. Salaman <salaman@teknos.com>
+                             ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\packager\VISA1Packager.java:31: warning: no main description
+ * @author apr@cs.com.uy
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\packager\X92GenericPackager.java:28: warning: no main description
+ * @see GenericPackager
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\Loggeable.java:27: warning: no main description
+ * @author apr@cs.com.uy
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\ISOStringFieldPackager.java:25: warning: no main description
+ * @author joconnor
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\ISOAmountFieldPackager.java:25: warning: no main description
+ * @author joconnor
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\ISOBinaryFieldPackager.java:25: warning: no main description
+ * @author joconnor
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\ISOFilledStringFieldPackager.java:25: warning: no main description
+ * @author joconnor
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\IFA_LLBNUM.java:28: error: malformed HTML
+ * @author Mladen Mrkic <mmrkic@arius.co.yu>
+                        ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\IFA_LLLLCHAR.java:24: error: malformed HTML
+ * @author Victor A. Salaman <salaman@teknos.com>
+                             ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\IFA_LLLLLCHAR.java:24: error: malformed HTML
+ * @author Victor A. Salaman <salaman@teknos.com>
+                             ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\TaggedFieldPackagerBase.java:29: error: self-closing element not allowed
+ * <p/>
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\IFB_LLLHECHAR.java:23: warning: no main description
+ * @author apr@cs.com.uy
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\IFE_CHAR.java:22: error: bad HTML entity
+ * ISOFieldPackager CHARACTERS (ASCII & BINARY)
+                                      ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\IFE_LLLLBINARY.java:23: warning: no main description
+ * @author edwin < edwinkun at gmail dot com >
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\IFE_LLLLBINARY.java:23: error: malformed HTML
+ * @author edwin < edwinkun at gmail dot com >
+                 ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\IFE_LLLLCHAR.java:23: warning: no main description
+ * @author edwin < edwinkun at gmail dot com >
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\IFE_LLLLCHAR.java:23: error: malformed HTML
+ * @author edwin < edwinkun at gmail dot com >
+                 ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\IF_ECHAR.java:22: error: bad HTML entity
+ * ISOFieldPackager CHARACTERS (ASCII & BINARY)
+                                      ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\IF_NOP.java:23: warning: no main description
+ * @author apr@cs.com.uy & dflc@cs.com.uy
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\IF_NOP.java:23: error: bad HTML entity
+ * @author apr@cs.com.uy & dflc@cs.com.uy
+                         ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\TaggedFieldPackager.java:22: warning: no main description
+ * @author Vishnu Pillai
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\ISOCurrency.java:34: error: unexpected content
+ *      "http://www.iso.org/iso/en/prods-services/popstds/currencycodeslist.html"
+                                                                                ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\iso\ISOHeader.java:24: warning: no main description
+ * @author Eoin.Flood@orbiscom.com
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\q2\Q2.java:101: warning: no main description
+ * @author <a href="mailto:taherkordy@dpi2.dpi.net.ir">Alireza Taherkordi</a>
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\q2\QBeanSupport.java:39: warning: no main description
+ * @author <a href="mailto:taherkordy@dpi2.dpi.net.ir">Alireza Taherkordi</a>
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\q2\QBeanSupportMBean.java:26: warning: no main description
+ * @author <a href="mailto:taherkordy@dpi2.dpi.net.ir">Alireza Taherkordi</a>
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\q2\QFactory.java:46: warning: no main description
+ * @author <a href="mailto:taherkordy@dpi2.dpi.net.ir">Alireza Taherkordi</a>
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\LogListener.java:25: warning: no main description
+ * @author apr@cs.com.uy
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\q2\install\Install.java:30: warning: no main description
+ * @author vsalaman
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\q2\install\ModuleUtils.java:35: warning: no main description
+ * @author vsalaman
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\q2\iso\ChannelAdaptor.java:57: warning: no main description
+ * @author Alejandro Revilla
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\q2\iso\MultiSessionChannelAdaptor.java:34: warning: no main description
+ * @author apr
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\q2\iso\MUXPool.java:36: warning: no main description
+ * @author apr
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\q2\iso\QMUX.java:43: warning: no main description
+ * @author Alejandro Revilla
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\space\SpaceListener.java:22: warning: no main description
+ * @author Alejandro Revilla
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\space\SpaceListener.java:27: warning: no @param for <K>
+public interface SpaceListener<K,V> {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\space\SpaceListener.java:27: warning: no @param for <V>
+public interface SpaceListener<K,V> {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\q2\qbean\QThreadPoolExecutorMBean.java:24: warning: no main description
+ * @author dgrandemange
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\space\Space.java:42: warning: no @param for <K>
+public interface Space<K,V> extends AutoCloseable {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\space\Space.java:42: warning: no @param for <V>
+public interface Space<K,V> extends AutoCloseable {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\q2\ui\UI.java:27: warning: no main description
+ * @author Alejandro Revilla
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\ui\UIObjectFactory.java:22: warning: no main description
+ * @author Alejandro Revilla
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\security\BaseSMAdapter.java:52: warning: no @param for <T>
+public class BaseSMAdapter<T>
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\security\SMAdapter.java:45: warning: no @param for <T>
+public interface SMAdapter<T> {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\security\CipherMode.java:24: error: malformed HTML
+ * @author Grzegorz Wieczorek <grw1@wp.pl>
+                              ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\security\CryptographicServiceMessage.java:34: error: unexpected end tag: </p>
+ * </p>
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\security\Exportability.java:30: warning: empty <p> tag
+ * <p>
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\security\jceadapter\JCEHandler.java:44: error: tag not supported in HTML5: font
+ * It depends on the Java<font size=-1><sup>TM</sup></font> Cryptography Extension (JCE).
+                         ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\space\JDBMSpace.java:46: warning: no @param for <K>
+public class JDBMSpace<K,V> extends TimerTask implements Space<K,V>, PersistentSpace {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\space\JDBMSpace.java:46: warning: no @param for <V>
+public class JDBMSpace<K,V> extends TimerTask implements Space<K,V>, PersistentSpace {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\space\JESpace.java:55: warning: no @param for <K>
+public class JESpace<K,V> extends Log implements LocalSpace<K,V>, PersistentSpace, Loggeable, Runnable {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\space\JESpace.java:55: warning: no @param for <V>
+public class JESpace<K,V> extends Log implements LocalSpace<K,V>, PersistentSpace, Loggeable, Runnable {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\space\LocalSpace.java:24: warning: no main description
+ * @author Kris, Bharavi, Alejandro
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\space\LocalSpace.java:27: warning: no @param for <K>
+public interface LocalSpace<K,V> extends Space<K,V> {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\space\LocalSpace.java:27: warning: no @param for <V>
+public interface LocalSpace<K,V> extends Space<K,V> {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\space\LSpace.java:52: error: unexpected end tag: </p>
+ * </p>
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\space\LSpace.java:64: warning: no @param for <K>
+public class LSpace<K,V> implements LocalSpace<K,V>, Loggeable, Runnable {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\space\LSpace.java:64: warning: no @param for <V>
+public class LSpace<K,V> implements LocalSpace<K,V>, Loggeable, Runnable {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\space\SpaceFactory.java:36: warning: empty <p> tag
+ * <p>
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\space\SpaceInterceptor.java:27: warning: no @param for <K>
+public class SpaceInterceptor<K,V> implements Space<K,V> {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\space\SpaceInterceptor.java:27: warning: no @param for <V>
+public class SpaceInterceptor<K,V> implements Space<K,V> {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\space\TSpace.java:37: warning: no @param for <K>
+public class TSpace<K,V> implements LocalSpace<K,V>, Loggeable, Runnable {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\space\TSpace.java:37: warning: no @param for <V>
+public class TSpace<K,V> implements LocalSpace<K,V>, Loggeable, Runnable {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\BinaryTagValue.java:22: warning: no main description
+ * @author Vishnu Pillai
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\TagValueBase.java:22: warning: no main description
+ * @author Vishnu Pillai
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\TagValueBase.java:24: warning: no @param for <T>
+public abstract class TagValueBase<T> implements TagValue<T> {
+                ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\TagValue.java:24: warning: no main description
+ * @author Vishnu Pillai
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\TagValue.java:26: warning: no @param for <T>
+public interface TagValue<T> {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\CharTag.java:28: error: tag not supported in HTML5: tt
+ *   <li><tt>TAG</tt> - the identifier of the tag</li>
+         ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\CharTag.java:29: error: tag not supported in HTML5: tt
+ *   <li><tt>LEN</tt> - the length <i>(encoded as decimal digits)</i> of the tag value</li>
+         ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\CharTag.java:30: error: tag not supported in HTML5: tt
+ *   <li><tt>VAL</tt> - the value of the tag or missing if length is 0</li>
+         ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\CharTagMap.java:36: error: malformed HTML
+ * @author Grzegorz Wieczorek <grw1@wp.pl>
+                              ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\CharTagMapBuilder.java:27: error: malformed HTML
+ * @author Robert Demski <drdemsey@gmail.com>
+                         ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\GenericTagSequence.java:24: warning: no main description
+ * @author Vishnu Pillai
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\TagSequenceBase.java:33: warning: no main description
+ * @author Vishnu Pillai
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\TagSequence.java:28: warning: no main description
+ * @author Vishnu Pillai
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\TagSequence.java:31: warning: no @param for <T>
+public interface TagSequence<T> extends TagValue<T> {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\ISOMsgRef.java:36: warning: no main description
+ * @author Vishnu Pillai
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\OffsetIndexedComposite.java:22: warning: no main description
+ * @author Vishnu Pillai
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\ISOMsgTagValue.java:24: warning: no main description
+ * @author Vishnu Pillai
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\ISOTaggedField.java:34: warning: no main description
+ * @author Vishnu Pillai
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\LiteralTagValue.java:22: warning: no main description
+ * @author Vishnu Pillai
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\TLVDataFormat.java:23: warning: no main description
+ * @author Vishnu Pillai
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\TLVList.java:35: warning: no main description
+ * @author bharavi
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\tlv\TLVMsg.java:28: warning: no main description
+ * @author bharavi
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\ui\UIFactory.java:26: warning: no main description
+ * @author Alejandro Revilla
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\transaction\participant\BSHGroupSelector.java:30: warning: no main description
+ * @author  AMarques
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\ui\UI.java:33: warning: no main description
+ * @author Alejandro Revilla
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\ui\UIAware.java:24: warning: no main description
+ * @since 1.4.7
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\ui\factory\BorderLayoutFactory.java:29: warning: no main description
+ * @author Alejandro Revilla
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\ui\factory\GridLayoutFactory.java:30: warning: no main description
+ * @author Alejandro Revilla
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\ui\factory\HSplitFactory.java:28: warning: no main description
+ * @author Alejandro Revilla
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\ui\factory\HtmlFactory.java:32: warning: no main description
+ * @author Alejandro Revilla
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\ui\factory\ISOMeterFactory.java:34: warning: no main description
+ * @author Alejandro Revilla
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\ui\factory\ISOMeterFactory.java:39: error: semicolon missing
+ *  &lt;iso-meter idref="id" scroll="true|false" refresh="nnn"/&gt
+                                                                 ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\ui\factory\JButtonFactory.java:30: warning: no main description
+ * @author Alejandro Revilla
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\ui\factory\JLabelFactory.java:30: warning: no main description
+ * @author Alejandro Revilla
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\ui\factory\JTabbedPaneFactory.java:36: warning: no main description
+ * @author Alejandro Revilla
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\ui\factory\JTreeFactory.java:38: warning: no main description
+ * @author Alejandro Revilla
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\ui\factory\LogListenerFactory.java:33: warning: no main description
+ * @author Alejandro Revilla
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\ui\factory\PanelFactory.java:28: warning: no main description
+ * @author Alejandro Revilla
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\ui\factory\TextFactory.java:28: warning: no main description
+ * @author Alejandro Revilla
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\ui\factory\VSplitFactory.java:28: warning: no main description
+ * @author Alejandro Revilla
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\SimpleLogListener.java:28: warning: no main description
+ * @author <a href="mailto:apr@cs.com.uy">Alejandro P. Revilla</a>
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\Destroyable.java:23: warning: no main description
+ * @author apr@cs.com.uy
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\FilterLogListener.java:34: error: malformed HTML
+ * priorities are ordered as follows: TRACE < DEBUG < INFO < WARN < ERROR < FATAL
+                                            ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\FilterLogListener.java:34: error: malformed HTML
+ * priorities are ordered as follows: TRACE < DEBUG < INFO < WARN < ERROR < FATAL
+                                                    ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\FilterLogListener.java:34: error: malformed HTML
+ * priorities are ordered as follows: TRACE < DEBUG < INFO < WARN < ERROR < FATAL
+                                                           ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\FilterLogListener.java:34: error: malformed HTML
+ * priorities are ordered as follows: TRACE < DEBUG < INFO < WARN < ERROR < FATAL
+                                                                  ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\FilterLogListener.java:34: error: malformed HTML
+ * priorities are ordered as follows: TRACE < DEBUG < INFO < WARN < ERROR < FATAL
+                                                                          ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\LogEvent.java:41: warning: no main description
+ * @author @apr
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\FSDMsg.java:51: error: unexpected heading used: <H1>, compared to implicit preceding heading: <H1>
+ * <h1>How to use</h1>
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\FSDMsg.java:79: error: unexpected end tag: </p>
+ * </p>
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\FSDMsg.java:93: error: unexpected end tag: </p>
+ * </p>
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\RealmLogFilter.java:64: error: unknown tag: enabled
+ * Reads values configured inside <enabled></enabled> or
+                                  ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\RealmLogFilter.java:64: error: unknown tag: enabled
+ * Reads values configured inside <enabled></enabled> or
+                                           ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\RealmLogFilter.java:65: error: unknown tag: disabled
+ * <disabled></disabled> to choose elements of which realm to log.
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\RealmLogFilter.java:65: error: unknown tag: disabled
+ * <disabled></disabled> to choose elements of which realm to log.
+             ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\RealmLogFilter.java:66: error: unknown tag: enabled
+ * If <enabled></enabled> is defined, these realms ONLY will be logged. Disabled will not be taken into account.
+      ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\RealmLogFilter.java:66: error: unknown tag: enabled
+ * If <enabled></enabled> is defined, these realms ONLY will be logged. Disabled will not be taken into account.
+               ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\RealmLogFilter.java:67: error: unknown tag: disabled
+ * If the <disabled></disabled> realms are defined, only this will not be shown, the rest will.
+          ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\RealmLogFilter.java:67: error: unknown tag: disabled
+ * If the <disabled></disabled> realms are defined, only this will not be shown, the rest will.
+                    ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\RealmLogFilter.java:71: error: malformed HTML
+ * by the property dump-interval in an <ignored-realms> tag. Once logged these filtered realms are reset.
+                                       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\TPS.java:34: error: unexpected end tag: </p>
+ * <li>Manual update</li> </ul></p>
+                               ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\function\ByteArrayMapper.java:24: warning: no main description
+ * @author Alwyn Schoeman
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\function\LogEventMapper.java:26: warning: no main description
+ * @author Alwyn Schoeman
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\function\RemoveNewLinesMapper.java:35: error: malformed HTML
+ *         <output-mapper class="org.jpos.util.function.RemoveNewLinesMapper">
+           ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\function\RemoveNewLinesMapper.java:36: error: unknown tag: properties
+ *             <properties name="combine-spaces" value="true"/>
+               ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\function\RemoveNewLinesMapper.java:37: error: malformed HTML
+ *             <properties name="newline-at-end" value="false/>
+               ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\util\function\RemoveNewLinesMapper.java:38: error: malformed HTML
+ *         </output-mapper>
+           ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\emv\BinaryEMVTag.java:26: warning: no main description
+ * @author Vishnu Pillai
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\emv\EMVTag.java:29: warning: no main description
+ * @author Vishnu Pillai
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\emv\EMVTag.java:31: warning: no @param for <T>
+public abstract class EMVTag<T> implements TagValue<T>, Serializable {
+                ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\emv\EMVConstructedTag.java:28: warning: no main description
+ * @author Vishnu Pillai
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\emv\EMVConstructedTag.java:30: warning: no @param for <T>
+public class EMVConstructedTag<T> implements Serializable {
+       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\emv\EMVProprietaryTagType.java:22: warning: no main description
+ * @author Vishnu Pillai
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\emv\EMVStandardTagType.java:30: warning: no main description
+ * @author Vishnu Pillai
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\emv\EMVTagType.java:25: warning: no main description
+ * @author Vishnu Pillai
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\emv\EMVTagSequence.java:25: warning: no main description
+ * @author Vishnu Pillai
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:41: error: malformed HTML
+ * <log-listener class="org.jpos.bsh.BSHLoglistener">
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:42: error: unknown tag: property
+ *    <property name="source" value="general.bsh"/>
+      ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:43: error: unknown tag: property
+ *    <property name="source" value="tag_$tag.bsh"/> <!--this is to handle
+      ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:45: error: unknown tag: property
+ *    <property name="source" value="realm_$realm.bsh"/> <!-- to handle specific
+      ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:47: error: unknown tag: property
+ *    <property name="source" value="tag_$tag_realm_$realm.bsh"/> <!-- to handle
+      ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:49: error: malformed HTML
+ * </log-listener>
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:53: error: tag not supported in HTML5: font
+ * <font color="#008080">&lt;</font><font color="#008080">log-listener</font><font color="#008080"> </font><font color="#2e8b57"><b>class</b></font>=<font color="#ff00ff">&quot;org.jpos.bsh.BSHLoglistener&quot;</font><font color="#008080">&gt;</font>
+   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:53: error: tag not supported in HTML5: font
+ * <font color="#008080">&lt;</font><font color="#008080">log-listener</font><font color="#008080"> </font><font color="#2e8b57"><b>class</b></font>=<font color="#ff00ff">&quot;org.jpos.bsh.BSHLoglistener&quot;</font><font color="#008080">&gt;</font>
+                                    ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:53: error: tag not supported in HTML5: font
+ * <font color="#008080">&lt;</font><font color="#008080">log-listener</font><font color="#008080"> </font><font color="#2e8b57"><b>class</b></font>=<font color="#ff00ff">&quot;org.jpos.bsh.BSHLoglistener&quot;</font><font color="#008080">&gt;</font>
+                                                                             ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:53: error: tag not supported in HTML5: font
+ * <font color="#008080">&lt;</font><font color="#008080">log-listener</font><font color="#008080"> </font><font color="#2e8b57"><b>class</b></font>=<font color="#ff00ff">&quot;org.jpos.bsh.BSHLoglistener&quot;</font><font color="#008080">&gt;</font>
+                                                                                                           ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:53: error: tag not supported in HTML5: font
+ * <font color="#008080">&lt;</font><font color="#008080">log-listener</font><font color="#008080"> </font><font color="#2e8b57"><b>class</b></font>=<font color="#ff00ff">&quot;org.jpos.bsh.BSHLoglistener&quot;</font><font color="#008080">&gt;</font>
+                                                                                                                                                     ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:53: error: tag not supported in HTML5: font
+ * <font color="#008080">&lt;</font><font color="#008080">log-listener</font><font color="#008080"> </font><font color="#2e8b57"><b>class</b></font>=<font color="#ff00ff">&quot;org.jpos.bsh.BSHLoglistener&quot;</font><font color="#008080">&gt;</font>
+                                                                                                                                                                                                                         ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:54: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;general.bsh&quot;</font><font color="#008080">/&gt;</font>
+         ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:54: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;general.bsh&quot;</font><font color="#008080">/&gt;</font>
+                                          ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:54: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;general.bsh&quot;</font><font color="#008080">/&gt;</font>
+                                                                               ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:54: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;general.bsh&quot;</font><font color="#008080">/&gt;</font>
+                                                                                                             ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:54: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;general.bsh&quot;</font><font color="#008080">/&gt;</font>
+                                                                                                                                                      ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:54: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;general.bsh&quot;</font><font color="#008080">/&gt;</font>
+                                                                                                                                                                                                     ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:54: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;general.bsh&quot;</font><font color="#008080">/&gt;</font>
+                                                                                                                                                                                                                                   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:54: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;general.bsh&quot;</font><font color="#008080">/&gt;</font>
+                                                                                                                                                                                                                                                                             ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:54: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;general.bsh&quot;</font><font color="#008080">/&gt;</font>
+                                                                                                                                                                                                                                                                                                                                 ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:55: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;tag_$tag.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">--this is to handle specific tags--</font><font color="#0000ff">&gt;</font>
+         ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:55: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;tag_$tag.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">--this is to handle specific tags--</font><font color="#0000ff">&gt;</font>
+                                          ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:55: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;tag_$tag.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">--this is to handle specific tags--</font><font color="#0000ff">&gt;</font>
+                                                                               ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:55: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;tag_$tag.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">--this is to handle specific tags--</font><font color="#0000ff">&gt;</font>
+                                                                                                             ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:55: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;tag_$tag.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">--this is to handle specific tags--</font><font color="#0000ff">&gt;</font>
+                                                                                                                                                      ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:55: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;tag_$tag.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">--this is to handle specific tags--</font><font color="#0000ff">&gt;</font>
+                                                                                                                                                                                                     ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:55: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;tag_$tag.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">--this is to handle specific tags--</font><font color="#0000ff">&gt;</font>
+                                                                                                                                                                                                                                   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:55: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;tag_$tag.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">--this is to handle specific tags--</font><font color="#0000ff">&gt;</font>
+                                                                                                                                                                                                                                                                             ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:55: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;tag_$tag.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">--this is to handle specific tags--</font><font color="#0000ff">&gt;</font>
+                                                                                                                                                                                                                                                                                                                                  ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:55: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;tag_$tag.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">--this is to handle specific tags--</font><font color="#0000ff">&gt;</font>
+                                                                                                                                                                                                                                                                                                                                                                     ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:55: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;tag_$tag.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">--this is to handle specific tags--</font><font color="#0000ff">&gt;</font>
+                                                                                                                                                                                                                                                                                                                                                                                                       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:55: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;tag_$tag.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">--this is to handle specific tags--</font><font color="#0000ff">&gt;</font>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:56: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;realm_$realm.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">-- to handle specific realms--</font><font color="#0000ff">&gt;</font>
+         ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:56: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;realm_$realm.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">-- to handle specific realms--</font><font color="#0000ff">&gt;</font>
+                                          ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:56: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;realm_$realm.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">-- to handle specific realms--</font><font color="#0000ff">&gt;</font>
+                                                                               ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:56: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;realm_$realm.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">-- to handle specific realms--</font><font color="#0000ff">&gt;</font>
+                                                                                                             ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:56: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;realm_$realm.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">-- to handle specific realms--</font><font color="#0000ff">&gt;</font>
+                                                                                                                                                      ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:56: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;realm_$realm.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">-- to handle specific realms--</font><font color="#0000ff">&gt;</font>
+                                                                                                                                                                                                     ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:56: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;realm_$realm.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">-- to handle specific realms--</font><font color="#0000ff">&gt;</font>
+                                                                                                                                                                                                                                   ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:56: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;realm_$realm.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">-- to handle specific realms--</font><font color="#0000ff">&gt;</font>
+                                                                                                                                                                                                                                                                             ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:56: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;realm_$realm.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">-- to handle specific realms--</font><font color="#0000ff">&gt;</font>
+                                                                                                                                                                                                                                                                                                                                      ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:56: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;realm_$realm.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">-- to handle specific realms--</font><font color="#0000ff">&gt;</font>
+                                                                                                                                                                                                                                                                                                                                                                         ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:56: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;realm_$realm.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">-- to handle specific realms--</font><font color="#0000ff">&gt;</font>
+                                                                                                                                                                                                                                                                                                                                                                                                           ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:56: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;realm_$realm.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">-- to handle specific realms--</font><font color="#0000ff">&gt;</font>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:57: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;tag_$tag_realm_$realm.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">-- to handle specific tags from specific realms--</font><font color="#0000ff">&gt;</font>
+         ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:57: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;tag_$tag_realm_$realm.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">-- to handle specific tags from specific realms--</font><font color="#0000ff">&gt;</font>
+                                          ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:57: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;tag_$tag_realm_$realm.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">-- to handle specific tags from specific realms--</font><font color="#0000ff">&gt;</font>
+                                                                               ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:57: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;tag_$tag_realm_$realm.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">-- to handle specific tags from specific realms--</font><font color="#0000ff">&gt;</font>
+                                                                                                             ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:57: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;tag_$tag_realm_$realm.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">-- to handle specific tags from specific realms--</font><font color="#0000ff">&gt;</font>
+                                                                                                                                                      ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:57: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;tag_$tag_realm_$realm.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">-- to handle specific tags from specific realms--</font><font color="#0000ff">&gt;</font>
+                                                                                                                                                                                                     ^
+D:\Code\DoAn\DATN\jPOS\jpos\src\main\java\org\jpos\bsh\BSHLogListener.java:57: error: tag not supported in HTML5: font
+ *       <font color="#008080">&lt;</font><font color="#008080">property</font><font color="#008080"> </font><font color="#2e8b57"><b>name</b></font>=<font color="#ff00ff">&quot;source&quot;</font><font color="#008080"> </font><font color="#2e8b57"><b>value</b></font>=<font color="#ff00ff">&quot;tag_$tag_realm_$realm.bsh&quot;</font><font color="#008080">/&gt;</font> <font color="#0000ff">&lt;!</font><font color="#0000ff">-- to handle specific tags from specific realms--</font><font color="#0000ff">&gt;</font>
+                                                                                                                                                                                                                                   ^
+100 errors
+100 warnings
+
+> Task :jpos:javadocJar
+> Task :jpos:sourcesJar
+> Task :jpos:assemble
+> Task :jpos:check
+> Task :jpos:build
+
+BUILD SUCCESSFUL in 42s
+8 actionable tasks: 6 executed, 2 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

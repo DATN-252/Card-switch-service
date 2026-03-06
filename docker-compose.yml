@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  jpos:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jpos-switch
+    ports:
+      - "10000:10000"
+      - "9999:9999"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped

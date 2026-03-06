@@ -1,0 +1,82 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.42kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/eclipse-temurin:21-jre
+#2 ...
+
+#3 [internal] load metadata for docker.io/library/gradle:jdk21
+#3 DONE 1.2s
+
+#2 [internal] load metadata for docker.io/library/eclipse-temurin:21-jre
+#2 DONE 1.2s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 93B done
+#4 DONE 0.0s
+
+#5 [builder  1/12] FROM docker.io/library/gradle:jdk21@sha256:8e76ebb881f149bf5c68d13e345a7722597178526cad55c8311ae5353ad1b27e
+#5 resolve docker.io/library/gradle:jdk21@sha256:8e76ebb881f149bf5c68d13e345a7722597178526cad55c8311ae5353ad1b27e 0.0s done
+#5 DONE 0.0s
+
+#6 [stage-1 1/3] FROM docker.io/library/eclipse-temurin:21-jre@sha256:d45e4719da1774b3abde398867f78a6d9b9afe4265f574f3d54062f6daeb00b3
+#6 resolve docker.io/library/eclipse-temurin:21-jre@sha256:d45e4719da1774b3abde398867f78a6d9b9afe4265f574f3d54062f6daeb00b3 0.0s done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 99.04kB 0.0s done
+#7 DONE 0.1s
+
+#8 [builder  2/12] WORKDIR /home/gradle/project
+#8 CACHED
+
+#9 [builder  3/12] COPY settings.gradle build.gradle gradle.properties gradlew VERSION ./
+#9 CACHED
+
+#10 [builder  8/12] RUN chmod +x gradlew
+#10 CACHED
+
+#11 [builder  9/12] RUN sed -i 's/JavaVersion.VERSION_25/JavaVersion.VERSION_21/g' build.gradle
+#11 CACHED
+
+#12 [builder  4/12] COPY gradle ./gradle
+#12 CACHED
+
+#13 [builder  7/12] RUN sed -i 's/\r$//' gradlew
+#13 CACHED
+
+#14 [builder  5/12] COPY jpos ./jpos
+#14 CACHED
+
+#15 [builder  6/12] RUN mkdir -p .git && echo "ref: refs/heads/master" > .git/HEAD
+#15 CACHED
+
+#16 [builder 10/12] RUN sed -i 's/options.release = .*$/options.release = 21/' build.gradle
+#16 CACHED
+
+#17 [builder 11/12] RUN ./gradlew :jpos:installApp --no-daemon
+#17 CACHED
+
+#18 [builder 12/12] RUN sed -i 's/\r$//' jpos/build/install/jpos/bin/q2 &&     chmod +x jpos/build/install/jpos/bin/q2
+#18 DONE 0.4s
+
+#19 [stage-1 2/3] WORKDIR /opt/jpos
+#19 CACHED
+
+#20 [stage-1 3/3] COPY --from=builder /home/gradle/project/jpos/build/install/jpos/ .
+#20 DONE 0.1s
+
+#21 exporting to image
+#21 exporting layers
+#21 exporting layers 1.0s done
+#21 exporting manifest sha256:40763a2bc49b6299e91f2ce24b4929d63b05894140f38a263b71261f1939701b done
+#21 exporting config sha256:483252973c73b57ffdea491dcc737425d8634bedfcc448b0fff0f1c5ba335b7f done
+#21 exporting attestation manifest sha256:6f1950c81adb82c1f74532e27a4f4e34d9ad808100c4a9fa03e56e6c0140287f 0.0s done
+#21 exporting manifest list sha256:2c455b49a05401dde9ac7c71484a945fc7670303419d2d030c0c79bc716fec95 done
+#21 naming to docker.io/library/jpos:latest done
+#21 unpacking to docker.io/library/jpos:latest 0.1s done
+#21 DONE 1.2s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/afszdb1s3uoqibs2h3jn3gsm5

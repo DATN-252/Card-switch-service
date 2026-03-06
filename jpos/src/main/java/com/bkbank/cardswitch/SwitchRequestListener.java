@@ -21,13 +21,13 @@ public class SwitchRequestListener implements ISORequestListener, LogSource {
     private final HttpClient httpClient;
 
     // Service Endpoints (Env vars or defaults)
-    private static final String FRAUD_SERVICE_URL = System.getenv().getOrDefault("FRAUD_SERVICE_URL", "http://fraud-service:8081/api/check");
-    private static final String CMS_SERVICE_URL = System.getenv().getOrDefault("CMS_SERVICE_URL", "http://host.docker.internal:8082/api/transaction");
+    private static final String FRAUD_SERVICE_URL = System.getenv().getOrDefault("FRAUD_SERVICE_URL", "http://localhost:8081/api/check");
+    private static final String CMS_SERVICE_URL = System.getenv().getOrDefault("CMS_SERVICE_URL", "http://localhost:8082/api/transaction");
     private static final String CMS_INTERNAL_API_KEY = System.getenv().getOrDefault("CMS_INTERNAL_API_KEY", "jpos-to-cms-secret-key-2025");
 
     public SwitchRequestListener() {
         this.httpClient = HttpClient.newBuilder()
-                .version(HttpClient.Version.HTTP_2)
+                .version(HttpClient.Version.HTTP_1_1)
                 .connectTimeout(Duration.ofSeconds(10))
                 .build();
     }
