@@ -6,11 +6,26 @@ import { faCreditCard, faCheckCircle, faTimesCircle, faArrowLeft, faStore, faWif
 export default function PosSimulator() {
   const [amount, setAmount] = useState('0');
   const [pan, setPan] = useState('9999888877776666'); // Default to a valid PAN length 16
-  const [merchantId, setMerchantId] = useState('POS-BK-001');
-  const [merchantName, setMerchantName] = useState('BKBank Test Store');
+  const [merchants, setMerchants] = useState<any[]>([]);
+  const [merchantId, setMerchantId] = useState('SP0001');
+  const [merchantName, setMerchantName] = useState('Điện lực EVN');
 
   const [status, setStatus] = useState<'IDLE' | 'PROCESSING' | 'APPROVED' | 'DECLINED' | 'ERROR'>('IDLE');
   const [receiptData, setReceiptData] = useState<any>(null);
+
+  useEffect(() => {
+    fetch('/api/merchants')
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setMerchants(data);
+          // Auto-select the first merchant if available
+          setMerchantId(data[0].merchantId);
+          setMerchantName(data[0].name);
+        }
+      })
+      .catch(err => console.error('Failed to load merchants:', err));
+  }, []);
 
   const handleKeyPress = (num: string) => {
     if (status !== 'IDLE' && status !== 'ERROR') return;
@@ -135,31 +150,36 @@ export default function PosSimulator() {
               disabled={status === 'PROCESSING'}
             />
           </div>
-          <div>
-            <label style={{ display: 'block', fontSize: '0.75rem', color: '#94a3b8', marginBottom: '0.25rem' }}>Mã Merchant (ID)</label>
-            <input
-              type="text"
-              value={merchantId}
-              onChange={(e) => setMerchantId(e.target.value)}
-              style={{
-                width: '100%', padding: '0.75rem 1rem', borderRadius: '8px',
-                background: 'rgba(0,0,0,0.2)', border: '1px solid var(--pos-border)', color: 'white', fontFamily: 'monospace', fontSize: '0.875rem'
-              }}
-              disabled={status === 'PROCESSING'}
-            />
-          </div>
           <div style={{ gridColumn: '1 / -1' }}>
-            <label style={{ display: 'block', fontSize: '0.75rem', color: '#94a3b8', marginBottom: '0.25rem' }}>Tên Merchant</label>
-            <input
-              type="text"
-              value={merchantName}
-              onChange={(e) => setMerchantName(e.target.value)}
+            <label style={{ display: 'block', fontSize: '0.75rem', color: '#94a3b8', marginBottom: '0.25rem' }}>Đơn vị chấp nhận thanh toán (Merchant)</label>
+            <select
+              value={merchantId}
+              onChange={(e) => {
+                const selectedId = e.target.value;
+                setMerchantId(selectedId);
+                const m = merchants.find(merchant => merchant.merchantId === selectedId);
+                if (m) {
+                  setMerchantName(m.name);
+                }
+              }}
               style={{
                 width: '100%', padding: '0.75rem 1rem', borderRadius: '8px',
-                background: 'rgba(0,0,0,0.2)', border: '1px solid var(--pos-border)', color: 'white', fontFamily: 'monospace', fontSize: '0.875rem'
+                background: 'rgba(0,0,0,0.2)', border: '1px solid var(--pos-border)', color: 'white', fontFamily: 'monospace', fontSize: '1rem',
+                appearance: 'none', cursor: 'pointer'
               }}
-              disabled={status === 'PROCESSING'}
-            />
+              disabled={status === 'PROCESSING' || merchants.length === 0}
+            >
+              {merchants.length === 0 ? (
+                <option value={merchantId}>{merchantName} (Loading...)</option>
+              ) : (
+                merchants.map(m => (
+                  <option key={m.merchantId} value={m.merchantId} style={{ color: 'black' }}>
+                    {m.name} ({m.merchantId})
+                  </option>
+                ))
+              )}
+            </select>
+            <div style={{ position: 'relative', top: '-37px', right: '15px', pointerEvents: 'none', textAlign: 'right', color: '#94a3b8' }}>▼</div>
           </div>
         </div>
 
