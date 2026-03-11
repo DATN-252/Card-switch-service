@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
     try {
-        const res = await fetch('http://localhost:8083/merchants', {
+        const res = await fetch('http://localhost:8083/merchants?size=1000', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -18,7 +18,8 @@ export async function GET() {
         }
 
         const data = await res.json();
-        return NextResponse.json(data);
+        const merchantsList = data.content || data;
+        return NextResponse.json(merchantsList);
     } catch (error) {
         console.error('Error fetching merchants:', error);
         return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
