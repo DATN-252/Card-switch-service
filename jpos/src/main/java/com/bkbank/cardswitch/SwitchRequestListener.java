@@ -54,6 +54,14 @@ public class SwitchRequestListener implements ISORequestListener, LogSource {
                 System.out.println(">>> [jPOS] Card: " + cardNumber + ", Amount: " + amount);
                 System.out.println(">>> [jPOS] Merchant: " + merchantId + " - " + merchantName);
                 
+                // Resolve Location info based on Merchant ID
+                String[] locData = new String[3];
+                resolveLocation(merchantId, locData);
+                String location = locData[0];
+                String latitude = locData[1];
+                String longitude = locData[2];
+                System.out.println(">>> [jPOS] Location: " + location + " (" + latitude + ", " + longitude + ")");
+                
                 // 1. Check Fraud
                 if (isFraudulent(cardNumber, amount)) {
                     System.out.println(">>> [jPOS] Fraud Detected");
@@ -61,7 +69,7 @@ public class SwitchRequestListener implements ISORequestListener, LogSource {
                 } else {
                     // 2. Authorize with CMS (which calls Fineract)
                     System.out.println(">>> [jPOS] Calling CMS...");
-                    boolean authorized = authorizeTransaction(cardNumber, amount, merchantId, merchantName);
+                    boolean authorized = authorizeTransaction(cardNumber, amount, merchantId, merchantName, location, latitude, longitude);
                     System.out.println(">>> [jPOS] CMS Response: " + authorized);
                     
                     if (authorized) {
@@ -106,7 +114,7 @@ public class SwitchRequestListener implements ISORequestListener, LogSource {
         }
     }
 
-    private boolean authorizeTransaction(String cardNumber, String amount, String merchantId, String merchantName) {
+    private boolean authorizeTransaction(String cardNumber, String amount, String merchantId, String merchantName, String location, String latitude, String longitude) {
         // Call CMS for authorization
          try {
             // Convert amount from cents to dollars
@@ -114,10 +122,12 @@ public class SwitchRequestListener implements ISORequestListener, LogSource {
             
             // Format JSON payload safely escaping characters if needed
             String jsonBody = String.format(java.util.Locale.US,
-                "{\"cardNumber\":\"%s\", \"amount\":%.2f, \"merchantId\":\"%s\", \"merchantName\":\"%s\"}", 
+                "{\"cardNumber\":\"%s\", \"amount\":%.2f, \"merchantId\":\"%s\", \"merchantName\":\"%s\", \"location\":\"%s\", \"latitude\":%s, \"longitude\":%s}", 
                 cardNumber, amountInDollars, 
                 merchantId.replace("\"", "\\\""), 
-                merchantName.replace("\"", "\\\"")
+                merchantName.replace("\"", "\\\""),
+                location.replace("\"", "\\\""),
+                latitude, longitude
             );
             System.out.println(">>> [jPOS] Sending payload to CMS: " + jsonBody);
             
@@ -137,6 +147,25 @@ public class SwitchRequestListener implements ISORequestListener, LogSource {
         } catch (Exception e) {
             e.printStackTrace();
             return false; 
+        }
+    }
+    
+    // Helper method to resolve location from Merchant ID
+    private void resolveLocation(String merchantId, String[] locationData) {
+        // locationData[0] = location name, [1] = lat, [2] = lng
+        switch (merchantId) {
+            case "SP0001": // Điện lực EVN
+                locationData[0] = "Hà Nội"; locationData[1] = "21.0285"; locationData[2] = "105.8542"; break;
+            case "SP0002": // Nước Sạch SG
+                locationData[0] = "TP. Hồ Chí Minh"; locationData[1] = "10.8231"; locationData[2] = "106.6297"; break;
+            case "SP0003": // Internet VNPT
+                locationData[0] = "Đà Nẵng"; locationData[1] = "16.0471"; locationData[2] = "108.2062"; break;
+            case "SP0004": // Truyền hình VTVCab
+                locationData[0] = "Hải Phòng"; locationData[1] = "20.8449"; locationData[2] = "106.6881"; break;
+            case "STORE01": // Test Store
+                locationData[0] = "Cần Thơ"; locationData[1] = "10.0452"; locationData[2] = "105.7469"; break;
+            default:
+                locationData[0] = "Unknown Location"; locationData[1] = "0.0"; locationData[2] = "0.0"; break;
         }
     }
     
