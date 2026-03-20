@@ -25,7 +25,13 @@ copy /Y "jpos\src\dist\deploy\10_switch_server.xml" "jpos\build\install\jpos\dep
 copy /Y "jpos\src\dist\deploy\00_logger.xml" "jpos\build\install\jpos\deploy\00_logger.xml"
 
 echo [4/5] Copying packager configs...
-xcopy /E /Y /I "jpos\src\main\resources\packager" "jpos\build\install\jpos\packager" >nul
+if not exist "jpos\build\install\jpos\packager" mkdir "jpos\build\install\jpos\packager"
+xcopy /E /Y /I "jpos\src\main\resources\packager\*" "jpos\build\install\jpos\packager\" >nul
+if not exist "jpos\build\install\jpos\packager\iso87ascii.xml" (
+    echo PACKAGER COPY FAILED: jpos\build\install\jpos\packager\iso87ascii.xml not found
+    pause
+    exit /b 1
+)
 
 echo [5/5] Starting jPOS Q2 Server...
 cd jpos\build\install\jpos

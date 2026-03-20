@@ -1,5 +1,7 @@
 package com.bkbank.cardswitch;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jpos.iso.ISOException;
 import org.jpos.iso.ISOMsg;
 import org.jpos.iso.ISORequestListener;
@@ -19,17 +21,20 @@ public class SwitchRequestListener implements ISORequestListener, LogSource {
     private Logger logger;
     private String realm;
     private final HttpClient httpClient;
+    private final ObjectMapper objectMapper;
 
     // Service Endpoints (Env vars or defaults)
     private static final String FRAUD_SERVICE_URL = System.getenv().getOrDefault("FRAUD_SERVICE_URL", "http://localhost:8081/api/check");
     private static final String CMS_SERVICE_URL = System.getenv().getOrDefault("CMS_SERVICE_URL", "http://localhost:8082/api/transaction");
     private static final String CMS_INTERNAL_API_KEY = System.getenv().getOrDefault("CMS_INTERNAL_API_KEY", "jpos-to-cms-secret-key-2025");
+    private static final String LEDGER_MERCHANTS_URL = System.getenv().getOrDefault("LEDGER_MERCHANTS_URL", "http://localhost:8083/merchants?size=1000");
 
     public SwitchRequestListener() {
         this.httpClient = HttpClient.newBuilder()
                 .version(HttpClient.Version.HTTP_1_1)
                 .connectTimeout(Duration.ofSeconds(10))
                 .build();
+        this.objectMapper = new ObjectMapper();
     }
 
     @Override
@@ -153,6 +158,10 @@ public class SwitchRequestListener implements ISORequestListener, LogSource {
     // Helper method to resolve location from Merchant ID
     private void resolveLocation(String merchantId, String[] locationData) {
         // locationData[0] = location name, [1] = lat, [2] = lng
+        if (loadMerchantLocationFromLedger(merchantId, locationData)) {
+            return;
+        }
+
         switch (merchantId) {
             case "SP0001": // Điện lực EVN
                 locationData[0] = "Hà Nội"; locationData[1] = "21.0285"; locationData[2] = "105.8542"; break;
@@ -167,6 +176,93 @@ public class SwitchRequestListener implements ISORequestListener, LogSource {
             default:
                 locationData[0] = "Unknown Location"; locationData[1] = "0.0"; locationData[2] = "0.0"; break;
         }
+    }
+
+    private boolean loadMerchantLocationFromLedger(String merchantId, String[] locationData) {
+        try {
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(LEDGER_MERCHANTS_URL))
+                    .timeout(Duration.ofSeconds(3))
+                    .header("Content-Type", "application/json")
+                    .GET()
+                    .build();
+
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            if (response.statusCode() != 200) {
+                System.out.println(">>> [jPOS] Failed to fetch merchants from ledger: " + response.statusCode());
+                return false;
+            }
+
+            JsonNode root = objectMapper.readTree(response.body());
+            JsonNode merchants = root.has("content") ? root.get("content") : root;
+            if (merchants == null || !merchants.isArray()) {
+                return false;
+            }
+
+            for (JsonNode merchant : merchants) {
+                String currentMerchantId = merchant.path("merchantId").asText("");
+                if (!merchantId.equalsIgnoreCase(currentMerchantId)) {
+                    continue;
+                }
+
+                String addressLine = merchant.path("addressLine").asText("");
+                String ward = merchant.path("ward").asText("");
+                String district = merchant.path("district").asText("");
+                String cityName = merchant.path("cityReference").path("cityName").asText("");
+                String name = merchant.path("name").asText("");
+                String postalCode = merchant.path("postalCode").asText("");
+                String location = buildMerchantLocation(addressLine, ward, district, cityName, postalCode, name);
+                JsonNode latitudeNode = merchant.get("latitude");
+                JsonNode longitudeNode = merchant.get("longitude");
+                if (latitudeNode == null || latitudeNode.isNull() || longitudeNode == null || longitudeNode.isNull()) {
+                    System.out.println(">>> [jPOS] Merchant found in ledger but latitude/longitude is missing. Falling back to local mapping.");
+                    return false;
+                }
+
+                String latitude = latitudeNode.asText();
+                String longitude = longitudeNode.asText();
+                if (latitude.isBlank() || longitude.isBlank() || "null".equalsIgnoreCase(latitude) || "null".equalsIgnoreCase(longitude)) {
+                    System.out.println(">>> [jPOS] Merchant found in ledger but latitude/longitude is blank. Falling back to local mapping.");
+                    return false;
+                }
+
+                locationData[0] = location;
+                locationData[1] = latitude;
+                locationData[2] = longitude;
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println(">>> [jPOS] Merchant location lookup failed: " + e.getMessage());
+        }
+        return false;
+    }
+
+    private String buildMerchantLocation(String addressLine,
+                                         String ward,
+                                         String district,
+                                         String cityName,
+                                         String postalCode,
+                                         String fallbackName) {
+        StringBuilder builder = new StringBuilder();
+        appendLocationPart(builder, addressLine);
+        appendLocationPart(builder, ward);
+        appendLocationPart(builder, district);
+        appendLocationPart(builder, cityName);
+        appendLocationPart(builder, postalCode);
+        if (builder.length() == 0) {
+            appendLocationPart(builder, fallbackName);
+        }
+        return builder.length() > 0 ? builder.toString() : "Unknown Location";
+    }
+
+    private void appendLocationPart(StringBuilder builder, String value) {
+        if (value == null || value.isBlank()) {
+            return;
+        }
+        if (builder.length() > 0) {
+            builder.append(", ");
+        }
+        builder.append(value);
     }
     
     @Override
