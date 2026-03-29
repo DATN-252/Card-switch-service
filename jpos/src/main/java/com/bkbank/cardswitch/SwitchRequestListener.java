@@ -28,6 +28,15 @@ public class SwitchRequestListener implements ISORequestListener, LogSource {
     private static final String CMS_SERVICE_URL = System.getenv().getOrDefault("CMS_SERVICE_URL", "http://localhost:8082/api/transaction");
     private static final String CMS_INTERNAL_API_KEY = System.getenv().getOrDefault("CMS_INTERNAL_API_KEY", "jpos-to-cms-secret-key-2025");
     private static final String LEDGER_MERCHANTS_URL = System.getenv().getOrDefault("LEDGER_MERCHANTS_URL", "http://localhost:8083/merchants?size=1000");
+    private static final String LEDGER_SYSTEM_API_KEY = System.getenv().getOrDefault("LEDGER_SYSTEM_API_KEY", "bkbank-internal-system-api-key-2025");
+
+    private static class MerchantContext {
+        String location;
+        String latitude;
+        String longitude;
+        String category;
+        Integer cityPopulation;
+    }
 
     public SwitchRequestListener() {
         this.httpClient = HttpClient.newBuilder()
@@ -60,11 +69,10 @@ public class SwitchRequestListener implements ISORequestListener, LogSource {
                 System.out.println(">>> [jPOS] Merchant: " + merchantId + " - " + merchantName);
                 
                 // Resolve Location info based on Merchant ID
-                String[] locData = new String[3];
-                resolveLocation(merchantId, locData);
-                String location = locData[0];
-                String latitude = locData[1];
-                String longitude = locData[2];
+                MerchantContext merchantContext = resolveMerchantContext(merchantId);
+                String location = merchantContext.location;
+                String latitude = merchantContext.latitude;
+                String longitude = merchantContext.longitude;
                 System.out.println(">>> [jPOS] Location: " + location + " (" + latitude + ", " + longitude + ")");
                 
                 // 1. Check Fraud
@@ -74,7 +82,7 @@ public class SwitchRequestListener implements ISORequestListener, LogSource {
                 } else {
                     // 2. Authorize with CMS (which calls Fineract)
                     System.out.println(">>> [jPOS] Calling CMS...");
-                    boolean authorized = authorizeTransaction(cardNumber, amount, merchantId, merchantName, location, latitude, longitude);
+                    boolean authorized = authorizeTransaction(cardNumber, amount, merchantId, merchantName, merchantContext);
                     System.out.println(">>> [jPOS] CMS Response: " + authorized);
                     
                     if (authorized) {
@@ -119,20 +127,27 @@ public class SwitchRequestListener implements ISORequestListener, LogSource {
         }
     }
 
-    private boolean authorizeTransaction(String cardNumber, String amount, String merchantId, String merchantName, String location, String latitude, String longitude) {
+    private boolean authorizeTransaction(String cardNumber, String amount, String merchantId, String merchantName, MerchantContext merchantContext) {
         // Call CMS for authorization
          try {
             // Convert amount from cents to dollars
             double amountInDollars = Double.parseDouble(amount) / 100.0;
+            String merchantCategory = merchantContext.category != null ? merchantContext.category : "misc_pos";
+            String merchantCityPopulation = merchantContext.cityPopulation != null
+                    ? merchantContext.cityPopulation.toString()
+                    : "0";
             
             // Format JSON payload safely escaping characters if needed
             String jsonBody = String.format(java.util.Locale.US,
-                "{\"cardNumber\":\"%s\", \"amount\":%.2f, \"merchantId\":\"%s\", \"merchantName\":\"%s\", \"location\":\"%s\", \"latitude\":%s, \"longitude\":%s}", 
+                "{\"cardNumber\":\"%s\", \"amount\":%.2f, \"merchantId\":\"%s\", \"merchantName\":\"%s\", \"location\":\"%s\", \"latitude\":%s, \"longitude\":%s, \"merchantCategory\":\"%s\", \"merchantLatitude\":%s, \"merchantLongitude\":%s, \"merchantCityPopulation\":%s}", 
                 cardNumber, amountInDollars, 
                 merchantId.replace("\"", "\\\""), 
                 merchantName.replace("\"", "\\\""),
-                location.replace("\"", "\\\""),
-                latitude, longitude
+                merchantContext.location.replace("\"", "\\\""),
+                merchantContext.latitude, merchantContext.longitude,
+                merchantCategory.replace("\"", "\\\""),
+                merchantContext.latitude, merchantContext.longitude,
+                merchantCityPopulation
             );
             System.out.println(">>> [jPOS] Sending payload to CMS: " + jsonBody);
             
@@ -156,34 +171,36 @@ public class SwitchRequestListener implements ISORequestListener, LogSource {
     }
     
     // Helper method to resolve location from Merchant ID
-    private void resolveLocation(String merchantId, String[] locationData) {
-        // locationData[0] = location name, [1] = lat, [2] = lng
-        if (loadMerchantLocationFromLedger(merchantId, locationData)) {
-            return;
+    private MerchantContext resolveMerchantContext(String merchantId) {
+        MerchantContext merchantContext = new MerchantContext();
+        if (loadMerchantContextFromLedger(merchantId, merchantContext)) {
+            return merchantContext;
         }
 
         switch (merchantId) {
             case "SP0001": // Điện lực EVN
-                locationData[0] = "Hà Nội"; locationData[1] = "21.0285"; locationData[2] = "105.8542"; break;
+                merchantContext.location = "Hà Nội"; merchantContext.latitude = "21.0285"; merchantContext.longitude = "105.8542"; merchantContext.category = "UTILITY"; merchantContext.cityPopulation = 8000000; break;
             case "SP0002": // Nước Sạch SG
-                locationData[0] = "TP. Hồ Chí Minh"; locationData[1] = "10.8231"; locationData[2] = "106.6297"; break;
+                merchantContext.location = "TP. Hồ Chí Minh"; merchantContext.latitude = "10.8231"; merchantContext.longitude = "106.6297"; merchantContext.category = "RETAIL"; merchantContext.cityPopulation = 9200000; break;
             case "SP0003": // Internet VNPT
-                locationData[0] = "Đà Nẵng"; locationData[1] = "16.0471"; locationData[2] = "108.2062"; break;
+                merchantContext.location = "Đà Nẵng"; merchantContext.latitude = "16.0471"; merchantContext.longitude = "108.2062"; merchantContext.category = "RETAIL"; merchantContext.cityPopulation = 1100000; break;
             case "SP0004": // Truyền hình VTVCab
-                locationData[0] = "Hải Phòng"; locationData[1] = "20.8449"; locationData[2] = "106.6881"; break;
+                merchantContext.location = "Hải Phòng"; merchantContext.latitude = "20.8449"; merchantContext.longitude = "106.6881"; merchantContext.category = "entertainment"; merchantContext.cityPopulation = 2100000; break;
             case "STORE01": // Test Store
-                locationData[0] = "Cần Thơ"; locationData[1] = "10.0452"; locationData[2] = "105.7469"; break;
+                merchantContext.location = "Cần Thơ"; merchantContext.latitude = "10.0452"; merchantContext.longitude = "105.7469"; merchantContext.category = "shopping_pos"; merchantContext.cityPopulation = 1250000; break;
             default:
-                locationData[0] = "Unknown Location"; locationData[1] = "0.0"; locationData[2] = "0.0"; break;
+                merchantContext.location = "Unknown Location"; merchantContext.latitude = "0.0"; merchantContext.longitude = "0.0"; merchantContext.category = "misc_pos"; merchantContext.cityPopulation = 0; break;
         }
+        return merchantContext;
     }
 
-    private boolean loadMerchantLocationFromLedger(String merchantId, String[] locationData) {
+    private boolean loadMerchantContextFromLedger(String merchantId, MerchantContext merchantContext) {
         try {
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(LEDGER_MERCHANTS_URL))
+                    .uri(URI.create(LEDGER_MERCHANTS_URL.replace("?size=1000", "") + "/" + merchantId))
                     .timeout(Duration.ofSeconds(3))
                     .header("Content-Type", "application/json")
+                    .header("X-API-KEY", LEDGER_SYSTEM_API_KEY)
                     .GET()
                     .build();
 
@@ -193,44 +210,37 @@ public class SwitchRequestListener implements ISORequestListener, LogSource {
                 return false;
             }
 
-            JsonNode root = objectMapper.readTree(response.body());
-            JsonNode merchants = root.has("content") ? root.get("content") : root;
-            if (merchants == null || !merchants.isArray()) {
+            JsonNode merchant = objectMapper.readTree(response.body());
+            String addressLine = merchant.path("addressLine").asText("");
+            String ward = merchant.path("ward").asText("");
+            String district = merchant.path("district").asText("");
+            String cityName = merchant.path("cityName").asText("");
+            String name = merchant.path("name").asText("");
+            String postalCode = merchant.path("postalCode").asText("");
+            String location = buildMerchantLocation(addressLine, ward, district, cityName, postalCode, name);
+            JsonNode latitudeNode = merchant.get("latitude");
+            JsonNode longitudeNode = merchant.get("longitude");
+            if (latitudeNode == null || latitudeNode.isNull() || longitudeNode == null || longitudeNode.isNull()) {
+                System.out.println(">>> [jPOS] Merchant found in ledger but latitude/longitude is missing. Falling back to local mapping.");
                 return false;
             }
 
-            for (JsonNode merchant : merchants) {
-                String currentMerchantId = merchant.path("merchantId").asText("");
-                if (!merchantId.equalsIgnoreCase(currentMerchantId)) {
-                    continue;
-                }
-
-                String addressLine = merchant.path("addressLine").asText("");
-                String ward = merchant.path("ward").asText("");
-                String district = merchant.path("district").asText("");
-                String cityName = merchant.path("cityReference").path("cityName").asText("");
-                String name = merchant.path("name").asText("");
-                String postalCode = merchant.path("postalCode").asText("");
-                String location = buildMerchantLocation(addressLine, ward, district, cityName, postalCode, name);
-                JsonNode latitudeNode = merchant.get("latitude");
-                JsonNode longitudeNode = merchant.get("longitude");
-                if (latitudeNode == null || latitudeNode.isNull() || longitudeNode == null || longitudeNode.isNull()) {
-                    System.out.println(">>> [jPOS] Merchant found in ledger but latitude/longitude is missing. Falling back to local mapping.");
-                    return false;
-                }
-
-                String latitude = latitudeNode.asText();
-                String longitude = longitudeNode.asText();
-                if (latitude.isBlank() || longitude.isBlank() || "null".equalsIgnoreCase(latitude) || "null".equalsIgnoreCase(longitude)) {
-                    System.out.println(">>> [jPOS] Merchant found in ledger but latitude/longitude is blank. Falling back to local mapping.");
-                    return false;
-                }
-
-                locationData[0] = location;
-                locationData[1] = latitude;
-                locationData[2] = longitude;
-                return true;
+            String latitude = latitudeNode.asText();
+            String longitude = longitudeNode.asText();
+            if (latitude.isBlank() || longitude.isBlank() || "null".equalsIgnoreCase(latitude) || "null".equalsIgnoreCase(longitude)) {
+                System.out.println(">>> [jPOS] Merchant found in ledger but latitude/longitude is blank. Falling back to local mapping.");
+                return false;
             }
+
+            merchantContext.location = location;
+            merchantContext.latitude = latitude;
+            merchantContext.longitude = longitude;
+            merchantContext.category = merchant.path("category").asText("misc_pos");
+            JsonNode cityPopulationNode = merchant.get("cityPopulation");
+            merchantContext.cityPopulation = cityPopulationNode != null && !cityPopulationNode.isNull()
+                    ? cityPopulationNode.asInt(0)
+                    : 0;
+            return true;
         } catch (Exception e) {
             System.out.println(">>> [jPOS] Merchant location lookup failed: " + e.getMessage());
         }

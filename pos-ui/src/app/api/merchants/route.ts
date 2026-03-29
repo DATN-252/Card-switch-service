@@ -6,8 +6,7 @@ export async function GET() {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                // Add system API key if the endpoint ever requires it
-                'X-System-Api-Key': 'bkbank-internal-system-api-key-2025'
+                'X-API-KEY': 'bkbank-internal-system-api-key-2025'
             },
             cache: 'no-store'
         });
