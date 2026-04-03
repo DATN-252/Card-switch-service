@@ -301,6 +301,26 @@ folder.add(screenConf, 'scaleX', 0.1, 5).onChange(updateScreenTransform);
 folder.add(screenConf, 'scaleY', 0.1, 5).onChange(updateScreenTransform);
 folder.add(screenConf, 'slideY', -10, 10).name('Trượt Dọc (slideY)').onChange(updateScreenTransform);
 
+// --- Credit Card Animation Config ---
+const cardConf = {
+  targetX: 0,
+  targetY: 4.5,
+  targetZ: -1.6,
+  rotX: -1.4,
+  rotY: 0,
+  rotZ: 0,
+  testAnimation: () => triggerPayment()
+};
+
+const cardFolder = gui.addFolder('Căn chỉnh Tọa độ Quẹt thẻ');
+cardFolder.add(cardConf, 'targetX', -15, 15).name('Vị trí X');
+cardFolder.add(cardConf, 'targetY', -15, 15).name('Vị trí Y');
+cardFolder.add(cardConf, 'targetZ', -15, 15).name('Vị trí Z');
+cardFolder.add(cardConf, 'rotX', -Math.PI, Math.PI).name('Xoay X');
+cardFolder.add(cardConf, 'rotY', -Math.PI, Math.PI).name('Xoay Y');
+cardFolder.add(cardConf, 'rotZ', -Math.PI, Math.PI).name('Xoay Z');
+cardFolder.add(cardConf, 'testAnimation').name('Test Quẹt Thẻ ngay');
+
 
 // --- Model Loading ---
 let posTerminal;
@@ -396,27 +416,137 @@ function handleVirtualScreenClick(uv) {
   }
 }
 
-function triggerPayment() {
+// --- Credit Card 3D Object ---
+const cardCanvas = document.createElement('canvas');
+cardCanvas.width = 512;
+cardCanvas.height = 300;
+const cCtx = cardCanvas.getContext('2d');
+
+// Draw card background
+const cr = 20; // corner radius
+cCtx.fillStyle = '#1c1c1c'; // Dark card
+cCtx.beginPath();
+cCtx.moveTo(cr, 0); cCtx.lineTo(512-cr, 0); cCtx.quadraticCurveTo(512, 0, 512, cr);
+cCtx.lineTo(512, 300-cr); cCtx.quadraticCurveTo(512, 300, 512-cr, 300);
+cCtx.lineTo(cr, 300); cCtx.quadraticCurveTo(0, 300, 0, 300-cr);
+cCtx.lineTo(0, cr); cCtx.quadraticCurveTo(0, 0, cr, 0);
+cCtx.fill();
+
+// Draw chip
+cCtx.fillStyle = '#d4af37'; // Gold
+cCtx.fillRect(60, 100, 60, 50);
+cCtx.fillStyle = '#1c1c1c';
+cCtx.fillRect(85, 100, 2, 50);
+cCtx.fillRect(60, 115, 60, 2);
+cCtx.fillRect(60, 135, 60, 2);
+
+// Wifi NFC logo
+cCtx.strokeStyle = '#fff';
+cCtx.lineWidth = 4;
+cCtx.beginPath(); cCtx.arc(160, 125, 20, Math.PI+0.5, -0.5); cCtx.stroke();
+cCtx.beginPath(); cCtx.arc(160, 125, 12, Math.PI+0.5, -0.5); cCtx.stroke();
+cCtx.beginPath(); cCtx.arc(160, 125, 4, 0, 2*Math.PI); cCtx.fill();
+
+// Card text
+cCtx.fillStyle = '#ffffff';
+cCtx.font = 'bold 40px monospace';
+cCtx.fillText('4242 4242 4242 4242', 60, 210);
+cCtx.font = '24px sans-serif';
+cCtx.fillText('H O A N G', 60, 260); // Student name
+cCtx.textAlign = 'right';
+cCtx.font = 'bold italic 50px sans-serif';
+cCtx.fillText('VISA', 480, 260);
+
+const cardTex = new THREE.CanvasTexture(cardCanvas);
+cardTex.colorSpace = THREE.SRGBColorSpace;
+
+const cardMaterial = new THREE.MeshStandardMaterial({ 
+  map: cardTex, 
+  color: 0xcccccc,
+  roughness: 0.4, 
+  metalness: 0.1 
+});
+// 512x300 ratio -> width 3.8, depth 2.22 (height thickness is 0.03)
+const creditCardMesh = new THREE.Mesh(new THREE.BoxGeometry(3.8, 0.03, 2.22), cardMaterial);
+creditCardMesh.position.set(10, 15, 15); // hidden / out of view
+creditCardMesh.visible = false;
+creditCardMesh.castShadow = true;
+scene.add(creditCardMesh);
+
+// --- Payment Animation Logic ---
+function animateCardPayment() {
   isProcessing = true;
   drawScreen();
   screenTexture.needsUpdate = true;
-
+  
   receipt.classList.add('hidden');
   paymentStatus.classList.remove('hidden');
-  document.getElementById('status-text').innerText = "Processing $" + currentAmount + "...";
+  document.getElementById('status-text').innerText = "Vui lòng chạm thẻ để thanh toán...";
 
-  console.log("Calling Payment API...");
+  creditCardMesh.position.set(10, 15, 10); 
+  creditCardMesh.rotation.set(-2, Math.PI, 0.5); // Card enters flying chaotically
+  creditCardMesh.visible = true;
 
-  setTimeout(() => {
-    isProcessing = false;
-    currentAmount = "0";
-    drawScreen();
-    screenTexture.needsUpdate = true;
+  const tl = gsap.timeline({
+    onComplete: () => {
+      creditCardMesh.visible = false;
+      document.getElementById('status-text').innerText = "Đang xử lý $" + currentAmount + "...";
+      setTimeout(() => {
+        finishPayment();
+      }, 1000);
+    }
+  });
 
-    paymentStatus.classList.add('hidden');
-    receipt.classList.remove('hidden');
-    gsap.fromTo(receipt, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
-  }, 2000);
+  // Fly in & Hover
+  tl.to(creditCardMesh.position, {
+    x: cardConf.targetX,
+    y: cardConf.targetY + 2, // Hover slightly above target
+    z: cardConf.targetZ,
+    duration: 1.0,
+    ease: "power2.out"
+  }, 0);
+  tl.to(creditCardMesh.rotation, {
+    x: cardConf.rotX,
+    y: cardConf.rotY,
+    z: cardConf.rotZ,
+    duration: 1.0,
+    ease: "power2.out"
+  }, 0);
+
+  // The Tap (Quick movement toward screen target)
+  tl.to(creditCardMesh.position, {
+    y: cardConf.targetY, 
+    z: cardConf.targetZ - 0.5, // Slide slight forward
+    duration: 0.3,
+    ease: "power1.inOut"
+  });
+  
+  // Freeze on tap
+  tl.to({}, { duration: 0.5 }); 
+  
+  // Fly out gracefully
+  tl.to(creditCardMesh.position, {
+    x: -12,
+    y: 15,
+    z: 5,
+    duration: 1.0,
+    ease: "power2.in"
+  });
+}
+
+function finishPayment() {
+  isProcessing = false;
+  currentAmount = "0";
+  drawScreen();
+  screenTexture.needsUpdate = true;
+
+  paymentStatus.classList.add('hidden');
+  receipt.classList.remove('hidden');
+  gsap.fromTo(receipt, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
+}
+
+function triggerPayment() {
+  animateCardPayment();
 }
 
 
