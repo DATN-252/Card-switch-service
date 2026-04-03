@@ -1,0 +1,11 @@
+Model Information:
+* title:	POS terminal
+* source:	https://sketchfab.com/3d-models/pos-terminal-91c277a25bc34c5bbd080cd1e74161cb
+* author:	Vladyslav.Yarovyi (https://sketchfab.com/Vladyslav.Yarovyi)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "POS terminal" (https://sketchfab.com/3d-models/pos-terminal-91c277a25bc34c5bbd080cd1e74161cb) by Vladyslav.Yarovyi (https://sketchfab.com/Vladyslav.Yarovyi) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

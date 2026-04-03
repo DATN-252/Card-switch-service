@@ -1,0 +1,21 @@
+/node_modules
+/.vite
+/dist
+/build
+/.rollup.cache
+
+# Local env files
+.env
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDEs and editors
+/.idea
+/.vscode
+
+# macOS artifacts
+.DS_Store

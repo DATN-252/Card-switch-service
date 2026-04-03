@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  --bg-color: #0d1117;
+  --text-color: #c9d1d9;
+  --primary: #2ea043;
+  --panel-bg: rgba(22, 27, 34, 0.85);
+  --border: rgba(48, 54, 61, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--bg-color);
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+}
+
+canvas#bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+#ui-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 350px;
+  background: var(--panel-bg);
+  backdrop-filter: blur(10px);
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  z-index: 10;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #8b949e;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#payment-status {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 8px;
+}
+
+#status-text {
+  margin-top: 10px;
+  color: #58a6ff;
+  font-weight: 600;
+}
+
+/* Spinner */
+.loader {
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid #58a6ff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#receipt {
+  margin-top: 20px;
+  background: #fff;
+  color: #111;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+#receipt h3 {
+  margin-top: 0;
+  border-bottom: 2px dashed #ccc;
+  padding-bottom: 10px;
+}
+
+#receipt p {
+  color: #333;
+  margin: 8px 0;
+}
+
+.success {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+button {
+  background: var(--bg-color);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 15px;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #161b22;
+}
+
+#instructions {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 10;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.85rem;
+  pointer-events: none;
+}

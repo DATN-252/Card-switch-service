@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D POS Terminal</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Canvas for Three.js -->
+    <canvas id="bg"></canvas>
+
+    <!-- Payment Overlay UI -->
+    <div id="ui-container">
+      <h1>Payment Terminal</h1>
+      <p>Click on the designated button on the POS machine to process payment.</p>
+      
+      <div id="payment-status" class="hidden">
+        <div class="loader" id="loader"></div>
+        <p id="status-text">Processing Payment...</p>
+      </div>
+
+      <div id="receipt" class="hidden">
+        <h3>Receipt</h3>
+        <p>Status: <span class="success">Approved</span></p>
+        <p>Amount: $50.00</p>
+        <p>Transaction ID: <span id="txn-id">123456789</span></p>
+        <button id="close-receipt">Close</button>
+      </div>
+    </div>
+
+    <!-- Instruction Overlay -->
+    <div id="instructions">
+      Mouse: Left click to rotate, scroll to zoom.
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
