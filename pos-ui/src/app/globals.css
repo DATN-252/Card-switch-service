@@ -1,135 +1,358 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0f172a;
-  /* Slate 900 */
-  --foreground: #f8fafc;
-  --pos-surface: #1e293b;
-  --pos-border: #334155;
-  --pos-accent: #3b82f6;
-  --pos-success: #10b981;
-  --pos-danger: #ef4444;
+  --bg-color: #0d1117;
+  --text-color: #c9d1d9;
+  --panel-bg: rgba(22, 27, 34, 0.88);
+  --border: rgba(48, 54, 61, 0.5);
+  --primary: #2ea043;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: system-ui, -apple-system, sans-serif;
-  background-color: var(--background);
-  color: var(--foreground);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow-y: auto;
-  /* Allows scrolling on smaller screens where the receipt overlaps */
-}
-
-/* Glassmorphism utility for the terminal body */
-.glass-panel {
-  background: rgba(30, 41, 59, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
-
-/* Numpad buttons */
-.numpad-btn {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
-  font-size: 1.5rem;
-  font-weight: 500;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 70px;
-}
-
-.numpad-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px);
-}
-
-.numpad-btn:active {
-  transform: translateY(2px);
-}
-
-.numpad-btn.action-primary {
-  background: var(--pos-accent);
-  border-color: var(--pos-accent);
-}
-
-.numpad-btn.action-primary:hover {
-  background: #2563eb;
-}
-
-.numpad-btn.action-danger {
-  background: rgba(239, 68, 68, 0.2);
-  border-color: rgba(239, 68, 68, 0.5);
-  color: #fca5a5;
-}
-
-/* Display screen */
-.pos-screen {
-  background: #020617;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  border: 2px solid #1e293b;
-  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
-  position: relative;
-}
-
-/* Receipt Animation */
-.receipt-wrapper {
-  position: absolute;
-  top: 100%;
-  left: 5%;
-  right: 5%;
-  z-index: 50;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Segoe UI", Arial, sans-serif;
   overflow: hidden;
-  border-radius: 0 0 12px 12px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-  pointer-events: none;
 }
 
-.receipt {
-  background: #fdfdfd;
-  color: #1e293b;
-  padding: 1.5rem;
-  font-family: 'Courier New', Courier, monospace;
-  animation: printReceipt 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  border-top: 2px dashed #cbd5e1;
+button,
+input,
+select {
+  font: inherit;
 }
 
-@keyframes printReceipt {
+.pos3d-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  min-height: 100vh;
+}
+
+.pos3d-stage {
+  position: relative;
+  min-height: 100vh;
+}
+
+.pos3d-canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.pos3d-canvas canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.pos3d-sidebar {
+  position: relative;
+  z-index: 1;
+  padding: 16px;
+}
+
+.pos3d-panel,
+.pos3d-receipt {
+  background: var(--panel-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.pos3d-panel {
+  padding: 24px;
+}
+
+.pos3d-panel h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.pos3d-panel p,
+.pos3d-instructions {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #8b949e;
+}
+
+.pos3d-panel-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+.pos3d-panel-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pos3d-online {
+  color: #bbf7d0;
+}
+
+.pos3d-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.pos3d-field span {
+  color: #d0dae6;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.pos3d-field input,
+.pos3d-field select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.22);
+  color: #fff;
+  outline: none;
+}
+
+.pos3d-field input:focus,
+.pos3d-field select:focus {
+  border-color: rgba(88, 166, 255, 0.45);
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.12);
+}
+
+.pos3d-inline-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.pos3d-primary-btn,
+.pos3d-ghost-btn {
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.pos3d-primary-btn {
+  background: #161b22;
+  color: #fff;
+}
+
+.pos3d-primary-btn:hover,
+.pos3d-ghost-btn:hover {
+  transform: translateY(-1px);
+}
+
+.pos3d-ghost-btn {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  border: 1px solid var(--border);
+}
+
+.pos3d-processing-box {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+.pos3d-processing-box p {
+  margin: 10px 0 0;
+  color: #58a6ff;
+  font-weight: 600;
+}
+
+.pos3d-loader {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #58a6ff;
+  animation: spin 1s linear infinite;
+}
+
+.pos3d-receipt {
+  margin-top: 16px;
+  padding: 20px;
+  background: #fff;
+  color: #111;
+}
+
+.pos3d-receipt-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 2px dashed #d1d5db;
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+
+.pos3d-receipt-head h3 {
+  margin: 0;
+  font-size: 1.7rem;
+  color: #111;
+}
+
+.pos3d-receipt-icon {
+  color: #2563eb;
+}
+
+.pos3d-receipt-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px 16px;
+  color: #475569;
+}
+
+.pos3d-receipt-grid strong {
+  color: #111827;
+  text-align: right;
+}
+
+.pos3d-receipt-foot {
+  margin-top: 20px;
+}
+
+.pos3d-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.pos3d-badge.success {
+  background: rgba(46, 160, 67, 0.14);
+  color: #2ea043;
+}
+
+.pos3d-badge.danger {
+  background: rgba(239, 68, 68, 0.12);
+  color: var(--danger);
+}
+
+.pos3d-badge.warning {
+  background: rgba(245, 158, 11, 0.14);
+  color: #b45309;
+}
+
+.pos3d-badge.neutral {
+  background: rgba(88, 166, 255, 0.14);
+  color: #1d4ed8;
+}
+
+.pos3d-instructions {
+  margin-top: 16px;
+  padding-left: 4px;
+}
+
+.pos3d-debug {
+  margin-top: 16px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.pos3d-debug-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.pos3d-debug-reset {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.pos3d-debug-group + .pos3d-debug-group {
+  margin-top: 12px;
+}
+
+.pos3d-debug-title {
+  margin-bottom: 8px;
+  color: #dce8f6;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.pos3d-debug-row {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) 58px;
+  gap: 8px;
+  align-items: center;
+  margin-top: 6px;
+  font-size: 0.82rem;
+}
+
+.pos3d-debug-row span,
+.pos3d-debug-row strong {
+  color: #d0dae6;
+}
+
+.pos3d-debug-row strong {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes spin {
   from {
-    transform: translateY(-100%);
+    transform: rotate(0deg);
   }
 
   to {
-    transform: translateY(0);
+    transform: rotate(360deg);
   }
 }
 
-/* Animations */
-@keyframes pulse {
-
-  0%,
-  100% {
-    opacity: 1;
+@media (max-width: 1100px) {
+  .pos3d-shell {
+    grid-template-columns: 1fr;
   }
 
-  50% {
-    opacity: 0.5;
+  .pos3d-stage {
+    min-height: 58vh;
   }
-}
 
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  .pos3d-sidebar {
+    padding-top: 0;
+  }
 }
