@@ -290,6 +290,7 @@ function updateScreenTransform() {
 updateScreenTransform();
 
 const gui = new GUI();
+gui.hide(); // Ẩn bảng điều khiển GUI ở chế độ hoàn thiện
 const folder = gui.addFolder('Căn chỉnh màn hình cảm ứng');
 folder.add(screenConf, 'posX', -10, 10).onChange(updateScreenTransform);
 folder.add(screenConf, 'posY', -10, 10).onChange(updateScreenTransform);
