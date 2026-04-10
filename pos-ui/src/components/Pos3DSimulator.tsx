@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCheckCircle,
   faCreditCard,
-  faDeleteLeft,
   faPrint,
   faRotateLeft,
   faStore,
@@ -160,6 +159,7 @@ export default function Pos3DSimulator() {
   const [receiptData, setReceiptData] = useState<ReceiptData | null>(null);
   const [screenConfig, setScreenConfig] = useState<ScreenConfig>(DEFAULT_SCREEN_CONFIG);
   const [cardConfig, setCardConfig] = useState<CardConfig>(DEFAULT_CARD_CONFIG);
+  const [fraudTestMode, setFraudTestMode] = useState(false);
 
   const nowStamp = useMemo(
     () =>
@@ -714,6 +714,7 @@ export default function Pos3DSimulator() {
           amount: Number(amount),
           merchantId,
           merchantName,
+          fraudTestMode,
         }),
       });
 
@@ -841,12 +842,19 @@ export default function Pos3DSimulator() {
             </select>
           </label>
 
+          <label className="pos3d-toggle">
+            <input
+              type="checkbox"
+              checked={fraudTestMode}
+              onChange={(event) => setFraudTestMode(event.target.checked)}
+              disabled={status === 'PROCESSING'}
+            />
+            <span>Kích hoạt fraud test mode</span>
+          </label>
+
           <div className="pos3d-inline-actions">
             <button type="button" className="pos3d-primary-btn" onClick={handleReset}>
               <FontAwesomeIcon icon={faRotateLeft} /> Làm mới
-            </button>
-            <button type="button" className="pos3d-ghost-btn" onClick={() => void handleScreenKey('BACK')}>
-              <FontAwesomeIcon icon={faDeleteLeft} /> Xóa số
             </button>
           </div>
 
@@ -878,6 +886,8 @@ export default function Pos3DSimulator() {
               <strong>{(receiptData?.stan as string | undefined) || 'N/A'}</strong>
               <span>Response code</span>
               <strong>{(receiptData?.code as string | undefined) || 'N/A'}</strong>
+              <span>Chế độ</span>
+              <strong>{receiptData?.fraudTestMode ? 'Fraud test' : 'POS normal'}</strong>
               <span>Tổng tiền</span>
               <strong>{currency((receiptData?.amount as string | undefined) ?? amount)} USD</strong>
             </div>

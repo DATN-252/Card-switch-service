@@ -136,10 +136,29 @@ select {
   box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.12);
 }
 
+.pos3d-toggle {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #d0dae6;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding-top: 4px;
+}
+
+.pos3d-field + .pos3d-toggle {
+  margin-top: 26px;
+}
+
+.pos3d-toggle input {
+  width: 18px;
+  height: 18px;
+  accent-color: #ef4444;
+}
+
 .pos3d-inline-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  display: flex;
   margin-top: 18px;
 }
 

@@ -1,6 +1,25 @@
 import { NextResponse } from 'next/server';
 import net from 'net';
 
+const LEDGER_BASE_URL = process.env.LEDGER_SERVICE_URL ?? 'http://localhost:8083';
+const LEDGER_API_KEY = process.env.LEDGER_SYSTEM_API_KEY ?? 'bkbank-internal-system-api-key-2025';
+const CMS_SERVICE_URL = process.env.CMS_SERVICE_URL ?? 'http://localhost:8082/api/transaction';
+const CMS_INTERNAL_API_KEY = process.env.CMS_INTERNAL_API_KEY ?? 'jpos-to-cms-secret-key-2025';
+
+const FRAUD_TEST_PROFILE = {
+    latitude: 38.2674,
+    longitude: -76.4954,
+    customerCityPopulation: 5927,
+    dob: '1973-06-09',
+    transactionTime: '2020-06-21 17:40:54',
+    unixTime: 1371836454,
+    merchantCategory: 'shopping_pos',
+    merchantLatitude: 37.480372,
+    merchantLongitude: -77.34958,
+    merchantCityPopulation: 5927,
+    location: 'Lexington Park, MD',
+};
+
 // Helper to pad strings
 const padRight = (str: string, len: number, char = ' ') => str.padEnd(len, char).slice(0, len);
 const padLeft = (str: string | number, len: number, char = '0') => String(str).padStart(len, char).slice(0, len);
@@ -106,13 +125,110 @@ function parseIsoResponse(isoResponse: string) {
     };
 }
 
+async function getMerchantDetail(merchantId: string) {
+    const response = await fetch(`${LEDGER_BASE_URL}/merchants/${merchantId}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-API-KEY': LEDGER_API_KEY,
+        },
+        cache: 'no-store',
+    });
+
+    if (!response.ok) {
+        throw new Error(`Failed to fetch merchant detail: ${response.status}`);
+    }
+
+    return response.json();
+}
+
+async function runFraudTestAuthorization({
+    pan,
+    amount,
+    merchantId,
+    merchantName,
+}: {
+    pan: string;
+    amount: number;
+    merchantId: string;
+    merchantName: string;
+}) {
+    const merchant = await getMerchantDetail(merchantId);
+    const payload = {
+        cardNumber: pan,
+        amount,
+        merchantId,
+        merchantName,
+        merchantAddress: merchant.address ?? merchantName,
+        merchantCategory: FRAUD_TEST_PROFILE.merchantCategory,
+        merchantLatitude: FRAUD_TEST_PROFILE.merchantLatitude,
+        merchantLongitude: FRAUD_TEST_PROFILE.merchantLongitude,
+        merchantCityPopulation: FRAUD_TEST_PROFILE.merchantCityPopulation,
+        location: FRAUD_TEST_PROFILE.location,
+        latitude: FRAUD_TEST_PROFILE.latitude,
+        longitude: FRAUD_TEST_PROFILE.longitude,
+        customerCityPopulation: FRAUD_TEST_PROFILE.customerCityPopulation,
+        dob: FRAUD_TEST_PROFILE.dob,
+        transactionTime: FRAUD_TEST_PROFILE.transactionTime,
+        unixTime: FRAUD_TEST_PROFILE.unixTime,
+        paymentId: `PAY-POS-FRAUD-${Date.now()}`,
+        idempotencyKey: `pos-fraud-${merchantId}-${Date.now()}`,
+        channel: 'POS_FRAUD_TEST',
+        paymentNote: 'Fraud test mode',
+    };
+
+    const response = await fetch(CMS_SERVICE_URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Internal-Api-Key': CMS_INTERNAL_API_KEY,
+        },
+        body: JSON.stringify(payload),
+        cache: 'no-store',
+    });
+
+    const data = await response.json();
+    const result = data?.result && typeof data.result === 'object' ? data.result : data;
+    const responseCode = result?.responseCode ?? '96';
+    const responseMessage = result?.responseMessage ?? data?.message ?? 'Fraud test transaction declined';
+
+    return {
+        status: result?.approved === true || responseCode === '00' ? 'APPROVED' : 'DECLINED',
+        code: responseCode,
+        stan: result?.stan ?? result?.paymentId ?? 'N/A',
+        pan,
+        error: responseCode === '00' ? null : responseMessage,
+        message: responseMessage,
+        fraudTestMode: true,
+        raw: data,
+    };
+}
+
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const { pan, amount, merchantId = "STORE01", merchantName = "Test Store" } = body;
+        const {
+            pan,
+            amount,
+            merchantId = "STORE01",
+            merchantName = "Test Store",
+            fraudTestMode = false,
+        } = body;
 
         if (!pan || !amount) {
             return NextResponse.json({ error: "Missing pan or amount" }, { status: 400 });
+        }
+
+        if (fraudTestMode) {
+            const fraudResult = await runFraudTestAuthorization({
+                pan,
+                amount: Number(amount),
+                merchantId,
+                merchantName,
+            });
+            return NextResponse.json(fraudResult, {
+                status: fraudResult.status === 'APPROVED' ? 200 : 400,
+            });
         }
 
         // Build ISO Message
