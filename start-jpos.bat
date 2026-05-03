@@ -7,9 +7,7 @@ echo [0/5] Setting environment variables...
 set CMS_SERVICE_URL=http://localhost:8082/api/transaction
 set CMS_INTERNAL_API_KEY=jpos-to-cms-secret-key-2025
 
-echo [1/5] Stopping existing Java processes...
-taskkill /F /IM java.exe /T >nul 2>&1
-timeout /t 2 /nobreak >nul
+
 
 echo [2/4] Building jPOS...
 cd /d "%~dp0"
