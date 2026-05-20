@@ -161,8 +161,18 @@ public class SwitchRequestListener implements ISORequestListener, LogSource {
 
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
             
-            // Simple JSON parsing (check if "approved":true)
-            return response.statusCode() == 200 && response.body().contains("\"approved\":true");
+            // Check if response is successful (code 200) and contains approval code "00"
+            // CMS returns: {"code":"00", "message":"Approved", "result":{...}}
+            // or: {"result":{"responseCode":"00", "approved":true}}
+            if (response.statusCode() == 200) {
+                String body = response.body();
+                System.out.println(">>> [jPOS] CMS Response: " + body);
+                // Check for either "code":"00" or "approved":true or "responseCode":"00"
+                return body.contains("\"code\":\"00\"") || 
+                       body.contains("\"approved\":true") || 
+                       body.contains("\"responseCode\":\"00\"");
+            }
+            return false;
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,0 +1,82 @@
+{
+  "D:\\Code\\DoAn\\DATN\\jPOS\\pos-ui\\eslint.config.mjs": {
+    "mtime": 1772183153.375036,
+    "hash": "dfa1f5f6a7037bf39dc510f30b180002"
+  },
+  "D:\\Code\\DoAn\\DATN\\jPOS\\pos-ui\\next-env.d.ts": {
+    "mtime": 1778395825.592211,
+    "hash": "2a74d3909800ca5467fa83b0ab4a4890"
+  },
+  "D:\\Code\\DoAn\\DATN\\jPOS\\pos-ui\\next.config.ts": {
+    "mtime": 1778393954.8608115,
+    "hash": "2c35c8c4164090f536c0771b5cbe1a5a"
+  },
+  "D:\\Code\\DoAn\\DATN\\jPOS\\pos-ui\\postcss.config.mjs": {
+    "mtime": 1772183153.3856575,
+    "hash": "239f3ebf717465dc636818a1a619398d"
+  },
+  "D:\\Code\\DoAn\\DATN\\jPOS\\pos-ui\\src\\app\\layout.tsx": {
+    "mtime": 1775219480.401992,
+    "hash": "5f8776fc8a71cd5f17746f7ac3672e84"
+  },
+  "D:\\Code\\DoAn\\DATN\\jPOS\\pos-ui\\src\\app\\page.tsx": {
+    "mtime": 1775220477.3911939,
+    "hash": "d64b5bb861e6c37d07515bf1d400d0e7"
+  },
+  "D:\\Code\\DoAn\\DATN\\jPOS\\pos-ui\\src\\app\\api\\merchants\\route.ts": {
+    "mtime": 1778395694.96531,
+    "hash": "f0fd9414ed4d3960802a6194f1ded506"
+  },
+  "D:\\Code\\DoAn\\DATN\\jPOS\\pos-ui\\src\\app\\api\\pos\\swipe\\route.ts": {
+    "mtime": 1778412981.737949,
+    "hash": "d60f569561450bfa16324d3ef4ec745c"
+  },
+  "D:\\Code\\DoAn\\DATN\\jPOS\\pos-ui\\src\\components\\Pos3DSimulator.tsx": {
+    "mtime": 1775846442.8016162,
+    "hash": "7d85c7a5346335f8986d1b9cffe8f113"
+  },
+  "D:\\Code\\DoAn\\DATN\\jPOS\\pos-ui\\README.md": {
+    "mtime": 1772183153.363508,
+    "hash": "f15aaa42d5d299d091b1171097ea56ad"
+  },
+  "D:\\Code\\DoAn\\DATN\\jPOS\\pos-ui\\public\\pos_terminal\\license.txt": {
+    "mtime": 1775212586.0166912,
+    "hash": "39be5c3dbcaba370583c24d697fb00ce"
+  },
+  "D:\\Code\\DoAn\\DATN\\jPOS\\pos-ui\\public\\file.svg": {
+    "mtime": 1772183153.3896582,
+    "hash": "d09f95206c3fa0bb9bd9fefabfd0ea71"
+  },
+  "D:\\Code\\DoAn\\DATN\\jPOS\\pos-ui\\public\\globe.svg": {
+    "mtime": 1772183153.3959837,
+    "hash": "2aaafa6a49b6563925fe440891e32717"
+  },
+  "D:\\Code\\DoAn\\DATN\\jPOS\\pos-ui\\public\\next.svg": {
+    "mtime": 1772183153.4015918,
+    "hash": "8e061864f388b47f33a1c3780831193e"
+  },
+  "D:\\Code\\DoAn\\DATN\\jPOS\\pos-ui\\public\\vercel.svg": {
+    "mtime": 1772183153.4061415,
+    "hash": "c0af2f507b369b085b35ef4bbe3bcf1e"
+  },
+  "D:\\Code\\DoAn\\DATN\\jPOS\\pos-ui\\public\\window.svg": {
+    "mtime": 1772183153.4122713,
+    "hash": "a2760511c65806022ad20adf74370ff3"
+  },
+  "D:\\Code\\DoAn\\DATN\\jPOS\\pos-ui\\public\\pos_terminal\\textures\\Material_2100454184_baseColor.png": {
+    "mtime": 1775212586.0673203,
+    "hash": "bace5505f196409d2bc6d4914ce59aea"
+  },
+  "D:\\Code\\DoAn\\DATN\\jPOS\\pos-ui\\public\\pos_terminal\\textures\\Material_2100454184_metallicRoughness.png": {
+    "mtime": 1775212586.076617,
+    "hash": "994f40e89341480283a074e7af3a7491"
+  },
+  "D:\\Code\\DoAn\\DATN\\jPOS\\pos-ui\\public\\pos_terminal\\textures\\Material_2100454184_normal.png": {
+    "mtime": 1775212586.0872748,
+    "hash": "eed5989f1c8ddaa90c0927387be799ac"
+  },
+  "D:\\Code\\DoAn\\DATN\\jPOS\\pos-ui\\public\\pos_terminal\\textures\\Material_2100454185_normal.png": {
+    "mtime": 1775212586.1095634,
+    "hash": "fc4ae240cf009be46e9ec1d9e3cc4c79"
+  }
+}

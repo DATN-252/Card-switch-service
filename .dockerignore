@@ -1,7 +1,7 @@
-.gradle
-build
 .git
-.idea
-*.iml
-out
-jpos/build
+**/build/
+**/bin/
+**/out/
+**/.gradle/
+**/.idea/
+*.log

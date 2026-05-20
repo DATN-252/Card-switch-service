@@ -1,12 +1,15 @@
 import { NextResponse } from 'next/server';
 
+const LEDGER_BASE_URL = process.env.LEDGER_SERVICE_URL ?? 'http://localhost:8083';
+const LEDGER_API_KEY = process.env.LEDGER_SYSTEM_API_KEY ?? 'bkbank-internal-system-api-key-2025';
+
 export async function GET() {
     try {
-        const res = await fetch('http://localhost:8083/merchants?size=1000', {
+        const res = await fetch(`${LEDGER_BASE_URL}/merchants?size=1000`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'X-API-KEY': 'bkbank-internal-system-api-key-2025'
+                'X-API-KEY': LEDGER_API_KEY
             },
             cache: 'no-store'
         });

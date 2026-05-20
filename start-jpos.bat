@@ -4,8 +4,11 @@ echo   BkBank jPOS Switch Server Startup Script
 echo ============================================
 
 echo [0/5] Setting environment variables...
-set CMS_SERVICE_URL=http://localhost:8082/api/transaction
+set CMS_SERVICE_URL=https://cms-service-production-692b.up.railway.app/api/transaction
+set FRAUD_SERVICE_URL=https://inference-service-production-10b7.up.railway.app/api/check
+set LEDGER_MERCHANTS_URL=https://core-ledger-service-production.up.railway.app/merchants?size=1000
 set CMS_INTERNAL_API_KEY=jpos-to-cms-secret-key-2025
+set LEDGER_SYSTEM_API_KEY=bkbank-internal-system-api-key-2025
 
 
 

@@ -50,8 +50,11 @@ function sendIsoMessage(isoMessage: string): Promise<string> {
 
         let responseData = '';
 
-        client.connect(10000, '127.0.0.1', () => {
-            console.log('[POS Simulator] Connected to jPOS TCP Port 10000');
+        const jposHost = process.env.JPOS_HOST ?? '127.0.0.1';
+        const jposPort = Number(process.env.JPOS_PORT ?? 10000);
+
+        client.connect(jposPort, jposHost, () => {
+            console.log(`[POS Simulator] Connected to jPOS TCP ${jposHost}:${jposPort}`);
             console.log('[POS Simulator] Sending:', isoMessage);
             client.write(isoMessage);
         });
@@ -142,6 +145,15 @@ async function getMerchantDetail(merchantId: string) {
     return response.json();
 }
 
+async function tryGetMerchantDetail(merchantId: string) {
+    try {
+        return await getMerchantDetail(merchantId);
+    } catch (error) {
+        console.warn(`[POS-UI] Failed to load merchant detail for ${merchantId}:`, error);
+        return null;
+    }
+}
+
 async function runFraudTestAuthorization({
     pan,
     amount,
@@ -182,6 +194,7 @@ async function runFraudTestAuthorization({
         headers: {
             'Content-Type': 'application/json',
             'X-Internal-Api-Key': CMS_INTERNAL_API_KEY,
+            'Authorization': `Bearer ${CMS_INTERNAL_API_KEY}`,
         },
         body: JSON.stringify(payload),
         cache: 'no-store',
@@ -213,23 +226,106 @@ export async function POST(request: Request) {
             merchantId = "STORE01",
             merchantName = "Test Store",
             fraudTestMode = false,
+            saveHistory = true, // NEW: Always save to history by default
         } = body;
 
         if (!pan || !amount) {
             return NextResponse.json({ error: "Missing pan or amount" }, { status: 400 });
         }
 
-        if (fraudTestMode) {
-            const fraudResult = await runFraudTestAuthorization({
-                pan,
-                amount: Number(amount),
-                merchantId,
-                merchantName,
-            });
-            return NextResponse.json(fraudResult, {
-                status: fraudResult.status === 'APPROVED' ? 200 : 400,
-            });
+        // STEP 1: ALWAYS call CMS service for authorization + fraud check + history logging
+        // NOTE: CMS service automatically:
+        //   - Checks fraud via ML inference service
+        //   - Logs transaction to ledger (debitAccount or addToLoanBalance)
+        //   - Creates fraud alerts if MEDIUM/HIGH risk
+        //   - Sends notifications to customer
+
+        console.log(`[POS-UI] Processing authorization for PAN: ***${pan.slice(-4)}, Amount: ${amount}, SaveHistory: ${saveHistory}`);
+
+        const merchant = await tryGetMerchantDetail(merchantId);
+        const merchantLatitude = merchant?.latitude ?? body.merchantLatitude ?? body.latitude ?? 0;
+        const merchantLongitude = merchant?.longitude ?? body.merchantLongitude ?? body.longitude ?? 0;
+        const merchantLocation = merchant?.address ?? body.location ?? merchantName ?? 'POS Terminal';
+
+        const authPayload: Record<string, unknown> = {
+            cardNumber: pan,
+            amount: Number(amount),
+            merchantId,
+            merchantName,
+            merchantAddress: merchantLocation,
+            merchantCategory: merchant?.category ?? body.merchantCategory ?? 'misc_pos',
+            merchantLatitude,
+            merchantLongitude,
+            merchantCityPopulation: merchant?.cityPopulation ?? body.merchantCityPopulation ?? 0,
+            paymentId: `PAY-POS-${merchantId}-${Date.now()}`,
+            idempotencyKey: `pos-${merchantId}-${Date.now()}`,
+            channel: 'POS',
+            location: merchantLocation,
+            latitude: body.latitude ?? merchantLatitude,
+            longitude: body.longitude ?? merchantLongitude,
+            paymentNote: 'POS Terminal Transaction',
+        };
+
+        if (typeof body.cardType === 'string' && body.cardType.trim()) {
+            authPayload.cardType = body.cardType.trim();
         }
+
+        if (typeof body.cvc === 'string' && body.cvc.trim()) {
+            authPayload.cvc = body.cvc.trim();
+        }
+
+        if (typeof body.cardholderName === 'string' && body.cardholderName.trim()) {
+            authPayload.cardholderName = body.cardholderName.trim();
+        }
+
+        const cmsResponse = await fetch(CMS_SERVICE_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Internal-Api-Key': CMS_INTERNAL_API_KEY,
+                'Authorization': `Bearer ${CMS_INTERNAL_API_KEY}`,
+            },
+            body: JSON.stringify(authPayload),
+            cache: 'no-store',
+        });
+
+        const cmsData = await cmsResponse.json();
+        const cmsResult = cmsData?.result && typeof cmsData.result === 'object' ? cmsData.result : cmsData;
+        const responseCode = cmsResult?.responseCode ?? '96';
+        const responseMessage = cmsResult?.responseMessage ?? cmsData?.message ?? 'Authorization declined by CMS';
+        const approved = cmsResult?.approved === true || responseCode === '00';
+
+        console.log(`[POS-UI] CMS authorization result: code=${responseCode}, approved=${approved}, message=${responseMessage}`);
+
+        // If fraudTestMode, return CMS decision directly
+        if (fraudTestMode) {
+            console.log(`[POS-UI] Fraud test mode - returning CMS decision without jPOS processing`);
+            return NextResponse.json({
+                status: approved ? 'APPROVED' : 'DECLINED',
+                code: responseCode,
+                stan: cmsResult?.stan ?? cmsResult?.paymentId ?? authPayload.paymentId,
+                pan: pan.slice(-4),
+                message: responseMessage,
+                cmsLogged: true, // ✓ Already logged in CMS
+            }, { status: approved ? 200 : 400 });
+        }
+
+        // STEP 2: CMS authorization complete (history already logged in CMS)
+        // If declined, return immediately
+        if (!approved) {
+            console.log(`[POS-UI] CMS declined authorization - not proceeding to jPOS`);
+            return NextResponse.json({
+                status: 'DECLINED',
+                code: responseCode,
+                stan: cmsResult?.stan ?? cmsResult?.paymentId ?? authPayload.paymentId,
+                pan: pan.slice(-4),
+                message: responseMessage,
+                cmsLogged: true, // ✓ Already logged in CMS
+            }, { status: 400 });
+        }
+
+        // STEP 3: CMS approved - continue with ISO message to jPOS (optional, for terminal simulator)
+        console.log(`[POS-UI] CMS approved - proceeding with jPOS for additional terminal processing`);
 
         // Build ISO Message
         const mti = "0200";
