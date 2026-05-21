@@ -11,7 +11,7 @@ const FRAUD_TEST_PROFILE = {
     longitude: -76.4954,
     customerCityPopulation: 5927,
     dob: '1973-06-09',
-    transactionTime: '2020-06-21 17:40:54',
+    transactionTime: '2026-05-20 17:40:54',
     unixTime: 1371836454,
     merchantCategory: 'shopping_pos',
     merchantLatitude: 37.480372,
@@ -165,56 +165,69 @@ async function runFraudTestAuthorization({
     merchantId: string;
     merchantName: string;
 }) {
-    const merchant = await getMerchantDetail(merchantId);
-    const payload = {
-        cardNumber: pan,
-        amount,
-        merchantId,
-        merchantName,
-        merchantAddress: merchant.address ?? merchantName,
-        merchantCategory: FRAUD_TEST_PROFILE.merchantCategory,
-        merchantLatitude: FRAUD_TEST_PROFILE.merchantLatitude,
-        merchantLongitude: FRAUD_TEST_PROFILE.merchantLongitude,
-        merchantCityPopulation: FRAUD_TEST_PROFILE.merchantCityPopulation,
-        location: FRAUD_TEST_PROFILE.location,
-        latitude: FRAUD_TEST_PROFILE.latitude,
-        longitude: FRAUD_TEST_PROFILE.longitude,
-        customerCityPopulation: FRAUD_TEST_PROFILE.customerCityPopulation,
-        dob: FRAUD_TEST_PROFILE.dob,
-        transactionTime: FRAUD_TEST_PROFILE.transactionTime,
-        unixTime: FRAUD_TEST_PROFILE.unixTime,
-        paymentId: `PAY-POS-FRAUD-${Date.now()}`,
-        idempotencyKey: `pos-fraud-${merchantId}-${Date.now()}`,
-        channel: 'POS_FRAUD_TEST',
-        paymentNote: 'Fraud test mode',
-    };
+    try {
+        const merchant = await getMerchantDetail(merchantId);
+        const payload = {
+            cardNumber: pan,
+            amount,
+            merchantId,
+            merchantName,
+            merchantAddress: merchant.address ?? merchantName,
+            merchantCategory: FRAUD_TEST_PROFILE.merchantCategory,
+            merchantLatitude: FRAUD_TEST_PROFILE.merchantLatitude,
+            merchantLongitude: FRAUD_TEST_PROFILE.merchantLongitude,
+            merchantCityPopulation: FRAUD_TEST_PROFILE.merchantCityPopulation,
+            location: FRAUD_TEST_PROFILE.location,
+            latitude: FRAUD_TEST_PROFILE.latitude,
+            longitude: FRAUD_TEST_PROFILE.longitude,
+            customerCityPopulation: FRAUD_TEST_PROFILE.customerCityPopulation,
+            dob: FRAUD_TEST_PROFILE.dob,
+            transactionTime: FRAUD_TEST_PROFILE.transactionTime,
+            unixTime: FRAUD_TEST_PROFILE.unixTime,
+            paymentId: `PAY-POS-FRAUD-${Date.now()}`,
+            idempotencyKey: `pos-fraud-${merchantId}-${Date.now()}`,
+            channel: 'POS_FRAUD_TEST',
+            paymentNote: 'Fraud test mode',
+        };
 
-    const response = await fetch(CMS_SERVICE_URL, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-Internal-Api-Key': CMS_INTERNAL_API_KEY,
-            'Authorization': `Bearer ${CMS_INTERNAL_API_KEY}`,
-        },
-        body: JSON.stringify(payload),
-        cache: 'no-store',
-    });
+        const response = await fetch(CMS_SERVICE_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Internal-Api-Key': CMS_INTERNAL_API_KEY,
+                'Authorization': `Bearer ${CMS_INTERNAL_API_KEY}`,
+            },
+            body: JSON.stringify(payload),
+            cache: 'no-store',
+        });
 
-    const data = await response.json();
-    const result = data?.result && typeof data.result === 'object' ? data.result : data;
-    const responseCode = result?.responseCode ?? '96';
-    const responseMessage = result?.responseMessage ?? data?.message ?? 'Fraud test transaction declined';
+        const data = await response.json();
+        const result = data?.result && typeof data.result === 'object' ? data.result : data;
+        const responseCode = result?.responseCode ?? '96';
+        const responseMessage = result?.responseMessage ?? data?.message ?? 'Fraud test transaction declined';
 
-    return {
-        status: result?.approved === true || responseCode === '00' ? 'APPROVED' : 'DECLINED',
-        code: responseCode,
-        stan: result?.stan ?? result?.paymentId ?? 'N/A',
-        pan,
-        error: responseCode === '00' ? null : responseMessage,
-        message: responseMessage,
-        fraudTestMode: true,
-        raw: data,
-    };
+        return {
+            status: result?.approved === true || responseCode === '00' ? 'APPROVED' : 'DECLINED',
+            code: responseCode,
+            stan: result?.stan ?? result?.paymentId ?? 'N/A',
+            pan,
+            error: responseCode === '00' ? null : responseMessage,
+            message: responseMessage,
+            fraudTestMode: true,
+            raw: data,
+        };
+    } catch (error: any) {
+        console.error('[POS-UI] Fraud test authorization error:', error.message);
+        return {
+            status: 'DECLINED',
+            code: '96',
+            stan: 'N/A',
+            pan,
+            error: error.message,
+            message: 'Fraud test error: ' + error.message,
+            fraudTestMode: true,
+        };
+    }
 }
 
 export async function POST(request: Request) {
@@ -228,6 +241,8 @@ export async function POST(request: Request) {
             fraudTestMode = false,
             saveHistory = true, // NEW: Always save to history by default
         } = body;
+
+        console.log(`[POS-UI] Received request: fraudTestMode=${fraudTestMode}, type=${typeof fraudTestMode}`);
 
         if (!pan || !amount) {
             return NextResponse.json({ error: "Missing pan or amount" }, { status: 400 });
@@ -299,15 +314,24 @@ export async function POST(request: Request) {
 
         // If fraudTestMode, return CMS decision directly
         if (fraudTestMode) {
-            console.log(`[POS-UI] Fraud test mode - returning CMS decision without jPOS processing`);
-            return NextResponse.json({
-                status: approved ? 'APPROVED' : 'DECLINED',
-                code: responseCode,
-                stan: cmsResult?.stan ?? cmsResult?.paymentId ?? authPayload.paymentId,
-                pan: pan.slice(-4),
-                message: responseMessage,
-                cmsLogged: true, // ✓ Already logged in CMS
-            }, { status: approved ? 200 : 400 });
+            console.log(`[POS-UI] Fraud test mode enabled - calling runFraudTestAuthorization`);
+            try {
+                const fraudTestResult = await runFraudTestAuthorization({
+                    pan,
+                    amount,
+                    merchantId,
+                    merchantName,
+                });
+                console.log(`[POS-UI] Fraud test result:`, fraudTestResult);
+                return NextResponse.json(fraudTestResult, { status: fraudTestResult.status === 'APPROVED' ? 200 : 400 });
+            } catch (error: any) {
+                console.error(`[POS-UI] Fraud test error:`, error.message);
+                return NextResponse.json({
+                    status: 'DECLINED',
+                    code: '96',
+                    message: 'Fraud test error: ' + error.message,
+                }, { status: 400 });
+            }
         }
 
         // STEP 2: CMS authorization complete (history already logged in CMS)
