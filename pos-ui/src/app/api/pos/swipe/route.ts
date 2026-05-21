@@ -351,56 +351,71 @@ export async function POST(request: Request) {
         // STEP 3: CMS approved - continue with ISO message to jPOS (optional, for terminal simulator)
         console.log(`[POS-UI] CMS approved - proceeding with jPOS for additional terminal processing`);
 
-        // Build ISO Message
-        const mti = "0200";
-        // Bitmap with fields: 2, 3, 4, 7, 11, 42, 43
-        // 01110010 00100000 00000000 00000000 00000000 01100000 00000000 00000000
-        const bitmap = "7220000000600000";
+        try {
+            // Build ISO Message
+            const mti = "0200";
+            // Bitmap with fields: 2, 3, 4, 7, 11, 42, 43
+            // 01110010 00100000 00000000 00000000 00000000 01100000 00000000 00000000
+            const bitmap = "7220000000600000";
 
-        // Field 2 (LLVAR): 2 digits length + PAN
-        const f2 = padLeft(pan.length, 2) + pan;
+            // Field 2 (LLVAR): 2 digits length + PAN
+            const f2 = padLeft(pan.length, 2) + pan;
 
-        // Field 3: Processing Code "000000" (Purchase)
-        const f3 = "000000";
+            // Field 3: Processing Code "000000" (Purchase)
+            const f3 = "000000";
 
-        // Field 4: Amount in cents (12 characters, padded with leading 0)
-        const amountCents = Math.round(Number(amount) * 100);
-        const f4 = padLeft(amountCents, 12);
+            // Field 4: Amount in cents (12 characters, padded with leading 0)
+            const amountCents = Math.round(Number(amount) * 100);
+            const f4 = padLeft(amountCents, 12);
 
-        // Field 7: Date 10 chars (MMDDHHMISS)
-        const d = new Date();
-        const f7 = padLeft(d.getMonth() + 1, 2) + padLeft(d.getDate(), 2) +
-            padLeft(d.getHours(), 2) + padLeft(d.getMinutes(), 2) + padLeft(d.getSeconds(), 2);
+            // Field 7: Date 10 chars (MMDDHHMISS)
+            const d = new Date();
+            const f7 = padLeft(d.getMonth() + 1, 2) + padLeft(d.getDate(), 2) +
+                padLeft(d.getHours(), 2) + padLeft(d.getMinutes(), 2) + padLeft(d.getSeconds(), 2);
 
-        // Field 11: STAN (6 digits rand)
-        const f11 = padLeft(Math.floor(Math.random() * 900000) + 100000, 6);
+            // Field 11: STAN (6 digits rand)
+            const f11 = padLeft(Math.floor(Math.random() * 900000) + 100000, 6);
 
-        // Field 42: Merchant ID (Fixed 15, right padded spaces)
-        const f42 = padRight(merchantId, 15);
+            // Field 42: Merchant ID (Fixed 15, right padded spaces)
+            const f42 = padRight(merchantId, 15);
 
-        // Field 43: Merchant Name (Fixed 40, right padded spaces, no accents)
-        const asciiMerchantName = removeVietnameseTones(merchantName);
-        const f43 = padRight(asciiMerchantName, 40);
+            // Field 43: Merchant Name (Fixed 40, right padded spaces, no accents)
+            const asciiMerchantName = removeVietnameseTones(merchantName);
+            const f43 = padRight(asciiMerchantName, 40);
 
-        // Concatenate without length header yet
-        const payload = mti + bitmap + f2 + f3 + f4 + f7 + f11 + f42 + f43;
+            // Concatenate without length header yet
+            const payload = mti + bitmap + f2 + f3 + f4 + f7 + f11 + f42 + f43;
 
-        // Add 4-byte ASCII length header
-        const finalMessage = padLeft(payload.length, 4) + payload;
+            // Add 4-byte ASCII length header
+            const finalMessage = padLeft(payload.length, 4) + payload;
 
-        // Send TCP
-        const responseData = await sendIsoMessage(finalMessage);
+            // Send TCP
+            const responseData = await sendIsoMessage(finalMessage);
 
-        // Parse the response
-        const parsed = parseIsoResponse(responseData);
+            // Parse the response
+            const parsed = parseIsoResponse(responseData);
 
-        return NextResponse.json({
-            status: parsed.responseCode === '00' ? "APPROVED" : "DECLINED",
-            code: parsed.responseCode,
-            stan: parsed.stan,
-            pan: parsed.pan,
-            error: parsed.responseCode !== '00' ? "Transaction Declined by jPOS" : null
-        });
+            return NextResponse.json({
+                status: parsed.responseCode === '00' ? "APPROVED" : "DECLINED",
+                code: parsed.responseCode,
+                stan: parsed.stan,
+                pan: parsed.pan,
+                error: parsed.responseCode !== '00' ? "Transaction Declined by jPOS" : null
+            });
+        } catch (jposError: any) {
+            // jPOS is not available, but CMS already approved the transaction
+            // Return success based on CMS approval
+            console.warn('[POS-UI] jPOS connection failed, but CMS already approved:', jposError.message);
+            return NextResponse.json({
+                status: "APPROVED",
+                code: responseCode,
+                stan: cmsResult?.stan ?? cmsResult?.paymentId ?? authPayload.paymentId,
+                pan: pan.slice(-4),
+                message: "Transaction approved by CMS (jPOS unavailable)",
+                cmsLogged: true,
+                jposAvailable: false,
+            });
+        }
 
     } catch (err: any) {
         console.error("API Route Error:", err.message);
