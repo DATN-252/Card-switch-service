@@ -13,6 +13,7 @@ FROM eclipse-temurin:21-jre
 WORKDIR /app
 
 COPY --from=build /app/jpos/build/install/jpos/* /app/
+COPY --from=build /app/packager /app/packager
 
 EXPOSE 10000
 
