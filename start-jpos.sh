@@ -8,6 +8,11 @@ if [ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]; then
     sdk env
 fi
 
+# Safeguard: Ensure JAVA_HOME's bin directory is in PATH so `./bin/q2` (which runs `exec java`) can find it
+if [ -n "$JAVA_HOME" ]; then
+    export PATH="$JAVA_HOME/bin:$PATH"
+fi
+
 echo "============================================"
 echo "  BkBank jPOS Switch Server Startup Script  "
 echo "============================================"
