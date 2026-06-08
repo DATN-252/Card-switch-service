@@ -197,6 +197,7 @@ class GitRevisionTask extends DefaultTask
 
     @InputFile @Optional
     File getRefFile() {
+        if (gitHead == null) return null
         File rf = new File(gitHead.parent,gitHead.text.replace('ref: ', '').trim())
         return rf.exists() ? rf : gitHead
     }
