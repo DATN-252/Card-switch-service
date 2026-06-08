@@ -6,9 +6,9 @@ echo "============================================"
 
 echo "[1/5] Setting environment variables..."
 # Change localhost to your VPS IP if services are deployed on different hosts
-export CMS_SERVICE_URL=${CMS_SERVICE_URL:-"http://localhost:8082/api/transaction"}
-export FRAUD_SERVICE_URL=${FRAUD_SERVICE_URL:-"http://localhost:8000/api/check"}
-export LEDGER_MERCHANTS_URL=${LEDGER_MERCHANTS_URL:-"http://localhost:8083/merchants?size=1000"}
+export CMS_SERVICE_URL=${CMS_SERVICE_URL:-"https://cms-service-production-6aa4.up.railway.app/api/transaction"}
+export FRAUD_SERVICE_URL=${FRAUD_SERVICE_URL:-"https://a32a-34-21-207-239.ngrok-free.app/api/check"}
+export LEDGER_MERCHANTS_URL=${LEDGER_MERCHANTS_URL:-"https://core-ledger-service-production-9056.up.railway.app?size=1000"}
 export CMS_INTERNAL_API_KEY=${CMS_INTERNAL_API_KEY:-"jpos-to-cms-secret-key-2025"}
 export LEDGER_SYSTEM_API_KEY=${LEDGER_SYSTEM_API_KEY:-"bkbank-internal-system-api-key-2025"}
 
