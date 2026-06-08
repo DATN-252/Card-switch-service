@@ -1,0 +1,8 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/merchants/route": "/api/merchants",
+  "/api/pos/swipe/route": "/api/pos/swipe",
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/"
+}

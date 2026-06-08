@@ -1,0 +1,74 @@
+[00:00:03.172] Server  LOG     ✓ Ready in 2.4s
+[00:02:51.649] Server  LOG     ○ Compiling / ...
+[00:03:10.908] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head headCacheNode={{rsc:<Fragment>, ...}}>
+                    <__next_viewport_boundary__>
+                    <MetadataWrapper>
+                      <div
++                       hidden={true}
+-                       hidden={null}
+-                       id="ab62f807b-53df-93d2-24d8-3edaad909701"
+                      >
+                        <__next_metadata_boundary__>
++                         <Suspense name="Next.Metadata">
+-                         {"\n        "}
+                    ...
+                  ...
+
+[00:14:19.194] Server  LOG     [POS-UI] Received request: fraudTestMode=false, type=boolean
+[00:14:19.196] Server  LOG     [POS-UI] Processing authorization for PAN: ***4135, Amount: 10, SaveHistory: true
+[00:14:21.469] Server  LOG     [POS-UI] CMS authorization result: code=43, approved=false, message=Card restricted
+[00:14:21.469] Server  LOG     [POS-UI] CMS declined authorization - not proceeding to jPOS
+[00:14:57.953] Server  LOG     [POS-UI] Received request: fraudTestMode=false, type=boolean
+[00:14:57.953] Server  LOG     [POS-UI] Processing authorization for PAN: ***4135, Amount: 10, SaveHistory: true
+[00:15:02.809] Server  LOG     [POS-UI] CMS authorization result: code=00, approved=true, message=Approved
+[00:15:02.809] Server  LOG     [POS-UI] CMS approved - proceeding with jPOS for additional terminal processing
+[00:15:02.811] Server  LOG     [POS Simulator] Connected to jPOS TCP localhost:10000
+[00:15:02.812] Server  LOG     [POS Simulator] Sending: "0127020072200000006000001641332413413541350000000000000010000608134313620610SP0001         Dien luc EVN                            "
+[00:15:05.865] Server  LOG     [POS Simulator] Received chunk: "012902107220000002600000164133241341354135000000000000001000060813431362061000SP0001         Dien luc EVN                            "
+[00:15:58.465] Server  LOG     [POS-UI] Received request: fraudTestMode=false, type=boolean
+[00:15:58.466] Server  LOG     [POS-UI] Processing authorization for PAN: ***4135, Amount: 1000, SaveHistory: true
+[00:16:01.729] Server  LOG     [POS-UI] CMS authorization result: code=51, approved=false, message=Credit limit exceeded
+[00:16:01.730] Server  LOG     [POS-UI] CMS declined authorization - not proceeding to jPOS
+[00:23:23.498] Server  LOG     [POS-UI] Received request: fraudTestMode=false, type=boolean
+[00:23:23.498] Server  LOG     [POS-UI] Processing authorization for PAN: ***4135, Amount: 1000, SaveHistory: true
+[00:23:27.130] Server  LOG     [POS-UI] CMS authorization result: code=59, approved=false, message=Suspected fraud
+[00:23:27.130] Server  LOG     [POS-UI] CMS declined authorization - not proceeding to jPOS
+[00:53:38.515] Server  LOG     [POS-UI] Received request: fraudTestMode=false, type=boolean
+[00:53:38.515] Server  LOG     [POS-UI] Processing authorization for PAN: ***4135, Amount: 10, SaveHistory: true
+[00:53:39.583] Server  LOG     [POS-UI] CMS authorization result: code=43, approved=false, message=Card restricted
+[00:53:39.584] Server  LOG     [POS-UI] CMS declined authorization - not proceeding to jPOS
+[00:54:07.625] Server  LOG     [POS-UI] Received request: fraudTestMode=false, type=boolean
+[00:54:07.625] Server  LOG     [POS-UI] Processing authorization for PAN: ***4135, Amount: 10, SaveHistory: true
+[00:54:10.803] Server  LOG     [POS-UI] CMS authorization result: code=00, approved=true, message=Approved
+[00:54:10.803] Server  LOG     [POS-UI] CMS approved - proceeding with jPOS for additional terminal processing
+[00:54:10.807] Server  LOG     [POS Simulator] Connected to jPOS TCP localhost:10000
+[00:54:10.807] Server  LOG     [POS Simulator] Sending: "0127020072200000006000001641332413413541350000000000000010000608142221751956SP0001         Dien luc EVN                            "
+[00:54:13.560] Server  LOG     [POS Simulator] Received chunk: "012902107220000002600000164133241341354135000000000000001000060814222175195600SP0001         Dien luc EVN                            "
+[00:54:20.303] Server  LOG     [POS-UI] Received request: fraudTestMode=false, type=boolean
+[00:54:20.303] Server  LOG     [POS-UI] Processing authorization for PAN: ***4135, Amount: 1000, SaveHistory: true
+[00:54:23.250] Server  LOG     [POS-UI] CMS authorization result: code=00, approved=true, message=Approved
+[00:54:23.250] Server  LOG     [POS-UI] CMS approved - proceeding with jPOS for additional terminal processing
+[00:54:23.252] Server  LOG     [POS Simulator] Connected to jPOS TCP localhost:10000
+[00:54:23.252] Server  LOG     [POS Simulator] Sending: "0127020072200000006000001641332413413541350000000000001000000608142233102476SP0002         Sieu thi GO                             "
+[00:54:26.855] Server  LOG     [POS Simulator] Received chunk: "012902107220000002600000164133241341354135000000000000100000060814223310247651SP0002         Sieu thi GO                             "

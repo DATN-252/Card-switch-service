@@ -1,0 +1,424 @@
+module.exports = [
+"[externals]/next/dist/compiled/next-server/app-route-turbo.runtime.dev.js [external] (next/dist/compiled/next-server/app-route-turbo.runtime.dev.js, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("next/dist/compiled/next-server/app-route-turbo.runtime.dev.js", () => require("next/dist/compiled/next-server/app-route-turbo.runtime.dev.js"));
+
+module.exports = mod;
+}),
+"[externals]/next/dist/compiled/@opentelemetry/api [external] (next/dist/compiled/@opentelemetry/api, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("next/dist/compiled/@opentelemetry/api", () => require("next/dist/compiled/@opentelemetry/api"));
+
+module.exports = mod;
+}),
+"[externals]/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js [external] (next/dist/compiled/next-server/app-page-turbo.runtime.dev.js, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("next/dist/compiled/next-server/app-page-turbo.runtime.dev.js", () => require("next/dist/compiled/next-server/app-page-turbo.runtime.dev.js"));
+
+module.exports = mod;
+}),
+"[externals]/next/dist/server/app-render/work-unit-async-storage.external.js [external] (next/dist/server/app-render/work-unit-async-storage.external.js, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("next/dist/server/app-render/work-unit-async-storage.external.js", () => require("next/dist/server/app-render/work-unit-async-storage.external.js"));
+
+module.exports = mod;
+}),
+"[externals]/next/dist/server/app-render/work-async-storage.external.js [external] (next/dist/server/app-render/work-async-storage.external.js, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("next/dist/server/app-render/work-async-storage.external.js", () => require("next/dist/server/app-render/work-async-storage.external.js"));
+
+module.exports = mod;
+}),
+"[externals]/next/dist/shared/lib/no-fallback-error.external.js [external] (next/dist/shared/lib/no-fallback-error.external.js, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("next/dist/shared/lib/no-fallback-error.external.js", () => require("next/dist/shared/lib/no-fallback-error.external.js"));
+
+module.exports = mod;
+}),
+"[externals]/next/dist/server/app-render/after-task-async-storage.external.js [external] (next/dist/server/app-render/after-task-async-storage.external.js, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("next/dist/server/app-render/after-task-async-storage.external.js", () => require("next/dist/server/app-render/after-task-async-storage.external.js"));
+
+module.exports = mod;
+}),
+"[externals]/net [external] (net, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("net", () => require("net"));
+
+module.exports = mod;
+}),
+"[project]/src/app/api/pos/swipe/route.ts [app-route] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "POST",
+    ()=>POST
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/server.js [app-route] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$net__$5b$external$5d$__$28$net$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/net [external] (net, cjs)");
+;
+;
+const LEDGER_BASE_URL = process.env.LEDGER_SERVICE_URL ?? 'http://localhost:8083';
+const LEDGER_API_KEY = process.env.LEDGER_SYSTEM_API_KEY ?? 'bkbank-internal-system-api-key-2025';
+const CMS_SERVICE_URL = process.env.CMS_SERVICE_URL ?? 'http://localhost:8082/api/transaction';
+const CMS_INTERNAL_API_KEY = process.env.CMS_INTERNAL_API_KEY ?? 'jpos-to-cms-secret-key-2025';
+const FRAUD_TEST_PROFILE = {
+    latitude: 38.2674,
+    longitude: -76.4954,
+    customerCityPopulation: 5927,
+    dob: '1973-06-09',
+    transactionTime: '2026-05-20 17:40:54',
+    unixTime: 1371836454,
+    merchantCategory: 'shopping_pos',
+    merchantLatitude: 37.480372,
+    merchantLongitude: -77.34958,
+    merchantCityPopulation: 5927,
+    location: 'Lexington Park, MD'
+};
+// Helper to pad strings
+const padRight = (str, len, char = ' ')=>str.padEnd(len, char).slice(0, len);
+const padLeft = (str, len, char = '0')=>String(str).padStart(len, char).slice(0, len);
+// Helper to remove Vietnamese accents for ISO8583 ASCII packing
+function removeVietnameseTones(str) {
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+    str = str.replace(/đ/g, "d");
+    str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
+    str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
+    str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+    str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|MỘT/g, "O");
+    str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
+    str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
+    str = str.replace(/Đ/g, "D");
+    return str;
+}
+// TCP Socket Promise wrapper
+function sendIsoMessage(isoMessage) {
+    return new Promise((resolve, reject)=>{
+        const client = new __TURBOPACK__imported__module__$5b$externals$5d2f$net__$5b$external$5d$__$28$net$2c$__cjs$29$__["default"].Socket();
+        let responseData = '';
+        const jposHost = process.env.JPOS_HOST ?? '127.0.0.1';
+        const jposPort = Number(process.env.JPOS_PORT ?? 10000);
+        client.connect(jposPort, jposHost, ()=>{
+            console.log(`[POS Simulator] Connected to jPOS TCP ${jposHost}:${jposPort}`);
+            console.log('[POS Simulator] Sending:', isoMessage);
+            client.write(isoMessage);
+        });
+        client.on('data', (data)=>{
+            const chunk = data.toString();
+            console.log('[POS Simulator] Received chunk:', chunk);
+            responseData += chunk;
+            // Basic check to see if we got the full message based on 4-char length header
+            if (responseData.length >= 4) {
+                const expectedLen = parseInt(responseData.substring(0, 4), 10);
+                if (responseData.length >= expectedLen + 4) {
+                    client.destroy(); // Got full message
+                    resolve(responseData);
+                }
+            }
+        });
+        client.on('error', (err)=>{
+            console.error('[POS Simulator] TCP Error:', err.message);
+            client.destroy();
+            reject(err);
+        });
+        client.on('timeout', ()=>{
+            console.error('[POS Simulator] TCP Timeout');
+            client.destroy();
+            reject(new Error('TCP Timeout'));
+        });
+        // Timeout after 10 seconds
+        client.setTimeout(10000);
+    });
+}
+function parseIsoResponse(isoResponse) {
+    if (!isoResponse || isoResponse.length < 24) throw new Error("Invalid ISO Response length");
+    // Header (4), MTI (4), Bitmap (16)
+    let pointer = 24;
+    // Field 2 (LLVAR)
+    const f2Len = parseInt(isoResponse.substring(pointer, pointer + 2), 10);
+    pointer += 2;
+    const pan = isoResponse.substring(pointer, pointer + f2Len);
+    pointer += f2Len;
+    // Field 3 (Fixed 6) -> Processing Code
+    pointer += 6;
+    // Field 4 (Fixed 12) -> Amount
+    pointer += 12;
+    // Field 7 (Fixed 10) -> Date
+    pointer += 10;
+    // Field 11 (Fixed 6) -> STAN
+    const stan = isoResponse.substring(pointer, pointer + 6);
+    pointer += 6;
+    // Field 39 (Fixed 2) -> Response Code
+    const responseCode = isoResponse.substring(pointer, pointer + 2);
+    pointer += 2;
+    return {
+        pan,
+        stan,
+        responseCode,
+        raw: isoResponse
+    };
+}
+async function getMerchantDetail(merchantId) {
+    const response = await fetch(`${LEDGER_BASE_URL}/merchants/${merchantId}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-API-KEY': LEDGER_API_KEY
+        },
+        cache: 'no-store'
+    });
+    if (!response.ok) {
+        throw new Error(`Failed to fetch merchant detail: ${response.status}`);
+    }
+    return response.json();
+}
+async function tryGetMerchantDetail(merchantId) {
+    try {
+        return await getMerchantDetail(merchantId);
+    } catch (error) {
+        console.warn(`[POS-UI] Failed to load merchant detail for ${merchantId}:`, error);
+        return null;
+    }
+}
+async function runFraudTestAuthorization({ pan, amount, merchantId, merchantName }) {
+    try {
+        const merchant = await getMerchantDetail(merchantId);
+        const payload = {
+            cardNumber: pan,
+            amount,
+            merchantId,
+            merchantName,
+            merchantAddress: merchant.address ?? merchantName,
+            merchantCategory: FRAUD_TEST_PROFILE.merchantCategory,
+            merchantLatitude: FRAUD_TEST_PROFILE.merchantLatitude,
+            merchantLongitude: FRAUD_TEST_PROFILE.merchantLongitude,
+            merchantCityPopulation: FRAUD_TEST_PROFILE.merchantCityPopulation,
+            location: FRAUD_TEST_PROFILE.location,
+            latitude: FRAUD_TEST_PROFILE.latitude,
+            longitude: FRAUD_TEST_PROFILE.longitude,
+            customerCityPopulation: FRAUD_TEST_PROFILE.customerCityPopulation,
+            dob: FRAUD_TEST_PROFILE.dob,
+            transactionTime: FRAUD_TEST_PROFILE.transactionTime,
+            unixTime: FRAUD_TEST_PROFILE.unixTime,
+            paymentId: `PAY-POS-FRAUD-${Date.now()}`,
+            idempotencyKey: `pos-fraud-${merchantId}-${Date.now()}`,
+            channel: 'POS_FRAUD_TEST',
+            paymentNote: 'Fraud test mode'
+        };
+        const response = await fetch(CMS_SERVICE_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Internal-Api-Key': CMS_INTERNAL_API_KEY,
+                'Authorization': `Bearer ${CMS_INTERNAL_API_KEY}`
+            },
+            body: JSON.stringify(payload),
+            cache: 'no-store'
+        });
+        const data = await response.json();
+        const result = data?.result && typeof data.result === 'object' ? data.result : data;
+        const responseCode = result?.responseCode ?? '96';
+        const responseMessage = result?.responseMessage ?? data?.message ?? 'Fraud test transaction declined';
+        return {
+            status: result?.approved === true || responseCode === '00' ? 'APPROVED' : 'DECLINED',
+            code: responseCode,
+            stan: result?.stan ?? result?.paymentId ?? 'N/A',
+            pan,
+            error: responseCode === '00' ? null : responseMessage,
+            message: responseMessage,
+            fraudTestMode: true,
+            raw: data
+        };
+    } catch (error) {
+        console.error('[POS-UI] Fraud test authorization error:', error.message);
+        return {
+            status: 'DECLINED',
+            code: '96',
+            stan: 'N/A',
+            pan,
+            error: error.message,
+            message: 'Fraud test error: ' + error.message,
+            fraudTestMode: true
+        };
+    }
+}
+async function POST(request) {
+    try {
+        const body = await request.json();
+        const { pan, amount, merchantId = "STORE01", merchantName = "Test Store", fraudTestMode = false, saveHistory = true } = body;
+        console.log(`[POS-UI] Received request: fraudTestMode=${fraudTestMode}, type=${typeof fraudTestMode}`);
+        if (!pan || !amount) {
+            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                error: "Missing pan or amount"
+            }, {
+                status: 400
+            });
+        }
+        // STEP 1: ALWAYS call CMS service for authorization + fraud check + history logging
+        // NOTE: CMS service automatically:
+        //   - Checks fraud via ML inference service
+        //   - Logs transaction to ledger (debitAccount or addToLoanBalance)
+        //   - Creates fraud alerts if MEDIUM/HIGH risk
+        //   - Sends notifications to customer
+        console.log(`[POS-UI] Processing authorization for PAN: ***${pan.slice(-4)}, Amount: ${amount}, SaveHistory: ${saveHistory}`);
+        const merchant = await tryGetMerchantDetail(merchantId);
+        const merchantLatitude = merchant?.latitude ?? body.merchantLatitude ?? body.latitude ?? 0;
+        const merchantLongitude = merchant?.longitude ?? body.merchantLongitude ?? body.longitude ?? 0;
+        const merchantLocation = merchant?.address ?? body.location ?? merchantName ?? 'POS Terminal';
+        const authPayload = {
+            cardNumber: pan,
+            amount: Number(amount),
+            merchantId,
+            merchantName,
+            merchantAddress: merchantLocation,
+            merchantCategory: merchant?.category ?? body.merchantCategory ?? 'misc_pos',
+            merchantLatitude,
+            merchantLongitude,
+            merchantCityPopulation: merchant?.cityPopulation ?? body.merchantCityPopulation ?? 0,
+            paymentId: `PAY-POS-${merchantId}-${Date.now()}`,
+            idempotencyKey: `pos-${merchantId}-${Date.now()}`,
+            channel: 'POS',
+            location: merchantLocation,
+            latitude: body.latitude ?? merchantLatitude,
+            longitude: body.longitude ?? merchantLongitude,
+            paymentNote: 'POS Terminal Transaction'
+        };
+        if (typeof body.cardType === 'string' && body.cardType.trim()) {
+            authPayload.cardType = body.cardType.trim();
+        }
+        if (typeof body.cvc === 'string' && body.cvc.trim()) {
+            authPayload.cvc = body.cvc.trim();
+        }
+        if (typeof body.cardholderName === 'string' && body.cardholderName.trim()) {
+            authPayload.cardholderName = body.cardholderName.trim();
+        }
+        const cmsResponse = await fetch(CMS_SERVICE_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Internal-Api-Key': CMS_INTERNAL_API_KEY,
+                'Authorization': `Bearer ${CMS_INTERNAL_API_KEY}`
+            },
+            body: JSON.stringify(authPayload),
+            cache: 'no-store'
+        });
+        const cmsData = await cmsResponse.json();
+        const cmsResult = cmsData?.result && typeof cmsData.result === 'object' ? cmsData.result : cmsData;
+        const responseCode = cmsResult?.responseCode ?? '96';
+        const responseMessage = cmsResult?.responseMessage ?? cmsData?.message ?? 'Authorization declined by CMS';
+        const approved = cmsResult?.approved === true || responseCode === '00';
+        console.log(`[POS-UI] CMS authorization result: code=${responseCode}, approved=${approved}, message=${responseMessage}`);
+        // If fraudTestMode, return CMS decision directly
+        if (fraudTestMode) {
+            console.log(`[POS-UI] Fraud test mode enabled - calling runFraudTestAuthorization`);
+            try {
+                const fraudTestResult = await runFraudTestAuthorization({
+                    pan,
+                    amount,
+                    merchantId,
+                    merchantName
+                });
+                console.log(`[POS-UI] Fraud test result:`, fraudTestResult);
+                return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(fraudTestResult, {
+                    status: fraudTestResult.status === 'APPROVED' ? 200 : 400
+                });
+            } catch (error) {
+                console.error(`[POS-UI] Fraud test error:`, error.message);
+                return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                    status: 'DECLINED',
+                    code: '96',
+                    message: 'Fraud test error: ' + error.message
+                }, {
+                    status: 400
+                });
+            }
+        }
+        // STEP 2: CMS authorization complete (history already logged in CMS)
+        // If declined, return immediately
+        if (!approved) {
+            console.log(`[POS-UI] CMS declined authorization - not proceeding to jPOS`);
+            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                status: 'DECLINED',
+                code: responseCode,
+                stan: cmsResult?.stan ?? cmsResult?.paymentId ?? authPayload.paymentId,
+                pan: pan.slice(-4),
+                message: responseMessage,
+                cmsLogged: true
+            }, {
+                status: 400
+            });
+        }
+        // STEP 3: CMS approved - continue with ISO message to jPOS (optional, for terminal simulator)
+        console.log(`[POS-UI] CMS approved - proceeding with jPOS for additional terminal processing`);
+        try {
+            // Build ISO Message
+            const mti = "0200";
+            // Bitmap with fields: 2, 3, 4, 7, 11, 42, 43
+            // 01110010 00100000 00000000 00000000 00000000 01100000 00000000 00000000
+            const bitmap = "7220000000600000";
+            // Field 2 (LLVAR): 2 digits length + PAN
+            const f2 = padLeft(pan.length, 2) + pan;
+            // Field 3: Processing Code "000000" (Purchase)
+            const f3 = "000000";
+            // Field 4: Amount in cents (12 characters, padded with leading 0)
+            const amountCents = Math.round(Number(amount) * 100);
+            const f4 = padLeft(amountCents, 12);
+            // Field 7: Date 10 chars (MMDDHHMISS)
+            const d = new Date();
+            const f7 = padLeft(d.getMonth() + 1, 2) + padLeft(d.getDate(), 2) + padLeft(d.getHours(), 2) + padLeft(d.getMinutes(), 2) + padLeft(d.getSeconds(), 2);
+            // Field 11: STAN (6 digits rand)
+            const f11 = padLeft(Math.floor(Math.random() * 900000) + 100000, 6);
+            // Field 42: Merchant ID (Fixed 15, right padded spaces)
+            const f42 = padRight(merchantId, 15);
+            // Field 43: Merchant Name (Fixed 40, right padded spaces, no accents)
+            const asciiMerchantName = removeVietnameseTones(merchantName);
+            const f43 = padRight(asciiMerchantName, 40);
+            // Concatenate without length header yet
+            const payload = mti + bitmap + f2 + f3 + f4 + f7 + f11 + f42 + f43;
+            // Add 4-byte ASCII length header
+            const finalMessage = padLeft(payload.length, 4) + payload;
+            // Send TCP
+            const responseData = await sendIsoMessage(finalMessage);
+            // Parse the response
+            const parsed = parseIsoResponse(responseData);
+            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                status: parsed.responseCode === '00' ? "APPROVED" : "DECLINED",
+                code: parsed.responseCode,
+                stan: parsed.stan,
+                pan: parsed.pan,
+                error: parsed.responseCode !== '00' ? "Transaction Declined by jPOS" : null
+            });
+        } catch (jposError) {
+            // jPOS is not available, but CMS already approved the transaction
+            // Return success based on CMS approval
+            console.warn('[POS-UI] jPOS connection failed, but CMS already approved:', jposError.message);
+            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                status: "APPROVED",
+                code: responseCode,
+                stan: cmsResult?.stan ?? cmsResult?.paymentId ?? authPayload.paymentId,
+                pan: pan.slice(-4),
+                message: "Transaction approved by CMS (jPOS unavailable)",
+                cmsLogged: true,
+                jposAvailable: false
+            });
+        }
+    } catch (err) {
+        console.error("API Route Error:", err.message);
+        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+            error: "Internal Error",
+            message: err.message,
+            status: "COMM_ERROR"
+        }, {
+            status: 500
+        });
+    }
+}
+}),
+];
+
+//# sourceMappingURL=%5Broot-of-the-server%5D__2988be33._.js.map

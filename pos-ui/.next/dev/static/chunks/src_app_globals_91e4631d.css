@@ -1,0 +1,736 @@
+/* [project]/src/app/globals.css [app-client] (css) */
+@layer theme {
+  :root, :host {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --spacing: .25rem;
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+  }
+}
+
+@layer base {
+  *, :after, :before, ::backdrop {
+    box-sizing: border-box;
+    border: 0 solid;
+    margin: 0;
+    padding: 0;
+  }
+
+  ::file-selector-button {
+    box-sizing: border-box;
+    border: 0 solid;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, :host {
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    line-height: 1.5;
+    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+
+  b, strong {
+    font-weight: bolder;
+  }
+
+  code, kbd, samp, pre {
+    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-size: 1em;
+  }
+
+  small {
+    font-size: 80%;
+  }
+
+  sub, sup {
+    vertical-align: baseline;
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+  }
+
+  sub {
+    bottom: -.25em;
+  }
+
+  sup {
+    top: -.5em;
+  }
+
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+
+  :-moz-focusring {
+    outline: auto;
+  }
+
+  progress {
+    vertical-align: baseline;
+  }
+
+  summary {
+    display: list-item;
+  }
+
+  ol, ul, menu {
+    list-style: none;
+  }
+
+  img, svg, video, canvas, audio, iframe, embed, object {
+    vertical-align: middle;
+    display: block;
+  }
+
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  button, input, select, optgroup, textarea {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    opacity: 1;
+    background-color: #0000;
+    border-radius: 0;
+  }
+
+  ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    opacity: 1;
+    background-color: #0000;
+    border-radius: 0;
+  }
+
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+
+  ::placeholder {
+    opacity: 1;
+  }
+
+  @supports (not ((-webkit-appearance: -apple-pay-button))) or (contain-intrinsic-size: 1px) {
+    ::placeholder {
+      color: currentColor;
+    }
+
+    @supports (color: color-mix(in lab, red, red)) {
+      ::placeholder {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+
+  ::-webkit-datetime-edit {
+    padding-block: 0;
+  }
+
+  ::-webkit-datetime-edit-year-field {
+    padding-block: 0;
+  }
+
+  ::-webkit-datetime-edit-month-field {
+    padding-block: 0;
+  }
+
+  ::-webkit-datetime-edit-day-field {
+    padding-block: 0;
+  }
+
+  ::-webkit-datetime-edit-hour-field {
+    padding-block: 0;
+  }
+
+  ::-webkit-datetime-edit-minute-field {
+    padding-block: 0;
+  }
+
+  ::-webkit-datetime-edit-second-field {
+    padding-block: 0;
+  }
+
+  ::-webkit-datetime-edit-millisecond-field {
+    padding-block: 0;
+  }
+
+  ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+
+  ::-webkit-calendar-picker-indicator {
+    line-height: 1;
+  }
+
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+
+  button, input:where([type="button"], [type="reset"], [type="submit"]) {
+    appearance: button;
+  }
+
+  ::file-selector-button {
+    appearance: button;
+  }
+
+  ::-webkit-inner-spin-button {
+    height: auto;
+  }
+
+  ::-webkit-outer-spin-button {
+    height: auto;
+  }
+
+  [hidden]:where(:not([hidden="until-found"])) {
+    display: none !important;
+  }
+}
+
+@layer components;
+
+@layer utilities {
+  .visible {
+    visibility: visible;
+  }
+
+  .start {
+    inset-inline-start: var(--spacing);
+  }
+
+  .resize {
+    resize: both;
+  }
+
+  .antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+:root {
+  --background: #07111d;
+  --foreground: #edf5ff;
+  --muted: #9db3cb;
+  --border: #9db3cb29;
+  --panel: #08111ead;
+  --panel-strong: #091525d6;
+  --accent: #19b7ab;
+  --accent-strong: #0d938a;
+  --accent-blue: #1c4ee8;
+  --success: #12b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  color: var(--foreground);
+  background: radial-gradient(circle at 16% 20%, #19b7ab2e, #0000 24%), radial-gradient(circle at 84% 18%, #1c4ee833, #0000 25%), linear-gradient(#091221 0%, #050b14 100%);
+  font-family: Segoe UI, Arial, sans-serif;
+}
+
+button, input, select {
+  font: inherit;
+}
+
+.pos3d-shell {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.pos3d-stage-layer, .pos3d-stage {
+  position: absolute;
+  inset: 0;
+}
+
+.pos3d-stage canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.pos3d-stage-glow {
+  filter: blur(90px);
+  pointer-events: none;
+  border-radius: 999px;
+  position: absolute;
+}
+
+.pos3d-stage-glow-a {
+  background: #19b7ab2e;
+  width: 360px;
+  height: 360px;
+  top: 12%;
+  left: 6%;
+}
+
+.pos3d-stage-glow-b {
+  background: #1c4ee82e;
+  width: 420px;
+  height: 420px;
+  bottom: 0;
+  right: -6%;
+}
+
+.pos3d-overlay {
+  z-index: 1;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 1480px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 28px;
+  display: flex;
+  position: relative;
+}
+
+.pos3d-banner, .pos3d-panel {
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 60px #0000005c, inset 0 1px #ffffff0a;
+}
+
+.pos3d-banner {
+  background: linear-gradient(135deg, #081426f0, #0a2141d1), linear-gradient(90deg, #19b7ab14, #0000 55%);
+  border-radius: 24px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 24px 28px;
+  display: flex;
+}
+
+.pos3d-kicker, .pos3d-label {
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-size: .72rem;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.pos3d-kicker {
+  color: #8fd7ff;
+  margin-bottom: 12px;
+}
+
+.pos3d-banner h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.9rem);
+  line-height: 1.05;
+}
+
+.pos3d-merchant-pill {
+  color: #d6f4ff;
+  white-space: nowrap;
+  background: #ffffff0f;
+  border-radius: 999px;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  font-weight: 700;
+  display: inline-flex;
+}
+
+.pos3d-dot {
+  background: var(--success);
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  box-shadow: 0 0 14px #12b981d1;
+}
+
+.pos3d-grid {
+  grid-template-columns: minmax(420px, 1.1fr) minmax(320px, .72fr);
+  align-items: start;
+  gap: 22px;
+  display: grid;
+}
+
+.pos3d-panel {
+  background: linear-gradient(180deg, var(--panel), #07111dcc);
+  border-radius: 28px;
+}
+
+.pos3d-control-panel {
+  padding: 28px;
+}
+
+.pos3d-screen-copy {
+  background: linear-gradient(135deg, #081629f5, #0b3750c7), linear-gradient(#19b7ab1f, #0000 60%);
+  border: 1px solid #8fd7ff24;
+  border-radius: 24px;
+  padding: 24px;
+}
+
+.pos3d-screen-copy .pos3d-label {
+  color: #93b8de;
+}
+
+.pos3d-amount {
+  letter-spacing: -.04em;
+  margin-top: 12px;
+  font-size: clamp(2.4rem, 4vw, 4.4rem);
+  font-weight: 800;
+}
+
+.pos3d-screen-copy p, .pos3d-status-card p {
+  color: var(--muted);
+  margin: 12px 0 0;
+  font-size: .98rem;
+  line-height: 1.6;
+}
+
+.pos3d-field-grid {
+  grid-template-columns: 1.1fr 1fr;
+  gap: 16px;
+  margin-top: 20px;
+  display: grid;
+}
+
+.pos3d-field {
+  flex-direction: column;
+  gap: 9px;
+  display: flex;
+}
+
+.pos3d-field span {
+  color: #bfd0e2;
+  font-size: .92rem;
+  font-weight: 600;
+}
+
+.pos3d-field input, .pos3d-field select {
+  width: 100%;
+  color: var(--foreground);
+  background: #030a139e;
+  border: 1px solid #9db3cb29;
+  border-radius: 18px;
+  outline: none;
+  padding: 14px 16px;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+
+.pos3d-field input:focus, .pos3d-field select:focus {
+  border-color: #19b7aba8;
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 4px #19b7ab1f;
+}
+
+.pos3d-quick-amounts {
+  gap: 10px;
+  margin-top: 18px;
+  display: flex;
+}
+
+.pos3d-chip {
+  color: #d9f8ff;
+  cursor: pointer;
+  background: #ffffff0a;
+  border: 1px solid #8fd7ff29;
+  border-radius: 999px;
+  padding: 10px 14px;
+  transition: transform .18s, border-color .18s, background .18s;
+}
+
+.pos3d-chip:hover {
+  background: #19b7ab14;
+  border-color: #19b7ab75;
+  transform: translateY(-1px);
+}
+
+.pos3d-keypad {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+  display: grid;
+}
+
+.pos3d-key, .pos3d-primary-btn, .pos3d-secondary-btn {
+  cursor: pointer;
+  border: 0;
+  transition: transform .18s, box-shadow .18s, opacity .18s;
+}
+
+.pos3d-key:disabled, .pos3d-primary-btn:disabled, .pos3d-secondary-btn:disabled, .pos3d-chip:disabled {
+  opacity: .56;
+  cursor: not-allowed;
+}
+
+.pos3d-key {
+  min-height: 68px;
+  color: var(--foreground);
+  background: linear-gradient(#ffffff17, #ffffff08);
+  border-radius: 20px;
+  font-size: 1.35rem;
+  font-weight: 700;
+  box-shadow: inset 0 1px #ffffff0a;
+}
+
+.pos3d-key:hover:not(:disabled), .pos3d-primary-btn:hover:not(:disabled), .pos3d-secondary-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.pos3d-key-warn {
+  color: #ffd38c;
+  background: linear-gradient(#f59e0b2e, #f59e0b14);
+}
+
+.pos3d-actions {
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 14px;
+  margin-top: 20px;
+  display: grid;
+}
+
+.pos3d-secondary-btn, .pos3d-primary-btn {
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  min-height: 64px;
+  font-size: 1rem;
+  font-weight: 700;
+  display: inline-flex;
+}
+
+.pos3d-secondary-btn {
+  color: #d6e2f0;
+  background: #ffffff0d;
+  border: 1px solid #ffffff17;
+}
+
+.pos3d-primary-btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+  color: #f7fdff;
+  box-shadow: 0 20px 40px #0c69ba3d;
+}
+
+.pos3d-side-panel {
+  flex-direction: column;
+  gap: 18px;
+  padding: 22px;
+  display: flex;
+}
+
+.pos3d-status-card, .pos3d-receipt {
+  background: var(--panel-strong);
+  border: 1px solid #9db3cb24;
+  border-radius: 24px;
+  padding: 22px;
+}
+
+.pos3d-status-card {
+  grid-template-columns: 60px minmax(0, 1fr);
+  gap: 16px;
+  display: grid;
+}
+
+.pos3d-status-icon {
+  background: #ffffff0f;
+  border-radius: 18px;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  font-size: 1.5rem;
+  display: grid;
+}
+
+.pos3d-status-card h2, .pos3d-receipt-head h3 {
+  margin: 8px 0 0;
+  font-size: 1.6rem;
+  line-height: 1.1;
+}
+
+.pos3d-status-approved .pos3d-status-icon {
+  color: #ccffe8;
+  background: #12b9812e;
+}
+
+.pos3d-status-declined .pos3d-status-icon, .pos3d-status-error .pos3d-status-icon {
+  color: #ffe0e0;
+  background: #ef444429;
+}
+
+.pos3d-status-processing .pos3d-status-icon {
+  color: #fff2cf;
+  background: #f59e0b29;
+}
+
+.pos3d-status-idle .pos3d-status-icon {
+  color: #dbeafe;
+  background: #1c4ee829;
+}
+
+.pos3d-receipt-head {
+  justify-content: space-between;
+  align-items: start;
+  gap: 12px;
+  display: flex;
+}
+
+.pos3d-receipt-head svg {
+  color: #9ddcff;
+  font-size: 1.35rem;
+}
+
+.pos3d-receipt-grid {
+  color: #aebed2;
+  grid-template-columns: 1fr auto;
+  gap: 12px 18px;
+  margin-top: 18px;
+  display: grid;
+}
+
+.pos3d-receipt-grid strong {
+  color: #f4f9ff;
+  text-align: right;
+  font-weight: 700;
+}
+
+.pos3d-receipt-footer {
+  margin-top: 20px;
+}
+
+.pos3d-tag {
+  color: #e7f2ff;
+  background: #ffffff0f;
+  border-radius: 999px;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  font-weight: 700;
+  display: inline-flex;
+}
+
+.pos3d-tag-success {
+  color: #ccffe8;
+  background: #12b98129;
+}
+
+.pos3d-tag-danger {
+  color: #ffdfe0;
+  background: #ef444424;
+}
+
+.pos3d-tag-warn, .pos3d-tag-processing {
+  color: #ffe7b0;
+  background: #f59e0b24;
+}
+
+@media (max-width: 1100px) {
+  .pos3d-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pos3d-overlay {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 760px) {
+  .pos3d-banner {
+    flex-direction: column;
+    align-items: start;
+    padding: 20px;
+  }
+
+  .pos3d-control-panel, .pos3d-side-panel {
+    padding: 20px;
+  }
+
+  .pos3d-field-grid, .pos3d-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .pos3d-quick-amounts {
+    flex-wrap: wrap;
+  }
+
+  .pos3d-keypad {
+    gap: 10px;
+  }
+
+  .pos3d-key, .pos3d-primary-btn, .pos3d-secondary-btn {
+    min-height: 58px;
+  }
+}
+
+/*# sourceMappingURL=src_app_globals_91e4631d.css.map*/
