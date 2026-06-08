@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Initialize SDKMAN if available to ensure correct Java version is in PATH
+export SDKMAN_DIR="$HOME/.sdkman"
+if [ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]; then
+    source "$SDKMAN_DIR/bin/sdkman-init.sh"
+    # Switch to the java/gradle version specified in .sdkmanrc
+    sdk env
+fi
+
 echo "============================================"
 echo "  BkBank jPOS Switch Server Startup Script  "
 echo "============================================"
